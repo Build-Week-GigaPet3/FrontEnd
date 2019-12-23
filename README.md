@@ -37,7 +37,7 @@ This project was created using yarn and designed for react client side. Other de
 ```
 
 # API
-base URL: https://school-in-the-cloud.herokuapp.com/api
+base URL: https://...
 
 ## Authentication
 ...
@@ -61,4 +61,4 @@ There is currently no active support for this app.
 This project was completed for a Lambda School build week December 2019. There may be updates to the application periodically
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the MIT License - see the LICENSE file for details.
