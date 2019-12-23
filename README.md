@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GigaPet
 
-## Available Scripts
+**Deployed website:** http://...
 
-In the project directory, you can run:
+## Description
+Gigapet 
 
-### `yarn start`
+## Getting Started
+To begin using the App, follow the link and Sign Up for a new account with a username and password.  Fill in the required information...
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequisites
+All of the below dependencies can be installed using: yarn install or npm install
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Start development by creating a react app using: yarn start or npm start
 
-### `yarn test`
+## Dependencies
+This project was created using yarn and designed for react client side. Other dependencies include:
+```
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
+    "axios": "^0.19.0",
+    "babel-loader": "^8.0.6",
+    "formik": "^2.0.4",
+    "react": "^16.12.0",
+    "react-animations": "^1.0.0",
+    "react-dom": "^16.12.0",
+    "react-loader-spinner": "^3.1.5",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.4.1",
+    "yup": "^0.27.0"
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# API
+base URL: https://school-in-the-cloud.herokuapp.com/api
 
-### `yarn build`
+## Authentication
+...
+### Registration:
+...
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Support
+There is currently no active support for this app.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Authors and acknowledgment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Front End Engineers:** Robert Gordon (https://github.com/RobertDGordon) Alexander Cooter (https://github.com/alex-lc)
 
-### `yarn eject`
+**Backend Engineer:** Madeline McIntosh (https://github.com/msmaddymac)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Project Lead:** Kelly Moreira (https://github.com/misskellymore)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Full Repo:** https://https://github.com/Build-Week-GigaPet3
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Project status
+This project was completed for a Lambda School build week December 2019. There may be updates to the application periodically
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## License
+This project is licensed under the MIT License - see the LICENSE file for details
