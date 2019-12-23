@@ -1,4 +1,4 @@
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from '../utils/';
 
 const LOGIN_REQUEST = 'LOGIN_REQUEST';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -7,19 +7,19 @@ const LOGOUT = 'LOGOUT';
 
 const authenticateUser = (values, redirect) => dispatch => {
     dispatch({type: LOGIN_REQUEST});
-
+    // console.log('authenticate user action', values)
     axiosWithAuth()
         .post('/login', values)
         .then(res => {
             console.log(res.data)
-            const { user, token } = res.data;
-            const data = {
-                id: user.id,
-                username: user.username,
-                type: user.type
-            };
+            // const { user, token } = res.data;
+            // const data = {
+            //     id: user.id,
+            //     username: user.username,
+            //     type: user.type
+            // };
             sessionStorage.setItem('token',res.data.payload);
-            dispatch({type: LOGIN_SUCCESS, payload: data});
+            dispatch({type: LOGIN_SUCCESS, payload: res.data});
             redirect();
         })
         .catch(err => {

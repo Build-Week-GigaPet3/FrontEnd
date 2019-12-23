@@ -12,6 +12,7 @@ const initialState = {
 export const authentication = (state = initialState, action) =>{
     switch(action.type) {
         case LOGIN_REQUEST:
+            console.log('login request')
             return {
                 ...state,
                 isLoading: true

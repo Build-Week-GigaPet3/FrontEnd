@@ -1,4 +1,4 @@
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { axiosWithAuth } from '../utils/'
 
 const DATA_LOAD_START = "DATA_LOAD_START";
 const DATA_LOAD_SUCCESS = "DATA_LOAD_SUCCESS";

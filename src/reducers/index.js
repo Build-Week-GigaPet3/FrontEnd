@@ -9,7 +9,7 @@ const LOGOUT = 'LOGOUT';
 const appReducer = combineReducers ({
     authentication,
     parent
-})
+});
 
 const rootReducer = (state, action) => {
     if (action.type === LOGOUT) {
