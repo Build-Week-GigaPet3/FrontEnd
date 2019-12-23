@@ -1,5 +1,6 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { getToken } from '../utils/getToken';
 
 import {
     DATA_LOAD_START,
@@ -8,13 +9,14 @@ import {
   } from "../actions";
 
   const initialData = () =>{
-
+    return {}
   }
 
   const initialState = {
       isLoading: false,
       error: '',
       data: initialData(),
+      isAuthenticated: getToken()
   }
 
   const reducer = (state = initialState, action) => {
