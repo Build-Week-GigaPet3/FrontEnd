@@ -4,7 +4,7 @@ const DATA_LOAD_START = "DATA_LOAD_START";
 const DATA_LOAD_SUCCESS = "DATA_LOAD_SUCCESS";
 const DATA_LOAD_FAILURE = "DATA_LOAD_FAILURE";
 
-export const getData = () => dispatch => {
+const getData = () => dispatch => {
       dispatch({ type: DATA_LOAD_START });
       axiosWithAuth()
       .get('/colors')
@@ -24,6 +24,6 @@ export const parentActionTypes = {
     DATA_LOAD_FAILURE
 }
 
-export const parentActionCreator = {
+export const parentActionCreators = {
     getData,
 }

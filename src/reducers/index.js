@@ -1,47 +1,23 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { getToken } from '../utils/getToken';
 
-import {
-    DATA_LOAD_START,
-    DATA_LOAD_SUCCESS,
-    DATA_LOAD_FAILURE
-  } from "../actions";
+import { authentication } from './authReducer';
+import { parent } from './parentReducer';
 
-  const initialData = () =>{
-    return {}
-  }
+const LOGOUT = 'LOGOUT';
 
-  const initialState = {
-      isLoading: false,
-      error: '',
-      data: initialData(),
-      isAuthenticated: getToken()
-  }
+const appReducer = combineReducers ({
+    authentication,
+    parent
+})
 
-  const reducer = (state = initialState, action) => {
-      switch (action.type) {
-        case DATA_LOAD_START:
-            return {
-              ...state,
-              isLoading: true
-            };
-          case DATA_LOAD_SUCCESS:
-            console.log(action.payload)
-            return {
-              ...state,
-              data: action.payload,
-              isLoading: false
-            };
-          case DATA_LOAD_FAILURE:
-            return {
-              ...state,
-              error: action.payload,
-              isLoading: false
-            };
-        default:
-            return state;
-      }
-  }
+const rootReducer = (state, action) => {
+    if (action.type === LOGOUT) {
+        state = undefined;
+        sessionStorage.clear();
+    }
 
-  export const store = createStore(reducer, applyMiddleware(thunk));
+    return appReducer(state, action);
+}
+
+  export const store = createStore(rootReducer, applyMiddleware(thunk));

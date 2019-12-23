@@ -5,7 +5,7 @@ const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const LOGIN_FAIL = 'LOGIN_FAIL';
 const LOGOUT = 'LOGOUT';
 
-const authenticateUser = (values) => dispatch => {
+const authenticateUser = (values, redirect) => dispatch => {
     dispatch({type: LOGIN_REQUEST});
 
     axiosWithAuth()
@@ -17,10 +17,10 @@ const authenticateUser = (values) => dispatch => {
                 id: user.id,
                 username: user.username,
                 type: user.type
-            }
-            sessionStorage.setItem('token',res.data.payload)
-            dispatch({type: LOGIN_SUCCESS, payload: data})
-            props.history.push('/bubbles')
+            };
+            sessionStorage.setItem('token',res.data.payload);
+            dispatch({type: LOGIN_SUCCESS, payload: data});
+            redirect();
         })
         .catch(err => {
             console.log(err)
