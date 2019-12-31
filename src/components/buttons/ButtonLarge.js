@@ -7,11 +7,11 @@ const LargeButton = styled.button`
     border: none;
     border-radius: 0.5rem;
     padding: 2rem 5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 300;
     width: 30.28rem;
     height: 5.7rem;
-    line-height: 2rem;
+    line-height: 1.8rem;
     color: #ffffff;
     transition: all 500ms;
     margin: 1rem 0;

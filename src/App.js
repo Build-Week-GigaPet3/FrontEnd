@@ -16,10 +16,13 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Route exact path='/' component={TestLogin} />
+
+          {/* This route is just for testing buttons and components. Will delete later. */}
           <Route path='/testing'>
             <ButtonLarge title="Sign Up" />
             <GoogleSignUp />
           </Route>
+          
         </header>
       </div>
     </Router>
