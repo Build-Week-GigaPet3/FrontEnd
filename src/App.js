@@ -5,15 +5,23 @@ import TestLogin from './components/TestLogin';
 import Header from './components/Header';
 import './App.css';
 
+// testing buttons
+import ButtonLarge from './components/buttons/ButtonLarge';
+import GoogleSignUp from './components/buttons/GoogleSignUp';
+
 function App() {
   return (
     <Router>
       <Header />
       <div className="App">
-      <header className="App-header">
-        <Route exact path='/' component={TestLogin} />
-      </header>
-    </div>
+        <header className="App-header">
+          <Route exact path='/' component={TestLogin} />
+          <Route path='/testing'>
+            <ButtonLarge title="Sign Up" />
+            <GoogleSignUp />
+          </Route>
+        </header>
+      </div>
     </Router>
 
   );
