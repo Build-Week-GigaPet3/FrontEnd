@@ -13,6 +13,9 @@ import EmailSignUp from './components/buttons/EmailSignUp';
 import PhoneSignUp from './components/buttons/PhoneSignUp';
 import ButtonLargeAlt from './components/buttons/ButtonLargeAlt';
 
+// sign up page
+import SignUp from './components/SignUp';
+
 function App() {
   return (
     <Router>
@@ -29,6 +32,10 @@ function App() {
             <GoogleSignUp />
             <EmailSignUp />
             <PhoneSignUp />
+          </Route>
+
+          <Route path="/register">
+            <SignUp />
           </Route>
 
         </header>
