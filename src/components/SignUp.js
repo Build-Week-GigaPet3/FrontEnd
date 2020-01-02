@@ -41,12 +41,23 @@ const SignUpContainer = styled.div`
             border-radius: 0.5rem;
             border: 1px solid rgba(0, 0, 0, 0.25);
             margin: 1rem 0;
-
-            &:last-child {
-                margin-bottom: 5rem;
-            }
+            font-size: 1.8rem;
+            padding-left: 1rem;
         }
-    }
+
+        input[type=password] {
+            width: 30.28rem;
+            height: 5.7rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            margin: 1rem 0;
+            font-size: 1.8rem;
+            padding-left: 1rem;
+        }
+
+        .submit {
+            margin-top: 5rem;
+        }
 `;
 
 export default function SignUp() {
@@ -65,15 +76,18 @@ export default function SignUp() {
                 <input type="text" id="email" name="email" />
 
                 <label for="password">Enter Password</label>
-                <input type="text" id="password" name="password" />
+                <input type="password" id="password" name="password" />
 
                 <label for="passwordConfirmation">Re-Enter Password</label>
-                <input type="text" id="passwordConfirmation" name="passwordConfirmation" />
+                <input type="password" id="passwordConfirmation" name="passwordConfirmation" />
+                
+                <div className="submit">
+                    <ButtonLarge title="Submit" />
+                </div>
             </form>
 
             {/* End Form */}
 
-            <ButtonLarge title="Submit" />
         </SignUpContainer>
     )
 }
