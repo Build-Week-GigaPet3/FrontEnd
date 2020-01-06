@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 import ButtonLarge from './buttons/ButtonLarge';
 
-const SignUpContainer = styled.div`
+const LoginContainer = styled.div`
     color: #353535;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@ const SignUpContainer = styled.div`
     }
 `;
 
-const TestLogin = (props) =>{
+const Login = (props) =>{
 
     const dispatch = useDispatch();
 
@@ -94,8 +94,7 @@ const TestLogin = (props) =>{
     }
   
   return (
-      <>
-      <SignUpContainer>
+        <LoginContainer>
             <h2>Login:</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Enter Email</label>
@@ -108,11 +107,10 @@ const TestLogin = (props) =>{
                     <ButtonLarge title="Login" />
                 </div>
             </form>
-        {error && <div className="error">{error}</div>}
-        { isLoading && <div>Loading...</div>}
-      </SignUpContainer>
-      </>
+            {error && <div className="error">{error}</div>}
+            { isLoading && <div>Loading...</div>}
+        </LoginContainer>
     )
 }
 
-export default TestLogin
+export default Login

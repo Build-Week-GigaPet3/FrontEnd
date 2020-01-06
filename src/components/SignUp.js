@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authActionCreators } from '../actions';
 
 import styled from 'styled-components';
-// components
+
 import ButtonLarge from './buttons/ButtonLarge';
 
 const SignUpContainer = styled.div`
@@ -63,7 +63,7 @@ const SignUpContainer = styled.div`
     }
 `;
 
-export default function SignUp(props) {
+const SignUp = (props) =>{
 
     const dispatch = useDispatch();
 
@@ -116,3 +116,5 @@ export default function SignUp(props) {
         </SignUpContainer>
     )
 }
+
+export default SignUp
