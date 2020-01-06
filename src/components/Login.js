@@ -29,8 +29,8 @@ const Login = (props) =>{
     const authenticateUser = authActionCreators.authenticateUser
 
     const [data, setData] = useState({
-    username: "",
-    password: "",
+        username: "",
+        password: "",
     })
 
     const handleChange = (event) => {

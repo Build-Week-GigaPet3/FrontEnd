@@ -9,58 +9,10 @@ import styled from 'styled-components';
 import Button from './buttons/Button';
 
 const SignUpContainer = styled.div`
-    color: #353535;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5rem;
-
-    h2 {
-        font-size: 3.6rem;
-        font-weight: 200;
-        margin: 5rem 0;
-    }
-
-    h3 {
-        font-size: 3rem;
-        font-weight: 200;
-        margin: 1rem 0;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        font-weight: 200;
-
-        label {
-            font-size: 1.8rem;
-            text-align: left;
-        }
-
-        input[type=text] {
-            width: 30.28rem;
-            height: 5.7rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.25);
-            margin: 1rem 0;
-            font-size: 1.8rem;
-            padding-left: 1rem;
-        }
-
-        input[type=password] {
-            width: 30.28rem;
-            height: 5.7rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.25);
-            margin: 1rem 0;
-            font-size: 1.8rem;
-            padding-left: 1rem;
-        }
-
-        .submit {
-            margin-top: 5rem;
-        }
-    }
+    justify-content: center;
 `;
 
 const SignUp = (props) =>{
@@ -77,8 +29,8 @@ const SignUp = (props) =>{
     const registerUser = authActionCreators.registerUser
 
     const [data, setData] = useState({
-    username: "",
-    password: "",
+        username: "",
+        password: "",
     })
 
     const handleChange = (event) => {
