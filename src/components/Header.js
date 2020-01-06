@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import { useOnClickOutside } from '../hooks';
+
+import Burger from './Burger/';
+import Menu from './Menu/';
 
 const HeaderContainer = styled.div`
     width: 100%;
@@ -61,7 +66,9 @@ const HeaderContainer = styled.div`
 `;
 
 export default function Header() {
-
+    const [open, setOpen] = useState(false);
+    const node = useRef();
+    useOnClickOutside(node, () => setOpen(false));
     return (
         <HeaderContainer>
             <div className="logo">
@@ -75,6 +82,10 @@ export default function Header() {
             </div>
             <div className="menu">
                 <Link to="/login">Login</Link>
+            </div>
+            <div ref={node}>
+                <Burger open={open} setOpen={setOpen} />
+                <Menu open={open} setOpen={setOpen} />
             </div>
         </HeaderContainer>
     )
