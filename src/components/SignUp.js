@@ -6,7 +6,7 @@ import { authActionCreators } from '../actions';
 
 import styled from 'styled-components';
 
-import ButtonLarge from './buttons/ButtonLarge';
+import Button from './buttons/Button';
 
 const SignUpContainer = styled.div`
     color: #353535;
@@ -108,7 +108,7 @@ const SignUp = (props) =>{
                 <input type="password" id="passwordConfirmation" name="passwordConfirmation" />
                 
                 <div className="submit">
-                    <ButtonLarge title="Submit" />
+                    <Button name="Submit" />
                 </div>
             </form>
             {error && <div className="error">{error}</div>}

@@ -6,7 +6,7 @@ import { authActionCreators } from '../actions';
 
 import styled from 'styled-components';
 
-import ButtonLarge from './buttons/ButtonLarge';
+import Button from './buttons/Button';
 
 const LoginContainer = styled.div`
     color: #353535;
@@ -104,7 +104,7 @@ const Login = (props) =>{
                 <input type="password" id="password" name="password" value={data.password} onChange={handleChange}/>
                 
                 <div className="submit" type='submit'>
-                    <ButtonLarge title="Login" />
+                    <Button name="Login" />
                 </div>
             </form>
             {error && <div className="error">{error}</div>}
