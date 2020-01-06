@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 import ButtonLarge from './buttons/ButtonLarge';
 
-const SignUpContainer = styled.div`
+const LoginContainer = styled.div`
     color: #353535;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@ const SignUpContainer = styled.div`
     }
 `;
 
-const SignUp = (props) =>{
+const Login = (props) =>{
 
     const dispatch = useDispatch();
 
@@ -74,7 +74,7 @@ const SignUp = (props) =>{
         })
     )
 
-    const registerUser = authActionCreators.registerUser
+    const authenticateUser = authActionCreators.authenticateUser
 
     const [data, setData] = useState({
     username: "",
@@ -90,31 +90,27 @@ const SignUp = (props) =>{
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(registerUser(data, () => props.history.push('/registersuccess')))
+        dispatch(authenticateUser(data, () => props.history.push('/loginsuccess')))
     }
   
-
-    return (
-        <SignUpContainer>
-            <h2>Sign up:</h2>
+  return (
+        <LoginContainer>
+            <h2>Login:</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Enter Email</label>
                 <input type="text" id="email" name="username" value={data.username} onChange={handleChange} />
 
                 <label htmlFor="password">Enter Password</label>
                 <input type="password" id="password" name="password" value={data.password} onChange={handleChange}/>
-
-                <label htmlFor="passwordConfirmation">Re-Enter Password</label>
-                <input type="password" id="passwordConfirmation" name="passwordConfirmation" />
                 
-                <div className="submit">
-                    <ButtonLarge title="Submit" />
+                <div className="submit" type='submit'>
+                    <ButtonLarge title="Login" />
                 </div>
             </form>
             {error && <div className="error">{error}</div>}
             { isLoading && <div>Loading...</div>}
-        </SignUpContainer>
+        </LoginContainer>
     )
 }
 
-export default SignUp
+export default Login

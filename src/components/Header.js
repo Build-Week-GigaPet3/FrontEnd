@@ -71,6 +71,9 @@ export default function Header() {
                 <h2>Welcome to Lambdi Pet</h2>
             </div>
             <div className="menu">
+                <Link to="/signup">Sign Up</Link>
+            </div>
+            <div className="menu">
                 <Link to="/login">Login</Link>
             </div>
         </HeaderContainer>
