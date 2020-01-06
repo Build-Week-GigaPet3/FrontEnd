@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import GoogleSignUp from './buttons/GoogleSignUp';
-import PhoneSignUp from './buttons/PhoneSignUp';
 import ButtonLarge from './buttons/ButtonLarge';
 
 const SignUpContainer = styled.div`
@@ -58,6 +56,7 @@ const SignUpContainer = styled.div`
         .submit {
             margin-top: 5rem;
         }
+    }
 `;
 
 export default function SignUp() {
@@ -65,8 +64,6 @@ export default function SignUp() {
     return (
         <SignUpContainer>
             <h2>How would you like to sign up?</h2>
-            <GoogleSignUp />
-            <PhoneSignUp />
             <h3>Or</h3>
 
             {/* Begin Form */}
