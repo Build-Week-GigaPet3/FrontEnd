@@ -1,7 +1,7 @@
 import { getToken } from '../utils/getToken'
 import { authActionTypes } from '../actions'
 
-const { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL } = authActionTypes
+const { REGISTRATION_REQUEST, REGISTRATION_SUCCESS, REGISTRATION_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL } = authActionTypes
 
 const initialState = {
     isAuthenticated: getToken(),
@@ -12,6 +12,7 @@ const initialState = {
 export const authentication = (state = initialState, action) =>{
     switch(action.type) {
         case LOGIN_REQUEST:
+        case REGISTRATION_REQUEST:
             console.log('login request')
             return {
                 ...state,
@@ -19,6 +20,7 @@ export const authentication = (state = initialState, action) =>{
             };
         
         case LOGIN_SUCCESS:
+        case REGISTRATION_SUCCESS:
             return {
                 ...state,
                 user: action.payload,
@@ -27,6 +29,7 @@ export const authentication = (state = initialState, action) =>{
             }
 
         case LOGIN_FAIL:
+        case REGISTRATION_FAIL:
             return {
                 ...state,
                 isLoading: false,
