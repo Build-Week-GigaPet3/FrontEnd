@@ -63,8 +63,7 @@ export default function SignUp() {
 
     return (
         <SignUpContainer>
-            <h2>How would you like to sign up?</h2>
-            <h3>Or</h3>
+            <h2>Sign up:</h2>
 
             {/* Begin Form */}
 
