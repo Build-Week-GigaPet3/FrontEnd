@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import PrivateRoute from './components/PrivateRoute';
-import TestLogin from './components/TestLogin';
+import Login from './components/Login';
 import Header from './components/Header';
 import './App.css';
 
@@ -21,7 +21,7 @@ function App() {
       <Header />
       <div className="App">
         <header className="App-header">
-          <Route exact path='/login' component={TestLogin} />
+          <Route exact path='/login' component={Login} />
 
           {/* This route is just for testing buttons and components. Will delete later. */}
           <Route path='/buttons'>
@@ -31,7 +31,7 @@ function App() {
             <EmailSignUp />
           </Route>
 
-          <Route path="/register">
+          <Route path="/signup">
             <SignUp />
           </Route>
 
