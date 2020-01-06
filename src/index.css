@@ -32,3 +32,32 @@ html {
 h1 {
   color: #353535;
 }
+
+h2 {
+  font-size: 3.2rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.8rem;
+}
+
+input {
+  width: 328px;
+  height: 57px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+}

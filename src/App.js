@@ -12,16 +12,10 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className="App">
-        <header className="App-header">
-          <Route exact path='/login' component={Login} />
-
-          <Route path="/signup">
-            <SignUp />
-          </Route>
-
-        </header>
-      </div>
+        <Route exact path='/login' component={Login} />
+        <Route path="/signup">
+          <SignUp />
+        </Route>
     </Router>
 
   );
