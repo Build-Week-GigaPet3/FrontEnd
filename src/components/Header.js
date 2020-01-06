@@ -14,7 +14,6 @@ const HeaderContainer = styled.div`
     color: #ffffff;
     display: flex;
     justify-content: center;
-
     .logo {
         width: 30%;
         font-family: 'Rancho', cursive;
@@ -52,7 +51,7 @@ const HeaderContainer = styled.div`
         }
 
         a {
-            color: #ffffff;
+            /* color: #ffffff; */
             font-size: 1.6rem;
             text-decoration: none;
             transition: all 300ms;
@@ -77,13 +76,7 @@ export default function Header() {
             <div className="welcome">
                 <h2>Welcome to Lambdi Pet</h2>
             </div>
-            <div className="menu">
-                <Link to="/signup">Sign Up</Link>
-            </div>
-            <div className="menu">
-                <Link to="/login">Login</Link>
-            </div>
-            <div ref={node}>
+            <div className='menu'ref={node}>
                 <Burger open={open} setOpen={setOpen} />
                 <Menu open={open} setOpen={setOpen} />
             </div>

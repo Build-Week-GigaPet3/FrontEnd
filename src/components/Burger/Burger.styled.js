@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledBurger = styled.button`
-position: absolute;
+/* position: absolute;
 top: 5%;
-left: 2rem;
+right: 2rem; */
 display: flex;
 flex-direction: column;
 justify-content: space-around;
@@ -27,14 +27,16 @@ div {
   transition: all 0.3s linear;
   position: relative;
   transform-origin: 1px;
-
+  margin-bottom: -1px;
   :first-child {
     transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+    /* margin-bottom: -1px; */
   }
 
   :nth-child(2) {
+    /* height: 0.2rem; */
     opacity: ${({ open }) => open ? '0' : '1'};
-    transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
+    transform: ${({ open }) => open ? 'rotate(360deg)' : 'rotate(0)'};
   }
 
   :nth-child(3) {
