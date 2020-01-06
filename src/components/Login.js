@@ -99,7 +99,7 @@ const TestLogin = (props) =>{
             <h2>Login:</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Enter Email</label>
-                <input type="text" id="email" name="email" value={data.usename} onChange={handleChange} />
+                <input type="text" id="email" name="username" value={data.username} onChange={handleChange} />
 
                 <label htmlFor="password">Enter Password</label>
                 <input type="password" id="password" name="password" value={data.password} onChange={handleChange}/>
