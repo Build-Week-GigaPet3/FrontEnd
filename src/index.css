@@ -41,6 +41,10 @@ h3 {
   font-size: 3rem;
 }
 
+p{
+  font-size: 1.2rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -48,10 +52,11 @@ form {
 
 label {
   font-size: 1.8rem;
+  margin-left: 5px;
 }
 
 input {
-  width: 328px;
+  width: 310px;
   height: 57px;
   border-radius: 5px;
   border: 1px solid lightgray;

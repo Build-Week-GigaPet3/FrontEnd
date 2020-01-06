@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import { authActionCreators } from '../actions';
-
 import styled from 'styled-components';
-
 import Button from './buttons/Button';
 
 const LoginContainer = styled.div`

@@ -6,7 +6,7 @@ const ButtonStyle = styled.button`
     color: white;
     border: none;
     border-radius: 5px;
-    width: 328px;
+    width: 310px;
     height: 57px;
     font-family: 'Hind Madurai', sans-serif;
     font-size: 1.8rem;
