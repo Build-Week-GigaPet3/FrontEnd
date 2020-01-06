@@ -63,19 +63,18 @@ export default function SignUp() {
 
     return (
         <SignUpContainer>
-            <h2>How would you like to sign up?</h2>
-            <h3>Or</h3>
+            <h2>Sign up:</h2>
 
             {/* Begin Form */}
 
             <form>
-                <label for="email">Enter Email</label>
+                <label htmlFor="email">Enter Email</label>
                 <input type="text" id="email" name="email" />
 
-                <label for="password">Enter Password</label>
+                <label htmlFor="password">Enter Password</label>
                 <input type="password" id="password" name="password" />
 
-                <label for="passwordConfirmation">Re-Enter Password</label>
+                <label htmlFor="passwordConfirmation">Re-Enter Password</label>
                 <input type="password" id="passwordConfirmation" name="passwordConfirmation" />
                 
                 <div className="submit">
