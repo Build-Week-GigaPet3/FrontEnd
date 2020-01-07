@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
+import ButtonFoodName from '../buttons/ButtonFoodName'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -59,6 +60,13 @@ const Container = styled.div`
         /* z-index: 0; */
         font-size: 1.8rem;
     }
+    #food-list{
+        margin-top: 0px;
+    }
+    #add-food-btn{
+        margin-bottom: 10px;
+        border: 1px solid red;
+    }
 `;
 
 export default function FeedPet() {
@@ -67,7 +75,14 @@ export default function FeedPet() {
     const [food, setFood] = useState({
         category: "",
         name: "",
+        array: [
+            "Pizza",
+            "Ice Cream",
+            "Carrots"
+        ],
     })
+    const [addFood, setAddFood] = useState(false);
+
     // function addZero(md) {
     //     if (md < 10 ){
     //         md = "0" + md
@@ -89,7 +104,14 @@ export default function FeedPet() {
             ...food,
             [e.target.name]: e.target.value
         });
+
         console.log(food)
+    }
+
+    const handleAddFood = (e) => {
+        e.preventDefault()
+        setAddFood(true)
+        console.log("addFood set to", addFood)
     }
 
     const handleSubmit = (e) => {
@@ -109,9 +131,17 @@ export default function FeedPet() {
                     <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
                     <select name='category' onChange={handleChanges} required>
                         <option value='' disabled selected>Choose a category...</option>
+                        <option value='Fruit'>Fruit</option>
+                        <option value='Vegetables'>Vegetables</option>
+                        <option value='Grains'>Grains</option>
+                        <option value='Meat'>Meat</option>
                         <option value='Dairy'>Dairy</option>
+                        <option value='Fats'>Fats</option>
+                        <option value='Treats'>Treats</option>
                     </select>
-                    <input name='name' placeholder='Name your food...' onChange={handleChanges}></input>
+                    {food.category ? <select id='food-list' name='name' onChange={handleChanges}>{food.array.map((name,index) => <option key={index} value={name}>{name}</option>)} <option onChange={handleAddFood} >Add new food...</option></select> : <></>}
+                    {/* {food.category ? <ButtonFoodName id='add-food-btn' type='submit' name='Add New Food' /> : <></> } */}
+                    {/* <input name='name' placeholder='Name your food...' onChange={handleChanges}></input> */}
                     <Button type='submit' name='Next' />
                 </form>
             </div>
