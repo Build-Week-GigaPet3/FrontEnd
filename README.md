@@ -1,6 +1,6 @@
 # GigaPet
 
-**Deployed website:** http://...
+**Deployed website:** http://lambdi-pet.netlify.com
 
 ## Description
 Gigapet 
@@ -37,7 +37,7 @@ This project was created using yarn and designed for react client side. Other de
 ```
 
 # API
-base URL: https://...
+base URL: https://gigapet3.herokuapp.com/api
 
 ## Authentication
 ...
@@ -49,7 +49,7 @@ There is currently no active support for this app.
 
 ## Authors and acknowledgment
 
-**Front End Engineers:** Robert Gordon (https://github.com/RobertDGordon) Alexander Cooter (https://github.com/alex-lc)
+**Front End Engineer:** Robert Gordon (https://github.com/RobertDGordon)
 
 **Backend Engineer:** Madeline McIntosh (https://github.com/msmaddymac)
 
