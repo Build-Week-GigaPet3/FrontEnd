@@ -41,6 +41,18 @@ h3 {
   font-size: 3rem;
 }
 
+h4 {
+  font-size: 2.5rem;
+}
+
+h5 {
+  font-size: 2.0rem;
+}
+
+h6 {
+  font-size: 1.8rem;
+}
+
 p{
   font-size: 1.2rem;
 }
@@ -55,13 +67,14 @@ label {
   margin-left: 5px;
 }
 
-input {
+/* input {
   width: 310px;
   height: 57px;
   border-radius: 5px;
   border: 1px solid lightgray;
   margin: 5px;
-}
+  font-size: 1.8rem;
+} */
 
 button {
   margin: 5px;
