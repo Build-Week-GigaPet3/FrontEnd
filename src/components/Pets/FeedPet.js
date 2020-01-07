@@ -81,6 +81,22 @@ const Container = styled.div`
             background: lavender
         };
     }
+    #delete-food-btn{
+        margin-bottom: 30px;
+        background: #6C46A2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 140px;
+        height: 25px;
+        font-family: 'Hind Madurai', sans-serif;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: all 300ms;
+        &:hover{
+            background: lavender
+        };
+    }
     #add-food-input{
         margin-top:0px;
     }
@@ -134,8 +150,23 @@ export default function FeedPet() {
 
     const handleDeleteFood = (e) => {
         e.preventDefault()
+        if (food.name === ''){
+            return
+        }
         setDeleteFood(true)
         console.log("addFood set to", addFood)
+    }
+
+    const handleDeleteYes = (e) => {
+        e.preventDefault()
+        console.log("deleting...")
+        setDeleteFood(false)
+    }
+
+    const handleDeleteCancel = (e) => {
+        e.preventDefault()
+        console.log("cancel delete food")
+        setDeleteFood(false)
     }
 
     const handleSubmit = (e) => {
@@ -179,13 +210,13 @@ export default function FeedPet() {
                         </select> : <></>}
                         <div className='add-delete-btns'>
                             {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create {food.category}</button> : <></> }
-                            {food.category && !addFood ? <button id='add-food-btn' onClick={handleDeleteFood} >Delete {food.category}</button> : <></> }
+                            {food.category && !addFood ? <button id='delete-food-btn' onClick={handleDeleteFood} >Delete {food.category}</button> : <></> }
                         </div>
                     {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges}></input> : <></>}
                     {food.name !==  '' ? <Button type='submit' name='Next' /> : <></>}
                 </form>
             </div>
-            {deleteFood ? <ModalDelete/> : <></>}
+            {deleteFood ? <ModalDelete name={food.name} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
             
         </Container>
     )

@@ -11,9 +11,12 @@ const ModalStyle = styled.div`
   background: rgba(0, 0, 0, 0.6);
   z-index: 1;
   .modal-main {
-    display: block;
-    position:fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
     background: white;
+    border-radius: 5px;
     width: 300px;
     height: 300px;
     top:50%;
@@ -24,10 +27,29 @@ const ModalStyle = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 100px;
+        width: 250px;
+        text-align: center;
     }
   }
-
+  .modal-buttons{
+      margin-top: 20px;
+  }
+  button{
+        /* margin-bottom: 30px; */
+        background: #6C46A2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 100px;
+        height: 25px;
+        font-family: 'Hind Madurai', sans-serif;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: all 300ms;
+        &:hover{
+            background: lavender
+        };
+    }
 .display-block {
   display: block;
 }
@@ -42,8 +64,8 @@ export default function ModalDelete(props) {
         <ModalStyle className='modal'>
             <section className='modal-main'>
                 <div className='modal-data'>
-                    Are you sure you want to delete {props.name}?
-                    <button>Yes</button><button>Cancel</button>
+                    <h6>Are you sure you want to delete {props.name}?</h6>
+                    <div className='modal-buttons'><button onClick={props.yes}>Yes</button><button onClick={props.cancel}>Cancel</button></div>
                 </div>
             </section>
         </ModalStyle>
