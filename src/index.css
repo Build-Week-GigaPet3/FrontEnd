@@ -67,14 +67,14 @@ label {
   margin-left: 5px;
 }
 
-input {
+/* input {
   width: 310px;
   height: 57px;
   border-radius: 5px;
   border: 1px solid lightgray;
   margin: 5px;
   font-size: 1.8rem;
-}
+} */
 
 button {
   margin: 5px;
