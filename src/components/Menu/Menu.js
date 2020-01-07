@@ -1,18 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { bool } from 'prop-types';
 import { StyledMenu } from './Menu.styled';
-const Menu = ({ open }) => {
+
+const Menu = ({ open, setOpen }) => {
+    const handleClose = () => {
+        setOpen(false)
+    }
   return (
     <StyledMenu open={open}>
-      <a href="/">
+      <Link to="/signup" onClick={handleClose}>
         Sign Up
-      </a>
-      <a href="/">
+      </Link>
+      <Link to="/login" onClick={handleClose}>
         Login
-        </a>
-      <a href="/">
+      </Link>
+      <Link to="/logout" onClick={handleClose}>
         Logout
-        </a>
+      </Link>
     </StyledMenu>
   )
 }

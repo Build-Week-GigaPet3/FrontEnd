@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { useOnClickOutside } from '../hooks';
 import Burger from './Burger/';
 import Menu from './Menu/';
