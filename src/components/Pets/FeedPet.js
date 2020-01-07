@@ -67,6 +67,9 @@ const Container = styled.div`
         margin-bottom: 10px;
         border: 1px solid red;
     }
+    #add-food-input{
+        margin-top:0px;
+    }
 `;
 
 export default function FeedPet() {
@@ -117,6 +120,14 @@ export default function FeedPet() {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(startDate, food)
+        if (addFood){
+            setFood({
+                ...food,
+                array: [...food.array, food.name]
+            })
+            console.log(food.array)
+        }
+        setAddFood(false)
     }
 
     return (
@@ -124,11 +135,12 @@ export default function FeedPet() {
             <div className='title'><h4>Let's feed your pet!</h4></div>
             <div>
                 <div className='date-picker'><DatePicker todayButton="Today" selected={startDate} onChange={date => setStartDate(date)} withPortal /></div>
-            
+                
                 <form onSubmit={handleSubmit}>
                     {/* <input id='date-input' value={currentDate} type='date' onChange={handleChanges} required pattern="\d{4}-\d{2}-\d{2}"/> */}
                     
                     <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
+                    
                     <select name='category' onChange={handleChanges} required>
                         <option value='' disabled selected>Choose a category...</option>
                         <option value='Fruit'>Fruit</option>
@@ -139,9 +151,9 @@ export default function FeedPet() {
                         <option value='Fats'>Fats</option>
                         <option value='Treats'>Treats</option>
                     </select>
-                    {food.category ? <select id='food-list' name='name' onChange={handleChanges}>{food.array.map((name,index) => <option key={index} value={name}>{name}</option>)} <option onChange={handleAddFood} >Add new food...</option></select> : <></>}
-                    {/* {food.category ? <ButtonFoodName id='add-food-btn' type='submit' name='Add New Food' /> : <></> } */}
-                    {/* <input name='name' placeholder='Name your food...' onChange={handleChanges}></input> */}
+                    {food.category && !addFood ? <select id='food-list' name='name' onChange={handleChanges}>{food.array.map((name,index) => <option key={index} value={name}>{name}</option>)} <option onClick={handleAddFood} >Add new food...</option></select> : <></>}
+                    {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Add Food</button> : <></> }
+                    {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges}></input> : <></>}
                     <Button type='submit' name='Next' />
                 </form>
             </div>
