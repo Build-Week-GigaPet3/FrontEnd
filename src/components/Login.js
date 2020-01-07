@@ -38,7 +38,7 @@ const Login = (props) =>{
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(authenticateUser(data, () => props.history.push('/loginsuccess')))
+        dispatch(authenticateUser(data, () => props.history.push('/dashboard')))
     }
   
   return (

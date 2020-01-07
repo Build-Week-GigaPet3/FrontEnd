@@ -26,7 +26,7 @@ const {
               isLoading: true
             };
           case DATA_LOAD_SUCCESS:
-            console.log(action.payload)
+            console.log('reducer',action.payload)
             return {
               ...state,
               data: action.payload,

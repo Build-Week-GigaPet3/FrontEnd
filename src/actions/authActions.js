@@ -36,7 +36,7 @@ const authenticateUser = (values, redirect) => dispatch => {
     axiosWithAuth()
         .post('/auth/login', values)
         .then(res => {
-            console.log('login user', res.data)
+            console.log('login user', res)
             const { user, token } = res.data;
             // const data = {
             //     id: user.id,

@@ -6,13 +6,12 @@ const ButtonStyle = styled.button`
     color: white;
     border: none;
     border-radius: 5px;
-    width: 310px;
-    height: 57px;
+    width: 200px;
+    height: 25px;
     font-family: 'Hind Madurai', sans-serif;
     font-size: 1.8rem;
     cursor: pointer;
     transition: all 300ms;
-    margin-bottom: 20px;
     &:hover{
         background: lavender
     }
