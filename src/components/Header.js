@@ -1,81 +1,58 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { useOnClickOutside } from '../hooks';
+import Burger from './Burger/';
+import Menu from './Menu/';
 
-const HeaderContainer = styled.div`
-    width: 100%;
-    background: #6C46A2;
-    height: 10rem;
-    color: #ffffff;
+const HeaderStyled = styled.header`
     display: flex;
-    justify-content: center;
-
-    .logo {
-        width: 30%;
-        font-family: 'Rancho', cursive;
-
-        h1 {
-            color: #ffffff;
-            padding-top: 1rem;
-            font-size: 3.6rem;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #6C46A2;
+    color: white;
+    height: 80px;
+    width: 100vw;
+    .logo{
+        width: 32%;
+        text-align: left;
+        padding-left: 10px;
+        h3{
+            font-family: 'Rancho', cursive;
         }
     }
-
-    .welcome {
-        width: 30%;
+    .welcome{
+        width: 32%;
         height: 100%;
         display: flex;
+        align-items: flex-end;
         justify-content: center;
-        align-items: flex-end;
-
-        h2 {
-            padding-bottom: 1rem;
-            font-size: 2.4rem;
-            font-weight: 400;
-        }
+        padding-bottom: 6px;
+        min-width: 120px;
     }
-
-    .menu {
-        padding-bottom: 1rem;
-        display: flex;
+    .menu{
+        width: 32%;
+        display:flex;
         justify-content: flex-end;
-        align-items: flex-end;
-        width: 30%;
-
-        p {
-            font-size: 1.6rem;
-        }
-
-        a {
-            color: #ffffff;
-            font-size: 1.6rem;
-            text-decoration: none;
-            transition: all 300ms;
-
-            &:hover {
-                transition: color 300ms;
-                color: #c0c0c0;
-            }
-        }
+        padding-right: 10px;
     }
 `;
 
 export default function Header() {
-
+    const [open, setOpen] = useState(false);
+    const node = useRef();
+    useOnClickOutside(node, () => setOpen(false));
     return (
-        <HeaderContainer>
-            <div className="logo">
-                <h1>Lambdi Pet</h1>
+        <HeaderStyled>
+            <div className='logo'>
+                <h3>GigaPet</h3>
             </div>
-            <div className="welcome">
-                <h2>Welcome to Lambdi Pet</h2>
+            <div className='welcome'>
+                <p>Welcome to GigaPet</p>
             </div>
-            <div className="menu">
-                <Link to="/signup">Sign Up</Link>
+            <div className='menu' ref={node}>
+                <Burger open={open} setOpen={setOpen} />
+                <Menu open={open} setOpen={setOpen} />
             </div>
-            <div className="menu">
-                <Link to="/login">Login</Link>
-            </div>
-        </HeaderContainer>
+        </HeaderStyled>
     )
 }
