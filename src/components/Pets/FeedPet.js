@@ -47,7 +47,7 @@ const Container = styled.div`
         height: 30px;
         background: white;
         color: black;
-        z-index: 10;
+        /* z-index: 0; */
     }
     select{
         border-radius: 5px;
@@ -56,7 +56,7 @@ const Container = styled.div`
         height: 30px;
         background: white;
         color: black;
-        z-index: 10;
+        /* z-index: 0; */
         font-size: 1.8rem;
     }
 `;
@@ -64,7 +64,10 @@ const Container = styled.div`
 export default function FeedPet() {
 
     const [startDate, setStartDate] = useState(new Date());
-
+    const [food, setFood] = useState({
+        category: "",
+        name: "",
+    })
     // function addZero(md) {
     //     if (md < 10 ){
     //         md = "0" + md
@@ -82,11 +85,16 @@ export default function FeedPet() {
 
     const handleChanges = (e) =>{
         e.preventDefault()
+        setFood({
+            ...food,
+            [e.target.name]: e.target.value
+        });
+        console.log(food)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(startDate)
+        console.log(startDate, food)
     }
 
     return (
@@ -99,9 +107,11 @@ export default function FeedPet() {
                     {/* <input id='date-input' value={currentDate} type='date' onChange={handleChanges} required pattern="\d{4}-\d{2}-\d{2}"/> */}
                     
                     <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
-                    <select>
-                        <option>Pizza</option>
+                    <select name='category' onChange={handleChanges} required>
+                        <option value='' disabled selected>Choose a category...</option>
+                        <option value='Dairy'>Dairy</option>
                     </select>
+                    <input name='name' placeholder='Name your food...' onChange={handleChanges}></input>
                     <Button type='submit' name='Next' />
                 </form>
             </div>

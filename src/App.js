@@ -18,9 +18,12 @@ function App() {
   return (
     <Router>
       <Header />
-        <Route exact path='/' component={FeedPet} />
+        <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path="/signup" component={SignUp} />
+        <Route exact path='/choosepet' component={ChoosePet} />
+        <Route exact path='/namepet' component={NamePet} />
+        <Route exact path='/feedpet' component={FeedPet} />
       <Footer />
     </Router>
   );

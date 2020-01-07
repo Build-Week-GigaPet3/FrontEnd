@@ -50,7 +50,7 @@ export default function NamePet() {
             <div>
                 <form>
                     <input placeholder='Name your pet...'></input>
-                    <Button name='Submit' />
+                    <a href='/feedpet'><Button name='Submit' /></a>
                 </form>
             </div>
         </Container>
