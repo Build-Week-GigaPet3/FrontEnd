@@ -5,8 +5,6 @@ import ButtonFoodName from '../buttons/ButtonFoodName'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-import ModalDelete from './ModalDelete';
-
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -71,7 +69,7 @@ const Container = styled.div`
         color: white;
         border: none;
         border-radius: 5px;
-        width: 140px;
+        width: 200px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
         font-size: 1.8rem;
@@ -99,7 +97,6 @@ export default function FeedPet() {
         ],
     })
     const [addFood, setAddFood] = useState(false);
-    const [deleteFood, setDeleteFood] = useState(false);
 
     // function addZero(md) {
     //     if (md < 10 ){
@@ -129,12 +126,6 @@ export default function FeedPet() {
     const handleAddFood = (e) => {
         e.preventDefault()
         setAddFood(true)
-        console.log("addFood set to", addFood)
-    }
-
-    const handleDeleteFood = (e) => {
-        e.preventDefault()
-        setDeleteFood(true)
         console.log("addFood set to", addFood)
     }
 
@@ -177,16 +168,11 @@ export default function FeedPet() {
                             {food.array.map((name,index) => <option key={index} value={name}>{name}</option>)}
                             {/* <option onClick={handleAddFood} >Add new food...</option> */}
                         </select> : <></>}
-                        <div className='add-delete-btns'>
-                            {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create {food.category}</button> : <></> }
-                            {food.category && !addFood ? <button id='add-food-btn' onClick={handleDeleteFood} >Delete {food.category}</button> : <></> }
-                        </div>
+                    {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create New {food.category}</button> : <></> }
                     {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges}></input> : <></>}
                     {food.name !==  '' ? <Button type='submit' name='Next' /> : <></>}
                 </form>
             </div>
-            {deleteFood ? <ModalDelete/> : <></>}
-            
         </Container>
     )
 }
