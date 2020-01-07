@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 const Container = styled.div`
     display: flex;
@@ -23,39 +25,84 @@ const Container = styled.div`
             width: 100%;
         }
     }
+    .date-picker{
+        display: flex;
+        justify-content: center;
+        div{
+            font-size: 1.2rem;
+        }
+        
+    }
     form{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    /* input{
-        border: none;
-        border-radius: 0px;
-        border-bottom: 1px solid grey;
+    input{
+        /* border: none; */
+        /* border-radius: 0px; */
+        /* border-bottom: 1px solid grey; */
         margin: 30px;
         width: 250px;
-        height: 2.0rem;
-        background: none;
-        font-family: 'Rancho', cursive;
-    } */
+        height: 30px;
+        background: white;
+        color: black;
+        z-index: 10;
+    }
     select{
+        border-radius: 5px;
         margin: 30px;
+        width: 250px;
+        height: 30px;
+        background: white;
+        color: black;
+        z-index: 10;
+        font-size: 1.8rem;
     }
 `;
 
 export default function FeedPet() {
 
+    const [startDate, setStartDate] = useState(new Date());
+
+    // function addZero(md) {
+    //     if (md < 10 ){
+    //         md = "0" + md
+    //     };
+    //     return md;
+    // }
+    // const day = new Date().getDate();
+    // const month = new Date().getMonth()+1
+    // const year = new Date().getFullYear();
+    // const currentDate = (`${year}-`+addZero(day)+'-'+addZero(month))
+    // console.log(currentDate)
+    // const element = document.getElementById('date-input')
+    // console.log(element)
+
+
+    const handleChanges = (e) =>{
+        e.preventDefault()
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(startDate)
+    }
+
     return (
         <Container>
             <div className='title'><h4>Let's feed your pet!</h4></div>
             <div>
-                <form>
-                    <input type='date' name='date' />
+                <div className='date-picker'><DatePicker todayButton="Today" selected={startDate} onChange={date => setStartDate(date)} withPortal /></div>
+            
+                <form onSubmit={handleSubmit}>
+                    {/* <input id='date-input' value={currentDate} type='date' onChange={handleChanges} required pattern="\d{4}-\d{2}-\d{2}"/> */}
+                    
                     <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
                     <select>
                         <option>Pizza</option>
                     </select>
-                    <Button name='Next' />
+                    <Button type='submit' name='Next' />
                 </form>
             </div>
         </Container>
