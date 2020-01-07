@@ -16,6 +16,10 @@ const HeaderStyled = styled.header`
         width: 32%;
         text-align: left;
         padding-left: 10px;
+        a {
+            color: white;
+            text-decoration: none;
+        }
         h3{
             font-family: 'Rancho', cursive;
         }
@@ -44,7 +48,7 @@ export default function Header() {
     return (
         <HeaderStyled>
             <div className='logo'>
-                <h3>GigaPet</h3>
+                <a href='/'><h3>GigaPet</h3></a>
             </div>
             <div className='welcome'>
                 <p>Welcome to GigaPet</p>
