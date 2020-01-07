@@ -5,6 +5,9 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import Footer from './components/Footer';
+import ChoosePet from './components/Pets/ChoosePet';
+import NamePet from './components/Pets/NamePet';
+import FeedPet from './components/Pets/FeedPet';
 
 import './App.css';
 
@@ -15,7 +18,7 @@ function App() {
   return (
     <Router>
       <Header />
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={FeedPet} />
         <Route exact path='/login' component={Login} />
         <Route exact path="/signup" component={SignUp} />
       <Footer />
