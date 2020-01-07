@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/Header';
 import Landing from './components/Landing';
 import Login from './components/Login';
+import Footer from './components/Footer';
 
 import './App.css';
 
@@ -14,11 +15,10 @@ function App() {
   return (
     <Router>
       <Header />
-        <Route exact path='/' component={Landing} />
+        <Route path='/' component={Landing} />
         <Route exact path='/login' component={Login} />
-        <Route exact path="/signup">
-          <SignUp />
-        </Route>
+        <Route exact path="/signup" component={SignUp} />
+      <Footer />
     </Router>
 
   );
