@@ -12,6 +12,7 @@ const ButtonStyle = styled.button`
     font-size: 1.8rem;
     cursor: pointer;
     transition: all 300ms;
+    margin-bottom: 20px;
     &:hover{
         background: lavender
     }

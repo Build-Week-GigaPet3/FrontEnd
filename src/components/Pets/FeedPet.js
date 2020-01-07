@@ -134,6 +134,9 @@ export default function FeedPet() {
 
     const handleChanges = (e) =>{
         e.preventDefault()
+        if (addFood) {
+            setAddFood(false)
+        }
         setFood({
             ...food,
             [e.target.name]: e.target.value
@@ -171,8 +174,8 @@ export default function FeedPet() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(startDate, food)
-        if (addFood){
+        console.log('submit',startDate, food)
+        if (addFood && food.name !== ''){
             setFood({
                 ...food,
                 array: [...food.array, food.name]
@@ -212,8 +215,9 @@ export default function FeedPet() {
                             {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create {food.category}</button> : <></> }
                             {food.category && !addFood ? <button id='delete-food-btn' onClick={handleDeleteFood} >Delete {food.category}</button> : <></> }
                         </div>
-                    {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges}></input> : <></>}
-                    {food.name !==  '' ? <Button type='submit' name='Next' /> : <></>}
+                    {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges} required></input> : <></>}
+                    {/* {food.name !==  '' ? <Button type='submit' name='Feed!' /> : <></>} */}
+                    <Button type='submit' name='Feed!' />
                 </form>
             </div>
             {deleteFood ? <ModalDelete name={food.name} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
