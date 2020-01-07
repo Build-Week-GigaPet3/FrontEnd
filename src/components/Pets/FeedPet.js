@@ -64,8 +64,20 @@ const Container = styled.div`
         margin-top: 0px;
     }
     #add-food-btn{
-        margin-bottom: 10px;
-        border: 1px solid red;
+        margin-bottom: 30px;
+        background: #6C46A2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+        height: 25px;
+        font-family: 'Hind Madurai', sans-serif;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: all 300ms;
+        &:hover{
+            background: lavender
+        };
     }
     #add-food-input{
         margin-top:0px;
@@ -151,10 +163,14 @@ export default function FeedPet() {
                         <option value='Fats'>Fats</option>
                         <option value='Treats'>Treats</option>
                     </select>
-                    {food.category && !addFood ? <select id='food-list' name='name' onChange={handleChanges}>{food.array.map((name,index) => <option key={index} value={name}>{name}</option>)} <option onClick={handleAddFood} >Add new food...</option></select> : <></>}
-                    {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Add Food</button> : <></> }
+                    {food.category && !addFood ? <select id='food-list' name='name' onChange={handleChanges} required>
+                            <option value='' disabled selected>Choose a type of {food.category}...</option>
+                            {food.array.map((name,index) => <option key={index} value={name}>{name}</option>)}
+                            {/* <option onClick={handleAddFood} >Add new food...</option> */}
+                        </select> : <></>}
+                    {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create New {food.category}</button> : <></> }
                     {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges}></input> : <></>}
-                    <Button type='submit' name='Next' />
+                    {food.name !==  '' ? <Button type='submit' name='Next' /> : <></>}
                 </form>
             </div>
         </Container>
