@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import PrivateRoute from './components/PrivateRoute';
 import Header from './components/Header';
-import Landing from './components/Landing';
+import Home from './components/Home';
 import Login from './components/Login';
 import Footer from './components/Footer';
 
@@ -15,12 +15,11 @@ function App() {
   return (
     <Router>
       <Header />
-        <Route path='/' component={Landing} />
+        <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path="/signup" component={SignUp} />
       <Footer />
     </Router>
-
   );
 }
 
