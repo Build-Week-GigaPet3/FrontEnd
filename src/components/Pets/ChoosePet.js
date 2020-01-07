@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -33,7 +34,7 @@ export default function ChoosePet() {
             <div><h3>Welcome User Name!</h3></div>
             <div><h4>Choose your pet:</h4></div>
             <div className='pets'>
-                <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
+                <a href='/namepet'><div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div></a>
                 <div className='pet'><img src='../img/Cat1.png' alt='Cat'/></div>
             </div>
             <div className='pets'>
