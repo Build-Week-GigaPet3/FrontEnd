@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './buttons/Button';
 import { parentActionCreators } from '../actions';
@@ -33,19 +34,26 @@ const Container = styled.div`
 `;
 
 const Login = (props) =>{
-
+  const { username, id } = useSelector(state => state.authentication.user);
+  const data = useSelector(state => state.parent.data);
+  console.log('user id:', username, id, data)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(parentActionCreators.getData());
-    }, []);
+    dispatch(parentActionCreators.getData(id));
+    }, [dispatch, id]);
   
   return (
         <Container>
-            <div className='title'><h4>Welcome username!</h4></div>
+            <div className='title'><h4>Welcome {username}!</h4></div>
             <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
-            <a href='/feedpet' ><Button name="Feed Pet" /></a>
-            <a href='/feedpet' ><Button name="View Calendar" /></a>
+            {data.length === 0 ? <>
+                <Link to='/createpet'><Button name="Create Pet" /></Link>
+            </> : <>
+                <Link to='/feedpet'><Button name="Feed Pet" /></Link>
+                <Link to='/feedpet'><Button name="View Calendar" /></Link>
+            </> }
+
         </Container>
     )
 }

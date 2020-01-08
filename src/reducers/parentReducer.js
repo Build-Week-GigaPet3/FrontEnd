@@ -8,14 +8,14 @@ const {
     DATA_LOAD_FAILURE
   } = parentActionTypes;
 
-  const initialData = () =>{
-    return {}
-  }
+  // const initialData = () =>{
+  //   return {}
+  // }
 
   const initialState = {
+      data: [],
       isLoading: false,
       error: '',
-      data: initialData(),
   }
 
   export const parent = (state = initialState, action) => {
