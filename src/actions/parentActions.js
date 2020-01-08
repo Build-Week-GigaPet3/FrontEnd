@@ -67,10 +67,15 @@ const deletePet = (petId, id) => dispatch => {
 }
 
 const editPet = (petId, name, id, redirect) => dispatch => {
-    dispatch({ type: EDIT_PET_START });
 
+    const payload = {
+        pet_name: name
+    }
+
+    dispatch({ type: EDIT_PET_START });
+    console.log(petId)
     axiosWithAuth()
-        .put(`/pets/${petId}`, name)
+        .put(`/pets/${petId}`, payload)
         .then((res) => {
             console.log('actions edit', res)
             dispatch({ type: EDIT_PET_SUCCESS });

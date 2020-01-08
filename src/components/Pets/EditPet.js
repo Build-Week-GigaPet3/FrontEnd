@@ -73,7 +73,7 @@ export default function NamePet(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(id, name,'data:', data)
+        console.log('user:', id, 'petId:', data[0].id, 'new name:', name,'data:', data)
         dispatch(parentActionCreators.editPet(data[0].id, name, id, () => props.history.push('/dashboard')))
     }
 
