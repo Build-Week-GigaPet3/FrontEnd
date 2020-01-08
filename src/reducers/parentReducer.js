@@ -34,7 +34,7 @@ const {
         {name: 'Fruit',
         items: ["Apples", "Oranges", "Banana"]
         },
-        {name: 'Vegetable',
+        {name: 'Veggie',
         items: ["Carrots", "Potatoes", "Peas"]
         },
         {name: 'Grain',
