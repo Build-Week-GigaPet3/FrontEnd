@@ -15,13 +15,13 @@ const registerUser = (values, redirect) => dispatch => {
         .post('/auth/register', values)
         .then(res => {
             console.log ('register user', res.data)
-            const { user, token } = res.data;
+            const { token } = res.data;
             const data = {
-                id: user.id,
-                username: user.username,
+                id: res.data.id,
+                username: res.data.username,
             }
             sessionStorage.setItem('token', token);
-            sessionStorage.setItem('user', JSON.stringify(user));
+            sessionStorage.setItem('user', JSON.stringify(data.id));
             dispatch({type: REGISTRATION_SUCCESS, payload: data });
             redirect();
         })
@@ -34,7 +34,7 @@ const authenticateUser = (values, redirect) => dispatch => {
     axiosWithAuth()
         .post('/auth/login', values)
         .then(res => {
-            const { user, token } = res.data;
+            const { token } = res.data;
             // console.log('user logged in', res.data);
             
             // console.log('user', user.username);

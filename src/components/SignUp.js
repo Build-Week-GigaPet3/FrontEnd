@@ -38,7 +38,7 @@ const SignUp = (props) =>{
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(registerUser(data, () => props.history.push('/registersuccess')))
+        dispatch(registerUser(data, () => props.history.push('/dashboard')))
     }
   
 
