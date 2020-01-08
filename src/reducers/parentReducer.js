@@ -5,17 +5,31 @@ import { parentActionTypes } from '../actions'
 const {
     DATA_LOAD_START,
     DATA_LOAD_SUCCESS,
-    DATA_LOAD_FAILURE
+    DATA_LOAD_FAILURE,
+    CHOOSE_PET,
+    CREATE_PET_START,
+    CREATE_PET_SUCCESS,
+    CREATE_PET_FAILURE,
+    DELETE_PET_START,
+    DELETE_PET_SUCCESS,
+    DELETE_PET_FAILURE,
+    EDIT_PET_START,
+    EDIT_PET_SUCCESS,
+    EDIT_PET_FAILURE,
   } = parentActionTypes;
 
-  const initialData = () =>{
-    return {}
-  }
+  // const initialData = () =>{
+  //   return {}
+  // }
 
   const initialState = {
+      data: [{
+        name:'',
+        image:'',
+      }],
       isLoading: false,
       error: '',
-      data: initialData(),
+      petChoice: ''
   }
 
   export const parent = (state = initialState, action) => {
@@ -26,13 +40,73 @@ const {
               isLoading: true
             };
           case DATA_LOAD_SUCCESS:
-            console.log(action.payload)
+            console.log('reducer',action.payload)
             return {
               ...state,
               data: action.payload,
               isLoading: false
             };
           case DATA_LOAD_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              isLoading: false
+            };
+          case CHOOSE_PET:
+            return{
+              ...state,
+              petChoice: action.payload,
+              isLoading: false
+            }
+          case CREATE_PET_START:
+            return {
+              ...state,
+              isLoading: true
+            };
+          case CREATE_PET_SUCCESS:
+            console.log('create success',action.payload)
+            return {
+              ...state,
+              petChoice: '',
+              isLoading: false
+            };
+          case CREATE_PET_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              isLoading: false
+            };
+          case DELETE_PET_START:
+            return {
+              ...state,
+              isLoading: true
+            };
+          case DELETE_PET_SUCCESS:
+            console.log('delete success')
+            return {
+              ...state,
+              petChoice: '',
+              isLoading: false
+            };
+          case DELETE_PET_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              isLoading: false
+            };
+          case EDIT_PET_START:
+            return {
+              ...state,
+              isLoading: true
+            };
+          case EDIT_PET_SUCCESS:
+            console.log('delete success')
+            return {
+              ...state,
+              petChoice: '',
+              isLoading: false
+            };
+          case EDIT_PET_FAILURE:
             return {
               ...state,
               error: action.payload,

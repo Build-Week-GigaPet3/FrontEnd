@@ -13,7 +13,7 @@ position: absolute;
 top: 0;
 right: 0;
 transition: transform 0.3s ease-in-out;
-z-index: 0;
+z-index: 1;
 @media (max-width: 576px) {
     width: 100%;
     /* height: 100vh; */

@@ -38,7 +38,7 @@ const Login = (props) =>{
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(authenticateUser(data, () => props.history.push('/loginsuccess')))
+        dispatch(authenticateUser(data, () => props.history.push('/dashboard')))
     }
   
   return (
@@ -52,7 +52,7 @@ const Login = (props) =>{
                 <input type="password" id="password" name="password" value={data.password} onChange={handleChange}/>
                 
                 <div className="submit" type='submit'>
-                    <Button name="Login" />
+                    <Button type="submit" name="Login" />
                 </div>
             </form>
             {error && <div className="error">{error}</div>}

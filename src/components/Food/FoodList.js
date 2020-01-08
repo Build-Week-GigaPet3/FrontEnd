@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
+import ButtonFoodName from '../buttons/ButtonFoodName'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
-import ModalDelete from './ModalDelete';
 
 const Container = styled.div`
     display: flex;
@@ -70,23 +69,7 @@ const Container = styled.div`
         color: white;
         border: none;
         border-radius: 5px;
-        width: 140px;
-        height: 25px;
-        font-family: 'Hind Madurai', sans-serif;
-        font-size: 1.8rem;
-        cursor: pointer;
-        transition: all 300ms;
-        &:hover{
-            background: lavender
-        };
-    }
-    #delete-food-btn{
-        margin-bottom: 30px;
-        background: #6C46A2;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        width: 140px;
+        width: 200px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
         font-size: 1.8rem;
@@ -108,13 +91,12 @@ export default function FeedPet() {
         category: "",
         name: "",
         array: [
-            "Bananas",
-            "Oranges",
-            "Apples"
+            "Pizza",
+            "Ice Cream",
+            "Carrots"
         ],
     })
     const [addFood, setAddFood] = useState(false);
-    const [deleteFood, setDeleteFood] = useState(false);
 
     // function addZero(md) {
     //     if (md < 10 ){
@@ -133,9 +115,6 @@ export default function FeedPet() {
 
     const handleChanges = (e) =>{
         e.preventDefault()
-        // if (addFood) {
-        //     setAddFood(false)
-        // }
         setFood({
             ...food,
             [e.target.name]: e.target.value
@@ -150,32 +129,10 @@ export default function FeedPet() {
         console.log("addFood set to", addFood)
     }
 
-    const handleDeleteFood = (e) => {
-        e.preventDefault()
-        if (food.name === ''){
-            return
-        }
-        setDeleteFood(true)
-        console.log("addFood set to", addFood)
-    }
-
-    const handleDeleteYes = (e) => {
-        e.preventDefault()
-        console.log("deleting...")
-        
-        setDeleteFood(false)
-    }
-
-    const handleDeleteCancel = (e) => {
-        e.preventDefault()
-        console.log("cancel delete food")
-        setDeleteFood(false)
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('submit',startDate, food)
-        if (addFood && food.name !== ''){
+        console.log(startDate, food)
+        if (addFood){
             setFood({
                 ...food,
                 array: [...food.array, food.name]
@@ -199,29 +156,23 @@ export default function FeedPet() {
                     <select name='category' onChange={handleChanges} required>
                         <option value='' disabled selected>Choose a category...</option>
                         <option value='Fruit'>Fruit</option>
-                        <option value='Vegetable'>Vegetables</option>
-                        <option value='Grain'>Grains</option>
+                        <option value='Vegetables'>Vegetables</option>
+                        <option value='Grains'>Grains</option>
                         <option value='Meat'>Meat</option>
                         <option value='Dairy'>Dairy</option>
-                        <option value='Fat'>Fats</option>
-                        <option value='Treat'>Treats</option>
+                        <option value='Fats'>Fats</option>
+                        <option value='Treats'>Treats</option>
                     </select>
                     {food.category && !addFood ? <select id='food-list' name='name' onChange={handleChanges} required>
                             <option value='' disabled selected>Choose a type of {food.category}...</option>
                             {food.array.map((name,index) => <option key={index} value={name}>{name}</option>)}
                             {/* <option onClick={handleAddFood} >Add new food...</option> */}
                         </select> : <></>}
-                        <div className='add-delete-btns'>
-                            {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create {food.category}</button> : <></> }
-                            {food.category && !addFood ? <button id='delete-food-btn' onClick={handleDeleteFood} >Delete {food.category}</button> : <></> }
-                        </div>
-                    {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges} required></input> : <></>}
-                    {/* {food.name !==  '' ? <Button type='submit' name='Feed!' /> : <></>} */}
-                    <Button type='submit' name='Feed!' />
+                    {food.category && !addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create New {food.category}</button> : <></> }
+                    {addFood ? <input id='add-food-input' name='name' placeholder='Name your food...' onChange={handleChanges}></input> : <></>}
+                    {food.name !==  '' ? <Button type='submit' name='Next' /> : <></>}
                 </form>
             </div>
-            {deleteFood ? <ModalDelete name={food.name} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
-            
         </Container>
     )
 }
