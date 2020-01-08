@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ButtonStyle = styled.button`
+const ButtonStyle = styled.div`
     background: #6C46A2;
     color: white;
     border: none;

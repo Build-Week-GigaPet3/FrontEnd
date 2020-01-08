@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
-import ButtonFoodName from '../buttons/ButtonFoodName'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -109,9 +108,9 @@ export default function FeedPet() {
         category: "",
         name: "",
         array: [
-            "Pizza",
-            "Ice Cream",
-            "Carrots"
+            "Bananas",
+            "Oranges",
+            "Apples"
         ],
     })
     const [addFood, setAddFood] = useState(false);
@@ -134,9 +133,9 @@ export default function FeedPet() {
 
     const handleChanges = (e) =>{
         e.preventDefault()
-        if (addFood) {
-            setAddFood(false)
-        }
+        // if (addFood) {
+        //     setAddFood(false)
+        // }
         setFood({
             ...food,
             [e.target.name]: e.target.value
@@ -163,6 +162,7 @@ export default function FeedPet() {
     const handleDeleteYes = (e) => {
         e.preventDefault()
         console.log("deleting...")
+        
         setDeleteFood(false)
     }
 
@@ -199,12 +199,12 @@ export default function FeedPet() {
                     <select name='category' onChange={handleChanges} required>
                         <option value='' disabled selected>Choose a category...</option>
                         <option value='Fruit'>Fruit</option>
-                        <option value='Vegetables'>Vegetables</option>
-                        <option value='Grains'>Grains</option>
+                        <option value='Vegetable'>Vegetables</option>
+                        <option value='Grain'>Grains</option>
                         <option value='Meat'>Meat</option>
                         <option value='Dairy'>Dairy</option>
-                        <option value='Fats'>Fats</option>
-                        <option value='Treats'>Treats</option>
+                        <option value='Fat'>Fats</option>
+                        <option value='Treat'>Treats</option>
                     </select>
                     {food.category && !addFood ? <select id='food-list' name='name' onChange={handleChanges} required>
                             <option value='' disabled selected>Choose a type of {food.category}...</option>

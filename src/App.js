@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import ChoosePet from './components/Pets/ChoosePet';
 import NamePet from './components/Pets/NamePet';
+import EditPet from './components/Pets/EditPet';
 import FeedPet from './components/Pets/FeedPet';
 
 import './App.css';
@@ -24,6 +25,7 @@ function App() {
         <PrivateRoute path='/dashboard' component={Dashboard} />
         <PrivateRoute path='/choosepet' component={ChoosePet} />
         <PrivateRoute path='/namepet' component={NamePet} />
+        <PrivateRoute path='/editpet' component={EditPet} />
         <PrivateRoute path='/feedpet' component={FeedPet} />
       <Footer />
     </Router>

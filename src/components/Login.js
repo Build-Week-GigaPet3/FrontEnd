@@ -52,7 +52,7 @@ const Login = (props) =>{
                 <input type="password" id="password" name="password" value={data.password} onChange={handleChange}/>
                 
                 <div className="submit" type='submit'>
-                    <Button name="Login" />
+                    <Button type="submit" name="Login" />
                 </div>
             </form>
             {error && <div className="error">{error}</div>}

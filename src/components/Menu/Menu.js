@@ -19,15 +19,28 @@ const Menu = ({ open, setOpen }) => {
 
   return (
     <StyledMenu open={open}>
-      <Link to="/signup" onClick={handleClose}>
-        Sign Up
-      </Link>
-      <Link to="/login" onClick={handleClose}>
-        Login
-      </Link>
-      {isAuthenticated && <Link to="/" onClick={handleLogout}>
-        Logout
-      </Link> }
+      {!isAuthenticated && <>
+        <Link to="/signup" onClick={handleClose}>
+            Sign Up
+        </Link>
+        <Link to="/login" onClick={handleClose}>
+            Login
+        </Link>
+      </>}
+      {isAuthenticated && <>
+        <Link to="/dashboard" onClick={handleClose}>
+            Dashboard
+        </Link>
+        <Link to="/feedpet" onClick={handleClose}>
+            Feed Pet
+        </Link>
+        <Link to="/calendar" onClick={handleClose}>
+            Calendar
+        </Link>   
+        <Link to="/" onClick={handleLogout}>
+            Logout
+        </Link>
+      </>}
     </StyledMenu>
   )
 }

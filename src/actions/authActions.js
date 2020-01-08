@@ -15,16 +15,14 @@ const registerUser = (values, redirect) => dispatch => {
         .post('/auth/register', values)
         .then(res => {
             console.log ('register user', res.data)
-            // const { user, token } = res.data;
-            // const data = {
-            //     id: user.id,
-            //     first_name: user.first_name,
-            //     last_name: user.last_name,
-            //     type: user.type
-            // }
-            // sessionStorage.setItem('token', token);
-            // sessionStorage.setItem('user', JSON.stringify(user));
-            dispatch({type: REGISTRATION_SUCCESS, payload: res.data });
+            const { token } = res.data;
+            const data = {
+                id: res.data.id,
+                username: res.data.username,
+            }
+            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('user', JSON.stringify(data.id));
+            dispatch({type: REGISTRATION_SUCCESS, payload: data });
             redirect();
         })
         .catch(err => dispatch({type: REGISTRATION_FAIL, payload: err.message}));
@@ -36,15 +34,17 @@ const authenticateUser = (values, redirect) => dispatch => {
     axiosWithAuth()
         .post('/auth/login', values)
         .then(res => {
-            console.log('login user', res)
-            const { user, token } = res.data;
-            // const data = {
-            //     id: user.id,
-            //     username: user.username,
-            //     type: user.type
-            // };
+            const { token } = res.data;
+            // console.log('user logged in', res.data);
+            
+            // console.log('user', user.username);
+            const data = {
+                id: res.data.id,
+                username: res.data.username,
+            };
             sessionStorage.setItem('token', token);
-            dispatch({type: LOGIN_SUCCESS, payload: res.data});
+            sessionStorage.setItem('user', JSON.stringify(data.id));
+            dispatch({type: LOGIN_SUCCESS, payload: data});
             redirect();
         })
         .catch(err => {

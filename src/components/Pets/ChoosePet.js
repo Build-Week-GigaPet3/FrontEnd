@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+import { parentActionCreators } from '../../actions';
 
 const Container = styled.div`
     display: flex;
@@ -27,19 +29,30 @@ const Container = styled.div`
     }
 `;
 
-export default function ChoosePet() {
+export default function ChoosePet(props) {
+
+
+    const dispatch = useDispatch();
+
+
+    const handleChoice = (e, name) => {
+        e.preventDefault()
+        console.log('pet choice', name)
+        dispatch(parentActionCreators.choosePet(name));
+        props.history.push('/namepet')
+    }
 
     return (
         <Container>
             <div><h3>Welcome User Name!</h3></div>
             <div><h4>Choose your pet:</h4></div>
             <div className='pets'>
-                <a href='/namepet'><div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div></a>
-                <div className='pet'><img src='../img/Cat1.png' alt='Cat'/></div>
+                <div onClick={(e) => handleChoice(e, ('dog'))} className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
+                <div onClick={(e) => handleChoice(e, ('cat'))} className='pet'><img src='../img/Cat1.png' alt='Cat'/></div>
             </div>
             <div className='pets'>
-                <div className='pet'><img src='../img/Llama1.png' alt='Llama'/></div>
-                <div className='pet'><img src='../img/Bunny1.png' alt='Bunny'/></div>
+                <div onClick={(e) => handleChoice(e, ('llama'))} className='pet'><img src='../img/Llama1.png' alt='Llama'/></div>
+                <div onClick={(e) => handleChoice(e, ('bunny'))} className='pet'><img src='../img/Bunny1.png' alt='Bunny'/></div>
             </div>
         </Container>
     )
