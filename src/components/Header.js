@@ -13,7 +13,7 @@ const HeaderStyled = styled.header`
     height: 80px;
     width: 100vw;
     .logo{
-        width: 32%;
+        width: 49%;
         text-align: left;
         padding-left: 10px;
         a {
@@ -34,7 +34,7 @@ const HeaderStyled = styled.header`
         min-width: 120px;
     }
     .menu{
-        width: 32%;
+        width: 49%;
         display:flex;
         justify-content: flex-end;
         padding-right: 10px;
@@ -49,11 +49,11 @@ export default function Header() {
     return (
         <HeaderStyled>
             <div className='logo'>
-                <a href='/'><h3>GigaPet</h3></a>
+                <a href='/'><h3>LambdiPet</h3></a>
             </div>
-            <div className='welcome'>
+            {/* <div className='welcome'>
                 <p>Welcome to GigaPet</p>
-            </div>
+            </div> */}
             <div className='menu' ref={node}>
                 <Burger open={open} setOpen={setOpen} />
                 <Menu open={open} setOpen={setOpen} />

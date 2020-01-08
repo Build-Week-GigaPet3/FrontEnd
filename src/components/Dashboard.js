@@ -18,7 +18,7 @@ const Container = styled.div`
         margin: 5px;
     }
     .title{
-        margin-top: 20px 0;
+        margin: 20px 0;
     }
     .pet {
         margin: 40px;
@@ -33,7 +33,13 @@ const Container = styled.div`
             width: 100%;
         }
     }
-    #delete-pet-btn{
+    .pet-name {
+        p{
+            font-family: 'Rancho', cursive;
+            font-size: 2.2rem;
+        }
+    }
+    .delete-pet-btn{
         margin-bottom: 30px;
         background: #6C46A2;
         color: white;
@@ -59,11 +65,16 @@ const Dashboard = (props) =>{
 
   const [deletePet, setDeletePet] = useState(false);
 
+  const handleEditPet = (e) => {
+    e.preventDefault()
+    console.log("edit pet")
+    // setDeletePet(true)
+  }
+
   const handleDeletePet = (e) => {
     e.preventDefault()
     console.log("delete set to", deletePet)
     setDeletePet(true)
-    
   }
 
   const handleDeleteYes = (e) => {
@@ -90,13 +101,15 @@ const Dashboard = (props) =>{
                     <>
                         {data.length === 0 || data[0].name === '' ? 
                     <>
-                        <h6>Begin by picking a pet</h6>
+                        <h6>Begin by picking a pet:</h6>
                         <Link to='/choosepet'><Button name="Choose Pet" /></Link>
                     </> : <>
                         <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
+                        <div className='pet-name'><p>{data[0].pet_name}</p></div>
                         <Link to='/feedpet'><Button name="Feed Pet" /></Link>
                         <Link to='/feedpet'><Button name="View Calendar" /></Link>
-                        <button id='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
+                        <button className='delete-pet-btn' onClick={handleEditPet}>Edit Pet</button>
+                        <button className='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
                     </> 
                     }
                     </>
