@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { parentActionCreators } from '../../actions';
 
 const Container = styled.div`
     display: flex;
@@ -31,14 +32,15 @@ const Container = styled.div`
 
 export default function ChoosePet(props) {
 
+
     const dispatch = useDispatch();
 
 
     const handleChoice = (e, name) => {
         e.preventDefault()
         console.log('pet choice', name)
-        // dispatch(parentActionCreators.choosePet(e.target.name));
-        // props.history.push('/namepet')
+        dispatch(parentActionCreators.choosePet(name));
+        props.history.push('/namepet')
     }
 
     return (

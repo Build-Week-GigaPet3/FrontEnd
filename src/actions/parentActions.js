@@ -3,6 +3,10 @@ import { axiosWithAuth } from '../utils/'
 const DATA_LOAD_START = "DATA_LOAD_START";
 const DATA_LOAD_SUCCESS = "DATA_LOAD_SUCCESS";
 const DATA_LOAD_FAILURE = "DATA_LOAD_FAILURE";
+const CHOOSE_PET = "CHOOSE_PET";
+const CREATE_PET_START = "CREATE_PET_START";
+const CREATE_PET_SUCCESS = "CREATE_PET_SUCCESS";
+const CREATE_PET_FAILURE = "CREATE_PET_FAILURE";
 
 const getData = (id) => dispatch => {
       dispatch({ type: DATA_LOAD_START });
@@ -25,31 +29,44 @@ const getData = (id) => dispatch => {
 
 
 
-// const createPet = (values, id) => dispatch => {
-//     dispatch({ type: CREATE_PET_START });
+const createPet = (id, petChoice, name) => dispatch => {
+    dispatch({ type: CREATE_PET_START });
 
-//     const payload = {
-//         pet_name: values.name,
-//         pet_type: values.type,
-//         parent_id: values.id,
-//         image: values.image
-//     }
+    const payload = {
+        pet_name: name,
+        pet_type: petChoice,
+        parent_id: id,
+        image: petChoice
+    }
 
-//     axiosWithAuth()
-//         .post(`/parents/${id}/pets`, payload)
-//         .then(() => {
-//             dispatch({ type: CREATE_TODO_SUCCESS });
-//             dispatch(fetchTodos());
-//         })
-//         .catch(err => dispatch({ type: CREATE_TODO_FAIL, payload: err.message }))
-// }
+    axiosWithAuth()
+        .post(`/parents/${id}/pets`, payload)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: CREATE_PET_SUCCESS });
+            dispatch(getData());
+        })
+        .catch(err => dispatch({ type: CREATE_PET_FAILURE, payload: err.message }))
+}
+
+const choosePet = (value) => dispatch => {
+    console.log('action choose pet', value)
+    dispatch({ type: CHOOSE_PET, payload: value });
+
+}
 
 export const parentActionTypes = {
     DATA_LOAD_START,
     DATA_LOAD_SUCCESS,
-    DATA_LOAD_FAILURE
+    DATA_LOAD_FAILURE,
+    CHOOSE_PET,
+    CREATE_PET_START,
+    CREATE_PET_SUCCESS,
+    CREATE_PET_FAILURE
 }
 
 export const parentActionCreators = {
     getData,
+    choosePet,
+    createPet
 }

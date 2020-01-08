@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
+import { parentActionCreators } from '../../actions';
 
 const Container = styled.div`
     display: flex;
@@ -43,14 +45,37 @@ const Container = styled.div`
 
 export default function NamePet() {
 
+    const [name, setName] = useState('')
+
+    const { id } = useSelector(state => state.authentication.user);
+    const petChoice = useSelector(state => state.parent.petChoice);
+
+    const dispatch = useDispatch();
+
+    const handleChanges = (e) =>{
+        e.preventDefault()
+        setName({
+            ...name,
+            name: e.target.value
+        });
+
+        // console.log(name)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(id, petChoice, name)
+        // dispatch(parentActionCreators.createPet(id, petChoice, name))
+    }
+
     return (
         <Container>
-            <div className='title'><h4>Let's name your new pet!</h4></div>
+            <div className='title'><h4>Let's name your new {petChoice}!</h4></div>
             <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
             <div>
-                <form>
-                    <input placeholder='Name your pet...'></input>
-                    <a href='/feedpet'><Button name='Submit' /></a>
+                <form onSubmit={handleSubmit}>
+                    <input onChange={handleChanges} placeholder='Name your pet...'></input>
+                    <Button type='submit' name='Submit' />
                 </form>
             </div>
         </Container>
