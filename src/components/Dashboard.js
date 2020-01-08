@@ -46,10 +46,11 @@ const Login = (props) =>{
   return (
         <Container>
             <div className='title'><h4>Welcome {username}!</h4></div>
-            <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
             {data.length === 0 ? <>
-                <Link to='/createpet'><Button name="Create Pet" /></Link>
+                <h6>Begin by picking a pet</h6>
+                <Link to='/choosepet'><Button name="Choose Pet" /></Link>
             </> : <>
+                <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
                 <Link to='/feedpet'><Button name="Feed Pet" /></Link>
                 <Link to='/feedpet'><Button name="View Calendar" /></Link>
             </> }
