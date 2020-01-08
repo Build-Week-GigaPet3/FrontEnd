@@ -142,15 +142,16 @@ export default function FeedPet() {
     const handleChanges = (e) =>{
         if (e.target.name === 'category'){
             setFoodIndex(e.target.value);
-            setFoodItem(food[foodIndex].items[itemIndex])
-            console.log('setting food index to', e.target.value, food[e.target.value].items[0])
+            setFoodItem(food[e.target.value].items[itemIndex])
+            console.log('setting category to', e.target.value, food[e.target.value].items[itemIndex])
         }else if (e.target.name === 'name'){
             if (e.target.value === 'AddNew'){
                 setAddFood(true)
-                setFoodItem(food[foodIndex].items[0])
+                setFoodItem(food[foodIndex].items[itemIndex])
             } else {
-                setFoodItem(e.target.value);
-                console.log('setting food item to', e.target.value)
+                setItemIndex(e.target.value);
+                setFoodItem(food[foodIndex].items[e.target.value])
+                console.log('setting item to', e.target.value)
             }
         }
     }
@@ -163,7 +164,7 @@ export default function FeedPet() {
 
     const handleCancelFood = (e) => {
         e.preventDefault()
-        setFoodItem(food[foodIndex].items[0])
+        setFoodItem(food[foodIndex].items[itemIndex])
         setAddFood(false)
         console.log("addFood set to", addFood)
     }
