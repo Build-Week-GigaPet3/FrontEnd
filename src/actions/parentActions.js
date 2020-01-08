@@ -13,11 +13,11 @@ const DELETE_PET_FAILURE = "DELETE_PET_FAILURE";
 
 const getData = (id) => dispatch => {
       dispatch({ type: DATA_LOAD_START });
-    //   if (id === '' || id === undefined){
-    //       dispatch({type: DATA_LOAD_FAILURE, payload: 'data is undefined!'})
-    //       console.log('id is undefined!')
-    //       return
-    //   }
+      if (id === '' || id === undefined){
+          dispatch({type: DATA_LOAD_FAILURE, payload: 'data is undefined!'})
+          console.log('id is undefined!')
+          return
+      }
       axiosWithAuth()
         .get(`/parents/${id}/pets`)
         .then(res => {
@@ -43,22 +43,22 @@ const createPet = (id, petChoice, name, redirect) => dispatch => {
     axiosWithAuth()
         .post(`/parents/${id}/pets`, payload)
         .then(res => {
-            console.log(res)
+            // console.log(res)
             dispatch({ type: CREATE_PET_SUCCESS });
-            dispatch(getData());
+            dispatch(getData(id));
             redirect();
         })
         .catch(err => dispatch({ type: CREATE_PET_FAILURE, payload: err.message }))
 }
 
-const deletePet = (id) => dispatch => {
+const deletePet = (petId, id) => dispatch => {
     dispatch({ type: DELETE_PET_START });
 
     axiosWithAuth()
-        .delete(`/pets/${id}`)
+        .delete(`/pets/${petId}`)
         .then(() => {
             dispatch({ type: DELETE_PET_SUCCESS });
-            dispatch(getData());
+            dispatch(getData(id));
         })
         .catch(err => dispatch({ type: DELETE_PET_FAILURE, payload: err.message }))
 }

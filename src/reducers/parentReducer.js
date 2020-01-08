@@ -20,14 +20,7 @@ const {
   // }
 
   const initialState = {
-      data: [{
-        id: '',
-        pet_name:'',
-        pet_type:'',
-        image:'',
-        parentId: '',
-        parent: ''
-      }],
+      data: [],
       isLoading: false,
       error: '',
       petChoice: ''

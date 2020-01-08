@@ -42,6 +42,7 @@ const HeaderStyled = styled.header`
 `;
 
 export default function Header() {
+    
     const [open, setOpen] = useState(false);
     const node = useRef();
     useOnClickOutside(node, () => setOpen(false));
