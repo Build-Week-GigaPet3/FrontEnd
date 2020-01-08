@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+
+import { parentActionCreators } from '../../actions';
 
 import ModalDelete from './ModalDelete';
 
@@ -102,7 +105,8 @@ const Container = styled.div`
 `;
 
 export default function FeedPet() {
-
+    const { isLoading, id } = useSelector(state => state.authentication.user);
+    const userId = sessionStorage.getItem('user');
     const [startDate, setStartDate] = useState(new Date());
     const [food, setFood] = useState({
         category: "",
@@ -115,6 +119,8 @@ export default function FeedPet() {
     })
     const [addFood, setAddFood] = useState(false);
     const [deleteFood, setDeleteFood] = useState(false);
+
+    const dispatch = useDispatch();
 
     // function addZero(md) {
     //     if (md < 10 ){
@@ -141,7 +147,7 @@ export default function FeedPet() {
             [e.target.name]: e.target.value
         });
 
-        console.log(food)
+        // console.log(food)
     }
 
     const handleAddFood = (e) => {
@@ -174,7 +180,7 @@ export default function FeedPet() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('submit',startDate, food)
+        // console.log('submit',startDate, food)
         if (addFood && food.name !== ''){
             setFood({
                 ...food,
@@ -183,6 +189,7 @@ export default function FeedPet() {
             console.log(food.array)
         }
         setAddFood(false)
+        dispatch(parentActionCreators.getFoodList(userId));
     }
 
     return (

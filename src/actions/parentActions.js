@@ -97,6 +97,7 @@ const choosePet = (value) => dispatch => {
 }
 
 const getFoodList = (id) => dispatch => {
+    // Backend listed categories of food, but did not add array to post to.
     dispatch({ type: FOOD_LOAD_START });
       if (id === '' || id === undefined || id === null){
           dispatch({type: FOOD_LOAD_FAILURE, payload: 'data is undefined!'})
@@ -104,10 +105,29 @@ const getFoodList = (id) => dispatch => {
           return
       }
       axiosWithAuth()
-        .get(`/parents/${id}/pets`)
+        .get(`/food`)
         .then(res => {
-            // console.log (DATA_LOAD_SUCCESS, res.data);
+            console.log('food list:', res.data)
+            dispatch({type: FOOD_LOAD_SUCCESS, payload: res.data});
+        })
+        .catch(err => {
+            console.log(err)
+            dispatch({type: FOOD_LOAD_FAILURE, payload: err.message})
+        })
+}
 
+const getFoodLog = (id) => dispatch => {
+    // Backend layout needs to have a food log already created at time of pet creation
+    dispatch({ type: FOOD_LOAD_START });
+      if (id === '' || id === undefined || id === null){
+          dispatch({type: FOOD_LOAD_FAILURE, payload: 'data is undefined!'})
+          console.log('id is undefined!')
+          return
+      }
+      axiosWithAuth()
+        .get(`/parents/${id}/food/log`)
+        .then(res => {
+            console.log('food log:', res.data)
             dispatch({type: FOOD_LOAD_SUCCESS, payload: res.data});
         })
         .catch(err => {
@@ -141,5 +161,6 @@ export const parentActionCreators = {
     createPet,
     deletePet,
     editPet,
-    getFoodList
+    getFoodList,
+    getFoodLog
 }
