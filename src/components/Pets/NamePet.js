@@ -43,21 +43,27 @@ const Container = styled.div`
     }
 `;
 
-export default function NamePet() {
+export default function NamePet(props) {
 
     const [name, setName] = useState('')
 
     const { id } = useSelector(state => state.authentication.user);
     const petChoice = useSelector(state => state.parent.petChoice);
 
+    
+    const {isLoading, error} = useSelector(
+        state => ({
+            isLoading: state.parent.isLoading,
+            error: state.parent.error
+        })
+    )
+
     const dispatch = useDispatch();
 
     const handleChanges = (e) =>{
         e.preventDefault()
-        setName({
-            ...name,
-            name: e.target.value
-        });
+        // console.log(e.target.value)
+        setName(e.target.value);
 
         // console.log(name)
     }
@@ -65,7 +71,7 @@ export default function NamePet() {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(id, petChoice, name)
-        // dispatch(parentActionCreators.createPet(id, petChoice, name))
+        dispatch(parentActionCreators.createPet(id, petChoice, name, () => props.history.push('/dashboard')))
     }
 
     return (
@@ -78,6 +84,8 @@ export default function NamePet() {
                     <Button type='submit' name='Submit' />
                 </form>
             </div>
+            {error && <div className="error">{error}</div>}
+            { isLoading && <div>Loading...</div>}
         </Container>
     )
 }

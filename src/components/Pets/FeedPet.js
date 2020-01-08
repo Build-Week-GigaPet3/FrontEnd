@@ -163,6 +163,7 @@ export default function FeedPet() {
     const handleDeleteYes = (e) => {
         e.preventDefault()
         console.log("deleting...")
+        
         setDeleteFood(false)
     }
 

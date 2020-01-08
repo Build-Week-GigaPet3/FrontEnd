@@ -29,7 +29,7 @@ const getData = (id) => dispatch => {
 
 
 
-const createPet = (id, petChoice, name) => dispatch => {
+const createPet = (id, petChoice, name, redirect) => dispatch => {
     dispatch({ type: CREATE_PET_START });
 
     const payload = {
@@ -45,6 +45,7 @@ const createPet = (id, petChoice, name) => dispatch => {
             console.log(res)
             dispatch({ type: CREATE_PET_SUCCESS });
             dispatch(getData());
+            redirect();
         })
         .catch(err => dispatch({ type: CREATE_PET_FAILURE, payload: err.message }))
 }
