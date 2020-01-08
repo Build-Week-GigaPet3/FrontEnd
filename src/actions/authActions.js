@@ -30,7 +30,6 @@ const LOGOUT = 'LOGOUT';
 
 const registerUser = (values, redirect) => dispatch => {
     dispatch({type: REGISTRATION_REQUEST});
-
     axiosWithAuth()
         .post('/auth/register', values)
         .then(res => {
@@ -52,13 +51,14 @@ const registerUser = (values, redirect) => dispatch => {
                         sessionStorage.setItem('token', token);
                         sessionStorage.setItem('user', JSON.stringify(data.id));
                         sessionStorage.setItem('username', (data.username));
-                        redirect();
                     })
                     .catch(err => {
                         console.log(err)
                         dispatch({type: LOGIN_FAIL, payload: err.message})
                     })
             }
+            dispatch({type: REGISTRATION_SUCCESS, payload: res.data })
+            redirect();
         })
         .catch(err => dispatch({type: REGISTRATION_FAIL, payload: err.message}));
 }
