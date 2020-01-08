@@ -92,6 +92,12 @@ const Dashboard = (props) =>{
   }
 
   useEffect(() => {
+    // if (userId === null){
+    //     console.log('UserId is', userId, 'trying id:', id)
+    //     dispatch(parentActionCreators.getData(id));
+    // } else{
+        
+    // }
     dispatch(parentActionCreators.getData(userId));
     }, [isLoading, dispatch, userId]);
   
