@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
@@ -6,6 +6,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 import { parentActionCreators } from '../../actions';
+
+import { getFood } from '../../hooks';
 
 import ModalDelete from './ModalDelete';
 
@@ -106,48 +108,30 @@ const Container = styled.div`
 
 export default function FeedPet() {
     const { isLoading, id } = useSelector(state => state.authentication.user);
+    const foodData =  useSelector(state => state.parent.food)
     const userId = sessionStorage.getItem('user');
     const [startDate, setStartDate] = useState(new Date());
-    const [food, setFood] = useState({
-        category: "",
-        name: "",
-        array: [
-            "Bananas",
-            "Oranges",
-            "Apples"
-        ],
-    })
+    const [food, setFood] = useState(foodData)
+    const [foodIndex, setFoodIndex] = useState()
     const [addFood, setAddFood] = useState(false);
     const [deleteFood, setDeleteFood] = useState(false);
 
+    const [foodItems, setFoodItems] = useState([])
+
     const dispatch = useDispatch();
 
-    // function addZero(md) {
-    //     if (md < 10 ){
-    //         md = "0" + md
-    //     };
-    //     return md;
-    // }
-    // const day = new Date().getDate();
-    // const month = new Date().getMonth()+1
-    // const year = new Date().getFullYear();
-    // const currentDate = (`${year}-`+addZero(day)+'-'+addZero(month))
-    // console.log(currentDate)
-    // const element = document.getElementById('date-input')
-    // console.log(element)
+    // food[0].items.map((item, index) => console.log('item:',item,'index:',index))
 
+    // console.log(food[0].items[0])
 
     const handleChanges = (e) =>{
-        e.preventDefault()
-        // if (addFood) {
-        //     setAddFood(false)
-        // }
-        setFood({
-            ...food,
-            [e.target.name]: e.target.value
-        });
-
-        // console.log(food)
+        if (e.target.name === 'category'){
+            setFoodIndex(e.target.value);
+            console.log('setting food index to', e.target.value)
+        }else if (e.target.name === 'name'){
+            setFoodItems(e.target.value);
+            console.log('setting food item to', e.target.value)
+        }
     }
 
     const handleAddFood = (e) => {
@@ -189,7 +173,7 @@ export default function FeedPet() {
             console.log(food.array)
         }
         setAddFood(false)
-        dispatch(parentActionCreators.getFoodList(userId));
+        // dispatch(parentActionCreators.getFoodList(userId));
     }
 
     return (
@@ -204,18 +188,15 @@ export default function FeedPet() {
                     <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
                     
                     <select name='category' onChange={handleChanges} required>
-                        <option value='' disabled selected>Choose a category...</option>
-                        <option value='Fruit'>Fruit</option>
-                        <option value='Vegetable'>Vegetables</option>
-                        <option value='Grain'>Grains</option>
-                        <option value='Meat'>Meat</option>
-                        <option value='Dairy'>Dairy</option>
-                        <option value='Fat'>Fats</option>
-                        <option value='Treat'>Treats</option>
+                        <option defaultValue='' disabled selected>Choose a category...</option>
+                        {/* {food === undefined ? <>Loading...</> :
+                        <> */}
+                            {food.map((item, index) => <option key={index} value={index}>{item.name}</option>)}
+                        {/* </>} */}
                     </select>
-                    {food.category && !addFood ? <select id='food-list' name='name' onChange={handleChanges} required>
-                            <option value='' disabled selected>Choose a type of {food.category}...</option>
-                            {food.array.map((name,index) => <option key={index} value={name}>{name}</option>)}
+                    {foodIndex !== undefined && !addFood ? <select id='food-list' name='name' onChange={handleChanges} required>
+                            <option value='' disabled selected>Choose a type of {food[foodIndex].name}...</option>
+                            {food[foodIndex].items.map((name,index) => <option key={index} value={name}>{name}</option>)}
                             {/* <option onClick={handleAddFood} >Add new food...</option> */}
                         </select> : <></>}
                         <div className='add-delete-btns'>
@@ -232,3 +213,18 @@ export default function FeedPet() {
         </Container>
     )
 }
+
+
+    // function addZero(md) {
+    //     if (md < 10 ){
+    //         md = "0" + md
+    //     };
+    //     return md;
+    // }
+    // const day = new Date().getDate();
+    // const month = new Date().getMonth()+1
+    // const year = new Date().getFullYear();
+    // const currentDate = (`${year}-`+addZero(day)+'-'+addZero(month))
+    // console.log(currentDate)
+    // const element = document.getElementById('date-input')
+    // console.log(element)
