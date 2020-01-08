@@ -131,6 +131,7 @@ export default function FeedPet() {
     const [foodIndex, setFoodIndex] = useState(0)
     const [foodItem, setFoodItem] = useState(food[0].items[0])
     const [itemIndex, setItemIndex] = useState(0)
+    const [newFood, setNewFood] = useState('')
     const [addFood, setAddFood] = useState(false);
     const [deleteFood, setDeleteFood] = useState(false);
     const dispatch = useDispatch();
@@ -139,27 +140,51 @@ export default function FeedPet() {
 
     // console.log(food[0].items[0])
 
-    const handleChanges = (e) =>{
+    const handleChanges = (e) => {
+        e.preventDefault()
+        setNewFood(e.target.value)
+    }
+
+    const handleIndexChanges = (e) =>{
         if (e.target.name === 'category'){
             setFoodIndex(e.target.value);
-            setFoodItem(food[e.target.value].items[itemIndex])
-            console.log('setting category to', e.target.value, food[e.target.value].items[itemIndex])
+            if (food[e.target.value].items[itemIndex] === undefined ){
+                console.log('item index:', itemIndex, 'setting to zero')
+                setItemIndex(0)
+            }else{
+                setFoodItem(food[e.target.value].items[itemIndex])
+                console.log('setting category to', e.target.value, food[e.target.value].items[itemIndex])
+            }
         }else if (e.target.name === 'name'){
             if (e.target.value === 'AddNew'){
                 setAddFood(true)
                 setFoodItem(food[foodIndex].items[itemIndex])
             } else {
-                setItemIndex(e.target.value);
-                setFoodItem(food[foodIndex].items[e.target.value])
-                console.log('setting item to', e.target.value)
+                if (itemIndex === undefined ){
+                    console.log('item index:', itemIndex, 'setting to zero')
+                    setItemIndex(0)
+                }else{
+                    setItemIndex(e.target.value);
+                    setFoodItem(food[foodIndex].items[e.target.value])
+                    console.log('setting item to', e.target.value)
+                }
             }
         }
     }
 
     const handleAddFood = (e) => {
         e.preventDefault()
-        setAddFood(true)
-        console.log("addFood set to", addFood)
+        setFoodItem(newFood)
+        // setFood([
+        //     ...food,
+        //     {...food[foodIndex].items,
+        //         newFood
+        //     }
+        // ])
+        console.log(food[foodIndex].items)
+        food[foodIndex].items.push(newFood)
+        setAddFood(false)
+        // console.log("adding new food:", newFood)
     }
 
     const handleCancelFood = (e) => {
@@ -171,11 +196,11 @@ export default function FeedPet() {
 
     const handleDeleteFood = (e) => {
         e.preventDefault()
+        console.log(food)
         if (food.name === ''){
             return
         }
         setDeleteFood(true)
-        console.log("addFood set to", addFood)
     }
 
     const handleDeleteYes = (e) => {
@@ -215,7 +240,7 @@ export default function FeedPet() {
                     {/* <input id='date-input' value={currentDate} type='date' onChange={handleChanges} required pattern="\d{4}-\d{2}-\d{2}"/> */}
                     <div id='dropdown'>
                         <label id='category'>Choose a category:</label>
-                        <select name='category' onChange={handleChanges} required>
+                        <select name='category' onChange={handleIndexChanges} required>
                             {/* <option defaultValue='' disabled selected>Choose a category...</option> */}
                             {/* {food === undefined ? <>Loading...</> :
                             <> */}
@@ -225,7 +250,7 @@ export default function FeedPet() {
                         {!addFood ?
                             <>
                             <label id='item'>Choose a type of {food[foodIndex].name}:</label>
-                            <select id='food-list' name='name' onChange={handleChanges} required>
+                            <select id='food-list' name='name' onChange={handleIndexChanges} required>
                                 {/* <option value='' disabled selected>Choose a type of {food[foodIndex].name}...</option> */}
                                 {food[foodIndex].items.map((name,index) => <option key={index} value={index}>{name}</option>)}
                                 <option value="AddNew">Add new food...</option>
