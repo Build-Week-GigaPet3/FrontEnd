@@ -6,12 +6,14 @@ const Container = styled.footer`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0%;
+    position: fixed;
+    bottom: 0;
     background: #6C46A2;
     color: white;
-    height: 50px;
+    height: 25px;
     width: 100vw;
+    opacity: 0.8;
+    z-index:-1;
     p{
         margin: 5px;
     }

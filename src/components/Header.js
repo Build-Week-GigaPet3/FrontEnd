@@ -10,7 +10,7 @@ const HeaderStyled = styled.header`
     justify-content: space-evenly;
     background: #6C46A2;
     color: white;
-    height: 80px;
+    height: 50px;
     width: 100vw;
     .logo{
         width: 49%;
