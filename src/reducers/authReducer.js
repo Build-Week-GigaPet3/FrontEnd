@@ -1,4 +1,4 @@
-import { getToken, getUser } from '../utils/'
+import { getToken } from '../utils/'
 import { authActionTypes } from '../actions'
 
 const { REGISTRATION_REQUEST, REGISTRATION_SUCCESS, REGISTRATION_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } = authActionTypes

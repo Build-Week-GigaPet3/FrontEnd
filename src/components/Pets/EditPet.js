@@ -11,7 +11,9 @@ const Container = styled.div`
     justify-content: center;
     .title{
         margin: 20px 0;
-        margin-bottom: 35px;
+        h6{
+            font-size: 1.7rem;
+        }
     }
     .pet {
         margin: 40px;
@@ -49,7 +51,7 @@ export default function NamePet(props) {
     const [name, setName] = useState('')
 
     const { id } = useSelector(state => state.authentication.user);
-    const petChoice = useSelector(state => state.parent.petChoice);
+    const data = useSelector(state => state.parent.data);
 
     
     const {isLoading, error} = useSelector(
@@ -71,14 +73,14 @@ export default function NamePet(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(id, petChoice, name)
-        dispatch(parentActionCreators.createPet(id, petChoice, name, () => props.history.push('/dashboard')))
+        console.log(id, name,'data:', data)
+        dispatch(parentActionCreators.editPet(data[0].id, name, id, () => props.history.push('/dashboard')))
     }
 
     return (
         <Container>
-            <div className='title'><h4>Let's name your new {petChoice}!</h4></div>
-            <div className='pet'><img src={`../img/${petChoice}1.png`} alt='Pet'/></div>
+            <div className='title'><h6>What would you like to name your pet?</h6></div>
+            <div className='pet'><img src={`../img/${data[0].image}1.png`} alt='Pet'/></div>
             <div>
                 <form onSubmit={handleSubmit}>
                     <input onChange={handleChanges} placeholder='Name your pet...'></input>

@@ -20,7 +20,10 @@ const {
   // }
 
   const initialState = {
-      data: [],
+      data: [{
+        name:'',
+        image:'',
+      }],
       isLoading: false,
       error: '',
       petChoice: ''

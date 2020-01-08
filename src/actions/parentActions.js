@@ -10,6 +10,9 @@ const CREATE_PET_FAILURE = "CREATE_PET_FAILURE";
 const DELETE_PET_START = "DELETE_PET_START";
 const DELETE_PET_SUCCESS = "DELETE_PET_SUCCESS";
 const DELETE_PET_FAILURE = "DELETE_PET_FAILURE";
+const EDIT_PET_START = "EDIT_PET_START";
+const EDIT_PET_SUCCESS = "EDIT_PET_SUCCESS";
+const EDIT_PET_FAILURE = "EDIT_PET_FAILURE";
 
 const getData = (id) => dispatch => {
       dispatch({ type: DATA_LOAD_START });
@@ -63,6 +66,20 @@ const deletePet = (petId, id) => dispatch => {
         .catch(err => dispatch({ type: DELETE_PET_FAILURE, payload: err.message }))
 }
 
+const editPet = (petId, name, id, redirect) => dispatch => {
+    dispatch({ type: EDIT_PET_START });
+
+    axiosWithAuth()
+        .put(`/pets/${petId}`, name)
+        .then((res) => {
+            console.log('actions edit', res)
+            dispatch({ type: EDIT_PET_SUCCESS });
+            dispatch(getData(id));
+            redirect()
+        })
+        .catch(err => dispatch({ type: EDIT_PET_FAILURE, payload: err.message }))
+}
+
 const choosePet = (value) => dispatch => {
     console.log('action choose pet', value)
     dispatch({ type: CHOOSE_PET, payload: value });
@@ -80,11 +97,15 @@ export const parentActionTypes = {
     DELETE_PET_START,
     DELETE_PET_SUCCESS,
     DELETE_PET_FAILURE,
+    EDIT_PET_START,
+    EDIT_PET_SUCCESS,
+    EDIT_PET_FAILURE,
 }
 
 export const parentActionCreators = {
     getData,
     choosePet,
     createPet,
-    deletePet
+    deletePet,
+    editPet
 }

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './buttons/Button';
-import ButtonDiv from './buttons/ButtonDiv'
 import ModalDelete from './Pets/ModalDelete'
 import { parentActionCreators } from '../actions';
 
@@ -68,7 +67,7 @@ const Dashboard = (props) =>{
   const handleEditPet = (e) => {
     e.preventDefault()
     console.log("edit pet")
-    // setDeletePet(true)
+    props.history.push('/editpet')
   }
 
   const handleDeletePet = (e) => {
@@ -104,7 +103,7 @@ const Dashboard = (props) =>{
                         <h6>Begin by picking a pet:</h6>
                         <Link to='/choosepet'><Button name="Choose Pet" /></Link>
                     </> : <>
-                        <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
+                        <div className='pet'><img src={`../img/${data[0].image}1.png`} alt='Pet'/></div>
                         <div className='pet-name'><p>{data[0].pet_name}</p></div>
                         <Link to='/feedpet'><Button name="Feed Pet" /></Link>
                         <Link to='/feedpet'><Button name="View Calendar" /></Link>
@@ -114,7 +113,7 @@ const Dashboard = (props) =>{
                     }
                     </>
                 }
-            {deletePet ? <ModalDelete  name={'pet name'} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
+            {deletePet ? <ModalDelete  name={data[0].pet_name} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
         </Container>
     )
 }
