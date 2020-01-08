@@ -57,9 +57,11 @@ const Container = styled.div`
 `;
 
 const Dashboard = (props) =>{
-  const { isLoading, username, id } = useSelector(state => state.authentication.user);
+  const { isLoading, id } = useSelector(state => state.authentication.user);
+  const userId = sessionStorage.getItem('user');
+  const username = sessionStorage.getItem('username');
   const data = useSelector(state => state.parent.data);
-  console.log('user id:', username, id, 'data:',data)
+  console.log('user id:', username, id, 'session:', userId, 'data:',data)
   const dispatch = useDispatch();
 
   const [deletePet, setDeletePet] = useState(false);
@@ -90,8 +92,8 @@ const Dashboard = (props) =>{
   }
 
   useEffect(() => {
-    dispatch(parentActionCreators.getData(id));
-    }, [isLoading, dispatch, id]);
+    dispatch(parentActionCreators.getData(userId));
+    }, [isLoading, dispatch, userId]);
   
   return (
         <Container>

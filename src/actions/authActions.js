@@ -44,6 +44,7 @@ const authenticateUser = (values, redirect) => dispatch => {
             };
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('user', JSON.stringify(data.id));
+            sessionStorage.setItem('username', (data.username));
             dispatch({type: LOGIN_SUCCESS, payload: data});
             redirect();
         })
