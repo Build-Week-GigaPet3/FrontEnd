@@ -5,9 +5,14 @@ const { REGISTRATION_REQUEST, REGISTRATION_SUCCESS, REGISTRATION_FAIL, LOGIN_REQ
 
 const initialState = {
     isAuthenticated: getToken(),
-    user: getUser(),
+    user: {
+        username: '',
+        id: ''
+    },
     isLoading: false,
-    error: ''
+    error: '',
+
+
 }
 
 export const authentication = (state = initialState, action) =>{

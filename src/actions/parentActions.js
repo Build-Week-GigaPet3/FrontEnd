@@ -7,14 +7,17 @@ const CHOOSE_PET = "CHOOSE_PET";
 const CREATE_PET_START = "CREATE_PET_START";
 const CREATE_PET_SUCCESS = "CREATE_PET_SUCCESS";
 const CREATE_PET_FAILURE = "CREATE_PET_FAILURE";
+const DELETE_PET_START = "DELETE_PET_START";
+const DELETE_PET_SUCCESS = "DELETE_PET_SUCCESS";
+const DELETE_PET_FAILURE = "DELETE_PET_FAILURE";
 
 const getData = (id) => dispatch => {
       dispatch({ type: DATA_LOAD_START });
-      if (id === undefined){
-          dispatch({type: DATA_LOAD_FAILURE, payload: 'data is undefined!'})
-          console.log('id is undefined!')
-          return
-      }
+    //   if (id === '' || id === undefined){
+    //       dispatch({type: DATA_LOAD_FAILURE, payload: 'data is undefined!'})
+    //       console.log('id is undefined!')
+    //       return
+    //   }
       axiosWithAuth()
         .get(`/parents/${id}/pets`)
         .then(res => {
@@ -26,8 +29,6 @@ const getData = (id) => dispatch => {
             dispatch({type: DATA_LOAD_FAILURE, payload: err.message})
         })
 };
-
-
 
 const createPet = (id, petChoice, name, redirect) => dispatch => {
     dispatch({ type: CREATE_PET_START });
@@ -50,6 +51,18 @@ const createPet = (id, petChoice, name, redirect) => dispatch => {
         .catch(err => dispatch({ type: CREATE_PET_FAILURE, payload: err.message }))
 }
 
+const deletePet = (id) => dispatch => {
+    dispatch({ type: DELETE_PET_START });
+
+    axiosWithAuth()
+        .delete(`/pets/${id}`)
+        .then(() => {
+            dispatch({ type: DELETE_PET_SUCCESS });
+            dispatch(getData());
+        })
+        .catch(err => dispatch({ type: DELETE_PET_FAILURE, payload: err.message }))
+}
+
 const choosePet = (value) => dispatch => {
     console.log('action choose pet', value)
     dispatch({ type: CHOOSE_PET, payload: value });
@@ -63,11 +76,15 @@ export const parentActionTypes = {
     CHOOSE_PET,
     CREATE_PET_START,
     CREATE_PET_SUCCESS,
-    CREATE_PET_FAILURE
+    CREATE_PET_FAILURE,
+    DELETE_PET_START,
+    DELETE_PET_SUCCESS,
+    DELETE_PET_FAILURE,
 }
 
 export const parentActionCreators = {
     getData,
     choosePet,
-    createPet
+    createPet,
+    deletePet
 }

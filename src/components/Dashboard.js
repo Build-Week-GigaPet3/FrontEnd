@@ -54,7 +54,7 @@ const Container = styled.div`
 const Dashboard = (props) =>{
   const { username, id } = useSelector(state => state.authentication.user);
   const data = useSelector(state => state.parent.data);
-  console.log('user id:', username, id, data)
+  console.log('user id:', username, id, 'data:',data)
   const dispatch = useDispatch();
 
   const [deletePet, setDeletePet] = useState(false);
@@ -69,7 +69,7 @@ const Dashboard = (props) =>{
   const handleDeleteYes = (e) => {
     e.preventDefault()
     console.log("deleting...")
-    
+    dispatch(parentActionCreators.deletePet(data[0].id))
     setDeletePet(false)
   }
 
@@ -86,15 +86,21 @@ const Dashboard = (props) =>{
   return (
         <Container>
             <div className='title'><h4>Welcome {username}!</h4></div>
-            {data.length === 0 ? <>
-                <h6>Begin by picking a pet</h6>
-                <Link to='/choosepet'><Button name="Choose Pet" /></Link>
-            </> : <>
-                <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
-                <Link to='/feedpet'><Button name="Feed Pet" /></Link>
-                <Link to='/feedpet'><Button name="View Calendar" /></Link>
-                <button id='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
-            </> }
+                {data === undefined ? <>Loading...</> : 
+                    <>
+                        {data.length === 0 || data[0].name === '' ? 
+                    <>
+                        <h6>Begin by picking a pet</h6>
+                        <Link to='/choosepet'><Button name="Choose Pet" /></Link>
+                    </> : <>
+                        <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
+                        <Link to='/feedpet'><Button name="Feed Pet" /></Link>
+                        <Link to='/feedpet'><Button name="View Calendar" /></Link>
+                        <button id='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
+                    </> 
+                    }
+                    </>
+                }
             {deletePet ? <ModalDelete  name={'pet name'} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
         </Container>
     )

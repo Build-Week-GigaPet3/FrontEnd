@@ -9,7 +9,10 @@ const {
     CHOOSE_PET,
     CREATE_PET_START,
     CREATE_PET_SUCCESS,
-    CREATE_PET_FAILURE
+    CREATE_PET_FAILURE,
+    DELETE_PET_START,
+    DELETE_PET_SUCCESS,
+    DELETE_PET_FAILURE,
   } = parentActionTypes;
 
   // const initialData = () =>{
@@ -17,7 +20,14 @@ const {
   // }
 
   const initialState = {
-      data: [],
+      data: [{
+        id: '',
+        pet_name:'',
+        pet_type:'',
+        image:'',
+        parentId: '',
+        parent: ''
+      }],
       isLoading: false,
       error: '',
       petChoice: ''
@@ -63,6 +73,25 @@ const {
               isLoading: false
             };
           case CREATE_PET_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              isLoading: false
+            };
+          case DELETE_PET_START:
+            return {
+              ...state,
+              isLoading: true
+            };
+          case DELETE_PET_SUCCESS:
+            console.log('delete success')
+            return {
+              ...state,
+              data: action.payload,
+              petChoice: '',
+              isLoading: false
+            };
+          case DELETE_PET_FAILURE:
             return {
               ...state,
               error: action.payload,

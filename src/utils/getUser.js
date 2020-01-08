@@ -1,4 +1,4 @@
 export const getUser = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
-    return !!user ? user : { type: null };
+    return !!user ? user : { id: '', username: '' };
 }
