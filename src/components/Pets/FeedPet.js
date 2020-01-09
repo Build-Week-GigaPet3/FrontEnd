@@ -18,18 +18,19 @@ const Container = styled.div`
     justify-content: center;
     height: 100%;
     overflow: auto;
-    padding-top: 170px;
+    /* padding-top: 170px; */
     .title{
-        margin-top: 20px;
+        margin-top: 55px;
         border-radius: 20px;
         text-align: center;
         h4{
             font-family: 'Rancho', cursive;
-            font-size: 4rem;
+            font-size: 3.2rem;
         }
     }
     .pet {
-        margin: 40px;
+        margin-top: 20px;
+        margin-bottom: 40px;
         width: 40%;
         height: 180px;
         max-width: 400px;
@@ -71,6 +72,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 380px;
     }
     input{
         /* border: none; */
@@ -90,18 +92,19 @@ const Container = styled.div`
     #category{
         font-size: 1.5rem;
         /* text-align: left; */
-        margin-bottom: -29px;
-        margin-left: 30px;
+        /* margin-bottom: -29px; */
+        /* margin-left: 30px; */
+        /* border: 1px solid red; */
     }
     #item{
         font-size: 1.5rem;
         /* text-align: left; */
         /* margin-bottom: -29px; */
-        margin-left: 30px;
+        /* margin-left: 30px; */
     }
     select{
         border-radius: 5px;
-        margin: 30px;
+        margin-bottom: 10px;
         width: 250px;
         height: 30px;
         background: white;
@@ -146,11 +149,11 @@ const Container = styled.div`
         };
     }
     #add-food-input{
-        margin-top:22px;
-        margin-bottom: 5px;
+        margin-top:18px;
+        margin-bottom: 25px;
     }
     #submit-container{
-        height: 100px;
+        margin-top: 20px;
     }
 `;
 
@@ -189,6 +192,8 @@ export default function FeedPet(props) {
             if (e.target.value === 'AddNew'){
                 setAddFood(true)
                 setFoodItem(food[foodIndex].items[itemIndex])
+            } else if (e.target.value === 'DeleteFood'){
+                setDeleteFood(true)
             } else {
                 if (itemIndex === undefined ){
                     console.log('item index:', itemIndex, 'setting to zero')
@@ -298,14 +303,15 @@ export default function FeedPet(props) {
                             <select id='food-list' name='name' onChange={handleIndexChanges} required>
                                 {/* <option value='' disabled selected>Choose a type of {food[foodIndex].name}...</option> */}
                                 {food[foodIndex].items.map((name,index) => <option key={index} value={index}>{name}</option>)}
-                                <option value="AddNew">Add new food...</option>
+                                <option value="AddNew">Create food...</option>
+                                <option value="DeleteFood">Delete food...</option>
                             </select>
                             </> :
                         <></>}
                     </div>
                         <div className='add-delete-btns'>
                             {/* {!addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create {food.category}</button> : <></> } */}
-                            {!addFood ? <button id='delete-food-btn' onClick={handleDeleteFood} >Delete {foodItem}</button> : <></> }
+                            {/* {!addFood ? <button id='delete-food-btn' onClick={handleDeleteFood} >Delete {foodItem}</button> : <></> } */}
                         </div>
                     {addFood ? 
                         <>
@@ -319,7 +325,6 @@ export default function FeedPet(props) {
                     <div id='submit-container'>
                         {!addFood && <Button type='submit' name='Feed Pet!' />}
                     </div>
-                    
                 </form>
             {showLeftStar ? <><LeftStar /></> : <></>}
             {showRightStar ? <><RightStar /></> : <></>}
@@ -327,18 +332,3 @@ export default function FeedPet(props) {
         </Container>
     )
 }
-
-
-    // function addZero(md) {
-    //     if (md < 10 ){
-    //         md = "0" + md
-    //     };
-    //     return md;
-    // }
-    // const day = new Date().getDate();
-    // const month = new Date().getMonth()+1
-    // const year = new Date().getFullYear();
-    // const currentDate = (`${year}-`+addZero(day)+'-'+addZero(month))
-    // console.log(currentDate)
-    // const element = document.getElementById('date-input')
-    // console.log(element)

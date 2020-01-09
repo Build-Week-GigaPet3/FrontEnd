@@ -29,6 +29,10 @@ const ModalStyle = styled.div`
         align-items: center;
         width: 250px;
         text-align: center;
+        h6{
+            font-family: 'Rancho', cursive;
+            font-size: 3rem;
+        }
     }
   }
   .modal-buttons{
