@@ -95,15 +95,13 @@ const Dashboard = (props) =>{
     setDeletePet(false)
   }
 
+  const handleLoadCalendar = (e) =>{
+    e.preventDefault()
+  }
+
   useEffect(() => {
-    // if (userId === null){
-    //     console.log('UserId is', userId, 'trying id:', id)
-    //     dispatch(parentActionCreators.getData(id));
-    // } else{
-        
-    // }
     dispatch(parentActionCreators.getData(userId));
-    }, [isLoading, dispatch, userId]);
+  }, [isLoading, dispatch, userId]);
   
   return (
         <Container>
@@ -118,7 +116,8 @@ const Dashboard = (props) =>{
                         <div className='pet'><img src={`../img/${data[0].image}1.png`} alt='Pet'/></div>
                         <div className='pet-name'><p>{data[0].pet_name}</p></div>
                         <Link to='/feedpet'><Button name="Feed Pet" /></Link>
-                        <Link to='/calendar'><Button name="View Calendar" /></Link>
+                        {/* <Link to='/calendar'><Button name="View Calendar" /></Link> */}
+                        <button className='delete-pet-btn' onClick={handleLoadCalendar}>View Calendar</button>
                         <button className='delete-pet-btn' onClick={handleEditPet}>Edit Pet</button>
                         <button className='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
                     </> 

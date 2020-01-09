@@ -14,15 +14,6 @@ const Container = styled.div`
 
 const Calendar = (props) =>{
 
-    const dispatch = useDispatch();
-
-    const {isLoading, error} = useSelector(
-        state => ({
-            isLoading: state.authentication.isLoading,
-            error: state.authentication.error
-        })
-    )
-
     const logs = useSelector(state => state.parent.log)
 
   return (
