@@ -12,21 +12,30 @@ import NamePet from './components/Pets/NamePet';
 import EditPet from './components/Pets/EditPet';
 import FeedPet from './components/Pets/FeedPet';
 
-import './App.css';
+import styled from 'styled-components';
 
+const MainContainer = styled.div`
+  background-image: url('../img/rainbowbg.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 568px;
+  min-width: 320px;
+`
 
 function App() {
   return (
     <Router>
       <Header />
-        <Route exact path='/' component={Home} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-        <PrivateRoute path='/dashboard' component={Dashboard} />
-        <PrivateRoute path='/choosepet' component={ChoosePet} />
-        <PrivateRoute path='/namepet' component={NamePet} />
-        <PrivateRoute path='/editpet' component={EditPet} />
-        <PrivateRoute path='/feedpet' component={FeedPet} />
+        <MainContainer>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <PrivateRoute path='/dashboard' component={Dashboard} />
+          <PrivateRoute path='/choosepet' component={ChoosePet} />
+          <PrivateRoute path='/namepet' component={NamePet} />
+          <PrivateRoute path='/editpet' component={EditPet} />
+          <PrivateRoute path='/feedpet' component={FeedPet} />
+        </MainContainer>
       <Footer />
     </Router>
   );
