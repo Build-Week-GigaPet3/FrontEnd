@@ -6,6 +6,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { parentActionCreators } from '../../actions';
 import ModalDelete from './ModalDelete';
+import LeftStar from './LeftStar';
+import RightStar from './RightStar';
 
 import { merge, zoomOut } from 'react-animations'
 
@@ -149,6 +151,8 @@ export default function FeedPet(props) {
     const [newFood, setNewFood] = useState('');
     const [addFood, setAddFood] = useState(false);
     const [deleteFood, setDeleteFood] = useState(false);
+    const [showLeftStar, setShowLeftStar] = useState(false);
+    const [showRightStar, setShowRightStar] = useState(false);
 
     const handleChanges = (e) => {
         e.preventDefault()
@@ -244,9 +248,12 @@ export default function FeedPet(props) {
         // console.log("adding...", foodIndex, data)
         dispatch(parentActionCreators.updateFoodLog(data))
         console.log('pausing')
-        await new Promise(r => setTimeout(r, 2000));
+        setShowLeftStar(true)
+        await new Promise(r => setTimeout(r, 1500));
+        setShowLeftStar(false)
+        // setShowRightStar(true)
         console.log('and go...')
-        props.history.push('/dashboard')
+        // props.history.push('/dashboard')
     }
 
     return (
@@ -295,6 +302,8 @@ export default function FeedPet(props) {
                     {/* {food.name !==  '' ? <Button type='submit' name='Feed!' /> : <></>} */}
                     <Button type='submit' name='Feed Pet!' />
                 </form>
+            {showLeftStar ? <><LeftStar /></> : <></>}
+            {showRightStar ? <><RightStar /></> : <></>}
             {deleteFood ? <ModalDelete name={foodItem} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
         </Container>
     )
