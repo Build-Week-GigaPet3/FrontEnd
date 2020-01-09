@@ -138,7 +138,7 @@ const Dashboard = (props) =>{
                         {/* <Link to='/feedpet'><Button name="Feed Pet" /></Link> */}
                         {/* <Link to='/calendar'><Button name="View Calendar" /></Link> */}
                         <div className='btn-container-top'>
-                            <button id='one' className='delete-pet-btn' onClick={()=> props.history.push('/calendar')}>Feed Pet</button>
+                            <button id='one' className='delete-pet-btn' onClick={()=> props.history.push('/feedpet')}>Feed Pet</button>
                             <button id='two' className='delete-pet-btn' onClick={handleLoadCalendar}>View Calendar</button>
                         </div>
                         <div className='btn-container-bottom'>

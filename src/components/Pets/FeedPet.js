@@ -263,7 +263,7 @@ export default function FeedPet(props) {
         setShowLeftStar(false)
         // setShowRightStar(true)
         console.log('and go...')
-        // props.history.push('/dashboard')
+        props.history.push('/calendar')
     }
 
     return (
