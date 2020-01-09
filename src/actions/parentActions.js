@@ -16,7 +16,9 @@ const EDIT_PET_FAILURE = "EDIT_PET_FAILURE";
 const FOOD_LOAD_START = "FOOD_LOAD_START";
 const FOOD_LOAD_SUCCESS = "FOOD_LOAD_SUCCESS";
 const FOOD_LOAD_FAILURE = "FOOD_LOAD_FAILURE";
-
+const LOG_LOAD_START = "LOG_LOAD_START";
+const LOG_LOAD_SUCCESS = "LOG_LOAD_SUCCESS";
+const LOG_LOAD_FAILURE = "LOG_LOAD_FAILURE";
 
 const getData = (id) => dispatch => {
       dispatch({ type: DATA_LOAD_START });
@@ -140,6 +142,15 @@ const getFoodLog = (id) => dispatch => {
         })
 }
 
+const updateFoodLog = (index, data) => dispatch => {
+    dispatch({ type: LOG_LOAD_START});
+    if (index === undefined || data === undefined){
+        dispatch({ type: LOG_LOAD_FAILURE, payload: 'data is undefined' })
+    }else{
+        dispatch({ type: LOG_LOAD_START, payload: data, index: index})
+    }
+}
+
 export const parentActionTypes = {
     DATA_LOAD_START,
     DATA_LOAD_SUCCESS,
@@ -166,5 +177,6 @@ export const parentActionCreators = {
     deletePet,
     editPet,
     getFoodList,
-    getFoodLog
+    getFoodLog,
+    updateFoodLog
 }

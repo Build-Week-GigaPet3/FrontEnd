@@ -185,15 +185,17 @@ const {
               isLoading: true
             };
           case LOG_LOAD_SUCCESS:
+            console.log('reducer', action.payload, 'index:', action.index)
             const payload = action.payload
-            return {
-              ...state,
-              isLoading: false,
-              log: [
-                ...state.log,
-                state.log[index].date.push({payload}) 
-              ]
-            };
+            return
+            // return {
+            //   ...state,
+            //   isLoading: false,
+            //   log: [
+            //     ...state.log,
+            //     state.log[action.index].date.push({payload}) 
+            //   ]
+            // };
           case LOG_LOAD_FAILURE:
             return {
               ...state,

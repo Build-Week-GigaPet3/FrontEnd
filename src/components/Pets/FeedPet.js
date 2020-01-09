@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-// import { parentActionCreators } from '../../actions';
+import { parentActionCreators } from '../../actions';
 
 // import { getFood } from '../../hooks';
 
@@ -142,6 +142,7 @@ export default function FeedPet() {
     const foodData =  useSelector(state => state.parent.food);
     const pet_name = sessionStorage.getItem('pet_name');
     const image = sessionStorage.getItem('image');
+    const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
     const [food, setFood] = useState(foodData);
     const [foodIndex, setFoodIndex] = useState(0);
@@ -229,17 +230,20 @@ export default function FeedPet() {
         setDeleteFood(false)
     }
 
-    const handleSubmit = (e) => {
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     // console.log('submit',startDate, food)
+    //     setAddFood(false)
+    // }
+
+    const handleSubmitFoodLog = (e) => {
         e.preventDefault()
-        // console.log('submit',startDate, food)
-        if (addFood && food.name !== ''){
-            setFood({
-                ...food,
-                array: [...food.array, food.name]
-            })
-            console.log(food.array)
+        const data = {
+            time: startDate,
+            [food[foodIndex].name]: food[foodIndex].items[itemIndex]
         }
-        setAddFood(false)
+        console.log("adding...", foodIndex, data)
+        dispatch(parentActionCreators.updateFoodLog(foodIndex, data))
     }
 
     return (
@@ -251,7 +255,7 @@ export default function FeedPet() {
                 </div>
                 <div className='pet'><img src={`../img/${image}1.png`} alt='Pet'/></div>
                 <div className='pet-name'><p>{pet_name}</p></div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmitFoodLog}>
                     {/* <input id='date-input' value={currentDate} type='date' onChange={handleChanges} required pattern="\d{4}-\d{2}-\d{2}"/> */}
                     <div id='dropdown'>
                         <label id='category'>Choose a category:</label>
