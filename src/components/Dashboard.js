@@ -11,13 +11,15 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 500px;
-    margin: 0 auto;
+    height: 100%;
+    overflow: auto;
+    padding-top: 170px;
     p{
         margin: 5px;
     }
     .title{
         margin: 20px 0;
+        /* padding-top: 100px; */
     }
     .pet {
         margin: 40px;

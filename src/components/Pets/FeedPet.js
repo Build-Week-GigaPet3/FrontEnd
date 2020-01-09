@@ -16,6 +16,9 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    overflow: auto;
+    padding-top: 170px;
     .title{
         margin-top: 20px 0;
     }

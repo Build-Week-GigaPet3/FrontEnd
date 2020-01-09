@@ -2,14 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.footer`
-    margin-top: 30px;
-    margin-bottom: -1px;
     footer{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: fixed;
+        /* position: fixed; */
         bottom: 0;
         background: #6C46A2;
         color: white;

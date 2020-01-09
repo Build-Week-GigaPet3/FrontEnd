@@ -9,12 +9,15 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    .title{
+        margin-top: 150px;
+    }
     .pets {
         width: 40%;
         height: 180px;
         max-width: 400px;
         min-width: 310px;
-        /* border: 1px solid red; */
         display: flex;
         align-items: center;
         justify-content: space-evenly;
@@ -30,10 +33,9 @@ const Container = styled.div`
 `;
 
 export default function ChoosePet(props) {
-
+    const username = sessionStorage.getItem('username');
 
     const dispatch = useDispatch();
-
 
     const handleChoice = (e, name) => {
         e.preventDefault()
@@ -44,7 +46,7 @@ export default function ChoosePet(props) {
 
     return (
         <Container>
-            <div><h3>Welcome User Name!</h3></div>
+            <div className='title'><h3>Welcome {username}!</h3></div>
             <div><h4>Choose your pet:</h4></div>
             <div className='pets'>
                 <div onClick={(e) => handleChoice(e, ('dog'))} className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>

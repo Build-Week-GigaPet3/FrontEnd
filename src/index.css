@@ -32,22 +32,32 @@ h1 {
 
 h2 {
   font-size: 3.2rem;
+  color: white;
+  text-shadow: 2px 2px 3px black
 }
 
 h3 {
   font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 3px black
 }
 
 h4 {
   font-size: 2.5rem;
+  color: white;
+  text-shadow: 2px 2px 3px black
 }
 
 h5 {
   font-size: 2.0rem;
+  color: white;
+  text-shadow: 2px 2px 3px black
 }
 
 h6 {
   font-size: 1.8rem;
+  color: white;
+  text-shadow: 2px 2px 3px black
 }
 
 p{
@@ -62,6 +72,8 @@ form {
 label {
   font-size: 1.8rem;
   margin-left: 5px;
+  color: white;
+  text-shadow: 2px 2px 3px black
 }
 
 input {
