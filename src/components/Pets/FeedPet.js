@@ -17,6 +17,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     overflow: auto;
     /* padding-top: 170px; */
     .title{
