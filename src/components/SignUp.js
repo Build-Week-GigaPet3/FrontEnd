@@ -48,15 +48,12 @@ const SignUp = (props) =>{
         <SignUpContainer>
             <h2>Sign up:</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Enter Email</label>
+                <label htmlFor="email">Enter Username</label>
                 <input type="text" id="email" name="username" value={data.username} onChange={handleChange} />
 
                 <label htmlFor="password">Enter Password</label>
                 <input type="password" id="password" name="password" value={data.password} onChange={handleChange}/>
 
-                <label htmlFor="passwordConfirmation">Re-Enter Password</label>
-                <input type="password" id="passwordConfirmation" name="passwordConfirmation" />
-                
                 <div className="submit">
                     <Button name="Submit" />
                 </div>
