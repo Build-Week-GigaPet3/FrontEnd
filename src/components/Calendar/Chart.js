@@ -12,11 +12,11 @@ const Chart = (props) => {
     console.log(chartData)
     
     return(
-        <div>
+        <div style={{margin: '0 auto', marginTop: '-30px',width:'280px'}}>
         <Pie
         data={chartData}
-        width={300}
-        height={300}
+        width={280}
+        height={280}
         options={{
             legend:{
                 display:true,

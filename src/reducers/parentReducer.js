@@ -17,6 +17,9 @@ const {
     FOOD_LOAD_START,
     FOOD_LOAD_SUCCESS,
     FOOD_LOAD_FAILURE,
+    LOG_LOAD_START,
+    LOG_LOAD_SUCCESS,
+    LOG_LOAD_FAILURE,
   } = parentActionTypes;
 
   // const initialData = () =>{
@@ -79,7 +82,7 @@ const {
       petChoice: ''
   }
 
-  export const parent = (state = initialState, action) => {
+  export const parent = (state = initialState, action, index) => {
       switch (action.type) {
           case DATA_LOAD_START:
             return {
@@ -171,6 +174,27 @@ const {
               isLoading: false
             };
           case FOOD_LOAD_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              isLoading: false
+            };
+          case LOG_LOAD_START:
+            return {
+              ...state,
+              isLoading: true
+            };
+          case LOG_LOAD_SUCCESS:
+            const payload = action.payload
+            return {
+              ...state,
+              isLoading: false,
+              log: [
+                ...state.log,
+                state.log[index].date.push({payload}) 
+              ]
+            };
+          case LOG_LOAD_FAILURE:
             return {
               ...state,
               error: action.payload,

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const useChartData = (props) => {
 
-    const howManyToShow = 6;
+    const howManyToShow = 7;
 
     const randomColors = () =>{
         let colors = []
@@ -15,7 +15,7 @@ const useChartData = (props) => {
 
     const foodCategories = () =>{
       let names = []
-      for (let i = 0; i < 6; i++){
+      for (let i = 0; i < 7; i++){
         if (props === undefined){
             console.log('chartData props undefined!')
             return ''
@@ -29,7 +29,7 @@ const useChartData = (props) => {
 
     const logsCount = () =>{
       let logs = []
-      for (let i = 0; i < 6; i++){
+      for (let i = 0; i < 7; i++){
           logs.push(props[i].date.length)
       }
     //   console.log(logs)
@@ -42,7 +42,24 @@ const useChartData = (props) => {
             {
               label: 'Label Here',
               data: logsCount(),
-              backgroundColor: randomColors()
+              backgroundColor: [
+                '#ff6666',
+                '#ffcc80',
+                '#ffff99',
+                '#80ffaa',
+                '#99ffff',
+                '#99bbff',
+                '#aa80ff',
+              ],
+              hoverBackgroundColor: [
+                '#ffcccc',
+                '#ffebcc',
+                '#ffffcc',
+                '#ccffdd',
+                '#e6ffff',
+                '#e6eeff',
+                '#ddccff',
+              ]
             }
           ]
         }
