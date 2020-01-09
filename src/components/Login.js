@@ -47,7 +47,7 @@ const Login = (props) =>{
         <LoginContainer>
             <h2>Login:</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Enter Email</label>
+                <label htmlFor="email">Enter Username</label>
                 <input type="text" id="email" name="username" value={data.username} onChange={handleChange} />
 
                 <label htmlFor="password">Enter Password</label>

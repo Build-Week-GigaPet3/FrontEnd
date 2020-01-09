@@ -1,9 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Button from './buttons/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { slideInRight, slideInLeft } from 'react-animations';
+
+const left = keyframes `${slideInLeft}`
+const right = keyframes `${slideInRight}`
 
 const Container = styled.div`
     display: flex;
@@ -19,6 +23,7 @@ const Container = styled.div`
         background-color: rgba(255, 255, 255, 0.6);
         border-radius: 5px;
         width: 80%;
+        margin-bottom: 20px;
         /* opacity: 0.8; */
     }
     h2{
@@ -40,6 +45,12 @@ const Container = styled.div`
         flex-direction: column;
         align-items: center;
         width: 100%;
+        #left{
+            animation: 2s ${left};
+        }
+        #right{
+            animation: 2s ${right};
+        }
         .card{
             background-color: rgba(255, 255, 255, 0.6);
             border-radius: 5px;
@@ -50,6 +61,11 @@ const Container = styled.div`
             display: flex;
             align-items: center;
             justify-content: space-evenly;
+            transition: all 300ms ease-in-out;
+                &:hover{
+                transform: scale(1.2);
+                background-color: rgba(255, 255, 255, 0.9);
+            }
             img{
                 width: 30%;
             }
@@ -58,7 +74,7 @@ const Container = styled.div`
                 text-align: center;
                 h4{
                     font-family: 'Rancho', cursive;
-                    font-size: 4rem;
+                    font-size: 3.2rem;
                 }
                 h5{
                     margin-bottom: 30px;
@@ -92,7 +108,7 @@ const Login = (props) =>{
             <a href='/signup' ><Button name="Create Account" /></a>
             <div className='about'>
                 <h4>Meet the LambdiPet team:</h4>
-                <div className='card'>
+                <div id="right" className='card'>
                     <img src='../img/robert.png' alt='Profile' />
                     <div className='name'>
                         <h4>Robert Gordon</h4>
@@ -104,7 +120,7 @@ const Login = (props) =>{
                         </div>
                     </div>
                 </div>
-                <div className='card'>
+                <div id="left" className='card'>
                     <img src='../img/mad.png' alt='Profile' />
                     <div className='name'>
                         <h4>Madeline McIntosh</h4>
@@ -112,11 +128,11 @@ const Login = (props) =>{
                         <div className='links'>
                             <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
                             <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href=''><FontAwesomeIcon icon={faCode} /></a>
+                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
                         </div>
                     </div>
                 </div>
-                <div className='card'>
+                <div id="right" className='card'>
                     <img src='../img/thomas.png' alt='Profile' />
                     <div className='name'>
                         <h4>Thomas Shotts Jr</h4>
@@ -124,11 +140,11 @@ const Login = (props) =>{
                         <div className='links'>
                             <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
                             <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href=''><FontAwesomeIcon icon={faCode} /></a>
+                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
                         </div>
                     </div>
                 </div>
-                <div className='card'>
+                <div id="left" className='card'>
                     <img src='../img/kelly.png' alt='Profile' />
                     <div className='name'>
                         <h4>Kelly Moreira</h4>
@@ -136,7 +152,7 @@ const Login = (props) =>{
                         <div className='links'>
                             <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
                             <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href=''><FontAwesomeIcon icon={faCode} /></a>
+                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
                         </div>
                     </div>
                 </div>
