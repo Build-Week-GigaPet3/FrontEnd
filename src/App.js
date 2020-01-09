@@ -11,6 +11,7 @@ import ChoosePet from './components/Pets/ChoosePet';
 import NamePet from './components/Pets/NamePet';
 import EditPet from './components/Pets/EditPet';
 import FeedPet from './components/Pets/FeedPet';
+import Calendar from './components/Calendar/Calendar';
 
 import styled from 'styled-components';
 
@@ -44,6 +45,7 @@ function App() {
           <PrivateRoute path='/namepet' component={NamePet} />
           <PrivateRoute path='/editpet' component={EditPet} />
           <PrivateRoute path='/feedpet' component={FeedPet} />
+          <PrivateRoute path='/calendar' component={Calendar} />
         </MainContainer>
       <Footer />
     </Router>

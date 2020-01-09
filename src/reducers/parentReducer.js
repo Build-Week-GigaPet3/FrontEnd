@@ -51,11 +51,29 @@ const {
         items: ["Ice Cream", "Cotton Candy", "Chocolates"]
         },
       ],
-      log: [{
-        date:"",
-        category: "",
-        item: ""
-      }],
+      log: [
+        {name: 'Fruit',
+        date: [{}]
+        },
+        {name: 'Veggie',
+        date: [{},{}]
+        },
+        {name: 'Grain',
+        date: [{},{},{}]
+        },
+        {name: 'Meat',
+        date: [{},{},{},{}]
+        },
+        {name: 'Dairy',
+        date: [{},{},{},{},{}]
+        },
+        {name: 'Fat',
+        date: [{},{},{},{},{},{}]
+        },
+        {name: 'Treat',
+        date: [{},{},{},{},{},{},{}]
+        }, 
+      ],
       isLoading: false,
       error: '',
       petChoice: ''

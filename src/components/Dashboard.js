@@ -118,7 +118,7 @@ const Dashboard = (props) =>{
                         <div className='pet'><img src={`../img/${data[0].image}1.png`} alt='Pet'/></div>
                         <div className='pet-name'><p>{data[0].pet_name}</p></div>
                         <Link to='/feedpet'><Button name="Feed Pet" /></Link>
-                        <Link to='/feedpet'><Button name="View Calendar" /></Link>
+                        <Link to='/calendar'><Button name="View Calendar" /></Link>
                         <button className='delete-pet-btn' onClick={handleEditPet}>Edit Pet</button>
                         <button className='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
                     </> 
