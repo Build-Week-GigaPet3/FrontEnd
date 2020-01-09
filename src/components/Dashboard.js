@@ -61,10 +61,11 @@ const Dashboard = (props) =>{
   const userId = sessionStorage.getItem('user');
   const username = sessionStorage.getItem('username');
   const data = useSelector(state => state.parent.data);
-  console.log('user id:', username, id, 'session:', userId, 'data:',data)
   const dispatch = useDispatch();
 
   const [deletePet, setDeletePet] = useState(false);
+
+//   console.log('user id:', username, id, 'session:', userId, 'data:',data)
 
   const handleEditPet = (e) => {
     e.preventDefault()

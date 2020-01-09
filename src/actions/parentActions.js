@@ -28,8 +28,9 @@ const getData = (id) => dispatch => {
       axiosWithAuth()
         .get(`/parents/${id}/pets`)
         .then(res => {
-            // console.log (DATA_LOAD_SUCCESS, res.data);
-
+            console.log (DATA_LOAD_SUCCESS, res.data);
+            sessionStorage.setItem('pet_name', (res.data[0].pet_name));
+            sessionStorage.setItem('image', (res.data[0].image));
             dispatch({type: DATA_LOAD_SUCCESS, payload: res.data});
         })
         .catch(err => {
