@@ -82,7 +82,7 @@ const {
       petChoice: ''
   }
 
-  export const parent = (state = initialState, action, index) => {
+  export const parent = (state = initialState, action) => {
       switch (action.type) {
           case DATA_LOAD_START:
             return {
@@ -185,17 +185,19 @@ const {
               isLoading: true
             };
           case LOG_LOAD_SUCCESS:
-            console.log('reducer', action.payload, 'index:', action.index)
-            const payload = action.payload
-            return
-            // return {
-            //   ...state,
-            //   isLoading: false,
-            //   log: [
-            //     ...state.log,
-            //     state.log[action.index].date.push({payload}) 
-            //   ]
-            // };
+            // console.log('reducer', action.payload.Fruit )
+            // const key = state.log[action.payload.index].name
+            // const item = action.payload.key
+            // const payload = { date: action.payload.date, [state.log[action.payload.index].name]: item }
+            // console.log('key', key, 'item', item, 'payload', payload)
+            return {
+              ...state,
+              log: [
+                ...state.log,
+                state.log[action.payload.index].date.push(action.payload) 
+              ],
+              isLoading: false
+            };
           case LOG_LOAD_FAILURE:
             return {
               ...state,

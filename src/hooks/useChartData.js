@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react';
-
 const useChartData = (props) => {
 
-    const howManyToShow = 7;
+    // const howManyToShow = 7;
 
-    const randomColors = () =>{
-        let colors = []
-        for(let i = 0; i < howManyToShow; i++){
-            colors.push('#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6),) 
-        }
-        // console.log(colors)
-        return colors
-    }
+    // const randomColors = () =>{
+    //     let colors = []
+    //     for(let i = 0; i < howManyToShow; i++){
+    //         colors.push('#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6),) 
+    //     }
+    //     // console.log(colors)
+    //     return colors
+    // }
 
     const foodCategories = () =>{
       let names = []

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import useChartData from '../../hooks/useChartData'
 import Chart from './Chart'
 import styled from 'styled-components';
@@ -24,12 +24,12 @@ const Calendar = (props) =>{
   const logs = useSelector(state => state.parent.log)
   const [chartData, setChartData] = useChartData(logs);
 
-  console.log(chartData)
+
 
   return (
         <Container>
             <div className='chart'>
-                <Chart logs={logs} />
+                <Chart chartData={chartData} setChartData={setChartData} />
             </div>
         </Container>
     )

@@ -97,6 +97,7 @@ const Dashboard = (props) =>{
 
   const handleLoadCalendar = (e) =>{
     e.preventDefault()
+    props.history.push('calendar')
   }
 
   useEffect(() => {

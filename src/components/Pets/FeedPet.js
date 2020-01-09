@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Button from '../buttons/Button'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
 import { parentActionCreators } from '../../actions';
-
-// import { getFood } from '../../hooks';
-
 import ModalDelete from './ModalDelete';
+
+import { merge, zoomOut } from 'react-animations'
 
 const Container = styled.div`
     display: flex;
@@ -138,7 +136,7 @@ const Container = styled.div`
     }
 `;
 
-export default function FeedPet() {
+export default function FeedPet(props) {
     const foodData =  useSelector(state => state.parent.food);
     const pet_name = sessionStorage.getItem('pet_name');
     const image = sessionStorage.getItem('image');
@@ -236,14 +234,19 @@ export default function FeedPet() {
     //     setAddFood(false)
     // }
 
-    const handleSubmitFoodLog = (e) => {
-        e.preventDefault()
+    async function handleSubmitFoodLog(e) {
+        e.preventDefault(setFood)
         const data = {
             time: startDate,
-            [food[foodIndex].name]: food[foodIndex].items[itemIndex]
+            [food[foodIndex].name]: food[foodIndex].items[itemIndex],
+            index: foodIndex
         }
-        console.log("adding...", foodIndex, data)
-        dispatch(parentActionCreators.updateFoodLog(foodIndex, data))
+        // console.log("adding...", foodIndex, data)
+        dispatch(parentActionCreators.updateFoodLog(data))
+        console.log('pausing')
+        await new Promise(r => setTimeout(r, 2000));
+        console.log('and go...')
+        props.history.push('/dashboard')
     }
 
     return (

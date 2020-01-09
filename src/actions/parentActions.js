@@ -142,12 +142,13 @@ const getFoodLog = (id) => dispatch => {
         })
 }
 
-const updateFoodLog = (index, data) => dispatch => {
+const updateFoodLog = (data) => dispatch => {
     dispatch({ type: LOG_LOAD_START});
-    if (index === undefined || data === undefined){
+    if (data === undefined){
         dispatch({ type: LOG_LOAD_FAILURE, payload: 'data is undefined' })
     }else{
-        dispatch({ type: LOG_LOAD_START, payload: data, index: index})
+        // console.log('update log action')
+        dispatch({ type: LOG_LOAD_SUCCESS, payload: data})
     }
 }
 
@@ -168,6 +169,9 @@ export const parentActionTypes = {
     FOOD_LOAD_START,
     FOOD_LOAD_SUCCESS,
     FOOD_LOAD_FAILURE,
+    LOG_LOAD_START,
+    LOG_LOAD_SUCCESS,
+    LOG_LOAD_FAILURE
 }
 
 export const parentActionCreators = {
