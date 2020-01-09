@@ -17,6 +17,9 @@ const {
     FOOD_LOAD_START,
     FOOD_LOAD_SUCCESS,
     FOOD_LOAD_FAILURE,
+    LOG_LOAD_START,
+    LOG_LOAD_SUCCESS,
+    LOG_LOAD_FAILURE,
   } = parentActionTypes;
 
   // const initialData = () =>{
@@ -51,11 +54,29 @@ const {
         items: ["Ice Cream", "Cotton Candy", "Chocolates"]
         },
       ],
-      log: [{
-        date:"",
-        category: "",
-        item: ""
-      }],
+      log: [
+        {name: 'Fruit',
+        date: [{}]
+        },
+        {name: 'Veggie',
+        date: [{},{}]
+        },
+        {name: 'Grain',
+        date: [{},{},{}]
+        },
+        {name: 'Meat',
+        date: [{},{},{},{}]
+        },
+        {name: 'Dairy',
+        date: [{},{},{},{},{}]
+        },
+        {name: 'Fat',
+        date: [{},{},{},{},{},{}]
+        },
+        {name: 'Treat',
+        date: [{},{},{},{},{},{},{}]
+        }, 
+      ],
       isLoading: false,
       error: '',
       petChoice: ''
@@ -153,6 +174,31 @@ const {
               isLoading: false
             };
           case FOOD_LOAD_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              isLoading: false
+            };
+          case LOG_LOAD_START:
+            return {
+              ...state,
+              isLoading: true
+            };
+          case LOG_LOAD_SUCCESS:
+            // console.log('reducer', action.payload.Fruit )
+            // const key = state.log[action.payload.index].name
+            // const item = action.payload.key
+            // const payload = { date: action.payload.date, [state.log[action.payload.index].name]: item }
+            // console.log('key', key, 'item', item, 'payload', payload)
+            return {
+              ...state,
+              log: [
+                ...state.log,
+                state.log[action.payload.index].date.push(action.payload) 
+              ],
+              isLoading: false
+            };
+          case LOG_LOAD_FAILURE:
             return {
               ...state,
               error: action.payload,
