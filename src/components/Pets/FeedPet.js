@@ -36,10 +36,15 @@ const Container = styled.div`
         }
     }
     .pet-name {
+        background-color: rgba(216, 216, 255, 0.5);
+        border-radius: 10px;
+        margin: 10px 0;
+        padding: 0 10px;
         p{
             font-family: 'Rancho', cursive;
-            font-size: 2.2rem;
-            margin-top: 5px;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 3px black;
         }
     }
     .date-picker{
@@ -100,13 +105,14 @@ const Container = styled.div`
     }
     #food-list{
         margin-top: 0px;
+        margin-bottom: 5px;
     }
     #add-food-btn{
         margin-bottom: 30px;
-        background: #6C46A2;
+        background: #9090ff;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 25px;
         width: 140px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
@@ -119,10 +125,10 @@ const Container = styled.div`
     }
     #delete-food-btn{
         margin-bottom: 30px;
-        background: #6C46A2;
+        background: #9090ff;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 25px;
         width: 140px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
@@ -135,6 +141,10 @@ const Container = styled.div`
     }
     #add-food-input{
         margin-top:22px;
+        margin-bottom: 5px;
+    }
+    #submit-container{
+        height: 100px;
     }
 `;
 
@@ -300,7 +310,10 @@ export default function FeedPet(props) {
                         </div>
                         </> : <></>}
                     {/* {food.name !==  '' ? <Button type='submit' name='Feed!' /> : <></>} */}
-                    <Button type='submit' name='Feed Pet!' />
+                    <div id='submit-container'>
+                        {!addFood && <Button type='submit' name='Feed Pet!' />}
+                    </div>
+                    
                 </form>
             {showLeftStar ? <><LeftStar /></> : <></>}
             {showRightStar ? <><RightStar /></> : <></>}
