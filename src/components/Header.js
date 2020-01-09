@@ -8,10 +8,13 @@ const HeaderStyled = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: fixed;
+    top: 0;
     background: #6C46A2;
     color: white;
     height: 50px;
     width: 100vw;
+    /* z-index: 1; */
     .logo{
         width: 49%;
         text-align: left;

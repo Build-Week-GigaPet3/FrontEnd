@@ -17,9 +17,18 @@ import styled from 'styled-components';
 const MainContainer = styled.div`
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
+  background-attachment:fixed;
+  background-position-y: 50px;
+  height: 100vh;
   min-height: 568px;
   min-width: 320px;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 function App() {
