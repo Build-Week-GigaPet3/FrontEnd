@@ -1,7 +1,5 @@
 import { parentActionTypes } from '../actions'
 
-
-
 const {
     DATA_LOAD_START,
     DATA_LOAD_SUCCESS,
@@ -16,6 +14,9 @@ const {
     EDIT_PET_START,
     EDIT_PET_SUCCESS,
     EDIT_PET_FAILURE,
+    FOOD_LOAD_START,
+    FOOD_LOAD_SUCCESS,
+    FOOD_LOAD_FAILURE,
   } = parentActionTypes;
 
   // const initialData = () =>{
@@ -27,6 +28,34 @@ const {
         name:'',
         image:'',
       }],
+      food: [
+        {name: 'Fruit',
+        items: ["Apples", "Oranges", "Banana"]
+        },
+        {name: 'Veggie',
+        items: ["Carrots", "Potatoes", "Peas"]
+        },
+        {name: 'Grain',
+        items: ["Bread", "Cereal", "Pasta"]
+        },
+        {name: 'Meat',
+        items: ["Beef", "Chicken", "Pork"]
+        },
+        {name: 'Dairy',
+        items: ["Cheese", "Milk", "Butter"]
+        },
+        {name: 'Fat',
+        items: ["Pizza", "Fries", "Burgers"]
+        },
+        {name: 'Treat',
+        items: ["Ice Cream", "Cotton Candy", "Chocolates"]
+        },
+      ],
+      log: [{
+        date:"",
+        category: "",
+        item: ""
+      }],
       isLoading: false,
       error: '',
       petChoice: ''
@@ -34,7 +63,7 @@ const {
 
   export const parent = (state = initialState, action) => {
       switch (action.type) {
-        case DATA_LOAD_START:
+          case DATA_LOAD_START:
             return {
               ...state,
               isLoading: true
@@ -64,7 +93,7 @@ const {
               isLoading: true
             };
           case CREATE_PET_SUCCESS:
-            console.log('create success',action.payload)
+            console.log('create success')
             return {
               ...state,
               petChoice: '',
@@ -100,13 +129,30 @@ const {
               isLoading: true
             };
           case EDIT_PET_SUCCESS:
-            console.log('delete success')
+            console.log('edit success')
             return {
               ...state,
               petChoice: '',
               isLoading: false
             };
           case EDIT_PET_FAILURE:
+            return {
+              ...state,
+              error: action.payload,
+              isLoading: false
+            };
+          case FOOD_LOAD_START:
+            return {
+              ...state,
+              isLoading: true
+            };
+          case FOOD_LOAD_SUCCESS:
+            return {
+              ...state,
+              food: action.payload,
+              isLoading: false
+            };
+          case FOOD_LOAD_FAILURE:
             return {
               ...state,
               error: action.payload,

@@ -57,14 +57,16 @@ const Container = styled.div`
 `;
 
 const Dashboard = (props) =>{
-  const { isLoading, id } = useSelector(state => state.authentication.user);
+  const { isLoading } = useSelector(state => state.authentication.user);
   const userId = sessionStorage.getItem('user');
+  const petId = sessionStorage.getItem('petId');
   const username = sessionStorage.getItem('username');
   const data = useSelector(state => state.parent.data);
-  console.log('user id:', username, id, 'session:', userId, 'data:',data)
   const dispatch = useDispatch();
 
   const [deletePet, setDeletePet] = useState(false);
+
+//   console.log('user id:', username, id, 'session:', userId, 'data:',data)
 
   const handleEditPet = (e) => {
     e.preventDefault()
@@ -81,7 +83,7 @@ const Dashboard = (props) =>{
   const handleDeleteYes = (e) => {
     e.preventDefault()
     console.log("deleting...")
-    dispatch(parentActionCreators.deletePet(data[0].id, id))
+    dispatch(parentActionCreators.deletePet(petId, userId))
     setDeletePet(false)
   }
 
@@ -92,6 +94,12 @@ const Dashboard = (props) =>{
   }
 
   useEffect(() => {
+    // if (userId === null){
+    //     console.log('UserId is', userId, 'trying id:', id)
+    //     dispatch(parentActionCreators.getData(id));
+    // } else{
+        
+    // }
     dispatch(parentActionCreators.getData(userId));
     }, [isLoading, dispatch, userId]);
   
