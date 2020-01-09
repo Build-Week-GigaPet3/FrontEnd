@@ -10,6 +10,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     .title{
         margin: 20px 0;
         margin-bottom: 35px;
