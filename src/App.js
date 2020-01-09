@@ -20,12 +20,17 @@ const MainContainer = styled.div`
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment:fixed;
-  background-position-y: 50px;
-  height: 100vh;
+  background-position-y: 49px;
+  height: 97vh;
   min-height: 568px;
   min-width: 320px;
-  max-width: 700px;
+  max-width: 568px;
   margin: 0 auto;
+  @media screen and (min-width: 568px) {
+    background-position: center;
+    background-size: contain;
+    background-position-y: 49px;
+  }
   /* display: flex; */
   /* flex-direction: column; */
   /* justify-content: center; */
