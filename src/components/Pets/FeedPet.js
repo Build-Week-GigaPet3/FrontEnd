@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import styled, { keyframes } from 'styled-components';
 import Button from '../buttons/Button'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
-// import { parentActionCreators } from '../../actions';
-
-// import { getFood } from '../../hooks';
-
+import { parentActionCreators } from '../../actions';
 import ModalDelete from './ModalDelete';
+import LeftStar from './LeftStar';
+import RightStar from './RightStar';
+
+import { merge, zoomOut } from 'react-animations'
 
 const Container = styled.div`
     display: flex;
@@ -138,10 +138,11 @@ const Container = styled.div`
     }
 `;
 
-export default function FeedPet() {
+export default function FeedPet(props) {
     const foodData =  useSelector(state => state.parent.food);
     const pet_name = sessionStorage.getItem('pet_name');
     const image = sessionStorage.getItem('image');
+    const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
     const [food, setFood] = useState(foodData);
     const [foodIndex, setFoodIndex] = useState(0);
@@ -150,6 +151,8 @@ export default function FeedPet() {
     const [newFood, setNewFood] = useState('');
     const [addFood, setAddFood] = useState(false);
     const [deleteFood, setDeleteFood] = useState(false);
+    const [showLeftStar, setShowLeftStar] = useState(false);
+    const [showRightStar, setShowRightStar] = useState(false);
 
     const handleChanges = (e) => {
         e.preventDefault()
@@ -229,17 +232,28 @@ export default function FeedPet() {
         setDeleteFood(false)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        // console.log('submit',startDate, food)
-        if (addFood && food.name !== ''){
-            setFood({
-                ...food,
-                array: [...food.array, food.name]
-            })
-            console.log(food.array)
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     // console.log('submit',startDate, food)
+    //     setAddFood(false)
+    // }
+
+    async function handleSubmitFoodLog(e) {
+        e.preventDefault(setFood)
+        const data = {
+            time: startDate,
+            [food[foodIndex].name]: food[foodIndex].items[itemIndex],
+            index: foodIndex
         }
-        setAddFood(false)
+        // console.log("adding...", foodIndex, data)
+        dispatch(parentActionCreators.updateFoodLog(data))
+        console.log('pausing')
+        setShowLeftStar(true)
+        await new Promise(r => setTimeout(r, 1500));
+        setShowLeftStar(false)
+        // setShowRightStar(true)
+        console.log('and go...')
+        // props.history.push('/dashboard')
     }
 
     return (
@@ -251,7 +265,7 @@ export default function FeedPet() {
                 </div>
                 <div className='pet'><img src={`../img/${image}1.png`} alt='Pet'/></div>
                 <div className='pet-name'><p>{pet_name}</p></div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmitFoodLog}>
                     {/* <input id='date-input' value={currentDate} type='date' onChange={handleChanges} required pattern="\d{4}-\d{2}-\d{2}"/> */}
                     <div id='dropdown'>
                         <label id='category'>Choose a category:</label>
@@ -288,6 +302,8 @@ export default function FeedPet() {
                     {/* {food.name !==  '' ? <Button type='submit' name='Feed!' /> : <></>} */}
                     <Button type='submit' name='Feed Pet!' />
                 </form>
+            {showLeftStar ? <><LeftStar /></> : <></>}
+            {showRightStar ? <><RightStar /></> : <></>}
             {deleteFood ? <ModalDelete name={foodItem} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
         </Container>
     )

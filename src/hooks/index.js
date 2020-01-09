@@ -16,7 +16,3 @@ export const useOnClickOutside = (ref, handler) => {
   [ref, handler],
   );
 };
-
-export const getFood = (ref, handler) => {
-  return
-}
