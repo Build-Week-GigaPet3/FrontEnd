@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../buttons/Button'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-import { parentActionCreators } from '../../actions';
+// import { parentActionCreators } from '../../actions';
 
-import { getFood } from '../../hooks';
+// import { getFood } from '../../hooks';
 
 import ModalDelete from './ModalDelete';
 
@@ -32,13 +32,26 @@ const Container = styled.div`
             width: 100%;
         }
     }
+    .pet-name {
+        p{
+            font-family: 'Rancho', cursive;
+            font-size: 2.2rem;
+            margin-top: 5px;
+        }
+    }
     .date-picker{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         div{
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
-        
+        #date-label{
+            font-size: 1.5rem;
+            /* text-align: left; */
+            margin-bottom: -29px;
+            margin-left: 30px
+        }
     }
     form{
         display: flex;
@@ -123,22 +136,17 @@ const Container = styled.div`
 `;
 
 export default function FeedPet() {
-    const { isLoading, id } = useSelector(state => state.authentication.user);
-    const foodData =  useSelector(state => state.parent.food)
-    const userId = sessionStorage.getItem('user');
+    const foodData =  useSelector(state => state.parent.food);
+    const pet_name = sessionStorage.getItem('pet_name');
+    const image = sessionStorage.getItem('image');
     const [startDate, setStartDate] = useState(new Date());
-    const [food, setFood] = useState(foodData)
-    const [foodIndex, setFoodIndex] = useState(0)
-    const [foodItem, setFoodItem] = useState(food[0].items[0])
-    const [itemIndex, setItemIndex] = useState(0)
-    const [newFood, setNewFood] = useState('')
+    const [food, setFood] = useState(foodData);
+    const [foodIndex, setFoodIndex] = useState(0);
+    const [foodItem, setFoodItem] = useState(food[0].items[0]);
+    const [itemIndex, setItemIndex] = useState(0);
+    const [newFood, setNewFood] = useState('');
     const [addFood, setAddFood] = useState(false);
     const [deleteFood, setDeleteFood] = useState(false);
-    const dispatch = useDispatch();
-
-    // food[0].items.map((item, index) => console.log('item:',item,'index:',index))
-
-    // console.log(food[0].items[0])
 
     const handleChanges = (e) => {
         e.preventDefault()
@@ -174,7 +182,7 @@ export default function FeedPet() {
 
     const handleAddFood = (e) => {
         e.preventDefault()
-        setFoodItem(newFood)
+        // setFoodItem(newFood)
         // setFood([
         //     ...food,
         //     {...food[foodIndex].items,
@@ -183,6 +191,7 @@ export default function FeedPet() {
         // ])
         console.log(food[foodIndex].items)
         food[foodIndex].items.push(newFood)
+        setItemIndex(0)
         setAddFood(false)
         // console.log("adding new food:", newFood)
     }
@@ -228,14 +237,17 @@ export default function FeedPet() {
             console.log(food.array)
         }
         setAddFood(false)
-        // dispatch(parentActionCreators.getFoodList(userId));
     }
 
     return (
         <Container>
             <div className='title'><h4>Let's feed your pet!</h4></div>
-                <div className='date-picker'><DatePicker todayButton="Today" selected={startDate} onChange={date => setStartDate(date)} withPortal /></div>
-                <div className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
+                <div className='date-picker'>
+                    <label id='date-label'>Choose date:</label>
+                    <DatePicker todayButton="Today" selected={startDate} onChange={date => setStartDate(date)} withPortal />
+                </div>
+                <div className='pet'><img src={`../img/${image}1.png`} alt='Pet'/></div>
+                <div className='pet-name'><p>{pet_name}</p></div>
                 <form onSubmit={handleSubmit}>
                     {/* <input id='date-input' value={currentDate} type='date' onChange={handleChanges} required pattern="\d{4}-\d{2}-\d{2}"/> */}
                     <div id='dropdown'>
