@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pie, Polar} from 'react-chartjs-2'
+import {Polar} from 'react-chartjs-2'
 
 const Chart = (props) => {
 
