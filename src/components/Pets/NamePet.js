@@ -48,8 +48,10 @@ export default function NamePet(props) {
 
     const [name, setName] = useState('')
 
-    const { id } = useSelector(state => state.authentication.user);
-    const petChoice = useSelector(state => state.parent.petChoice);
+    // const { id } = useSelector(state => state.authentication.user);
+    const userId = sessionStorage.getItem('user');
+    const petChoice = sessionStorage.getItem('pet_choice');
+    // const petChoice = useSelector(state => state.parent.petChoice);
 
     
     const {isLoading, error} = useSelector(
@@ -71,8 +73,8 @@ export default function NamePet(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(id, petChoice, name)
-        dispatch(parentActionCreators.createPet(id, petChoice, name, () => props.history.push('/dashboard')))
+        console.log(userId, petChoice, name)
+        dispatch(parentActionCreators.createPet(userId, petChoice, name, () => props.history.push('/dashboard')))
     }
 
     return (

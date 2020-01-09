@@ -21,7 +21,7 @@ const FOOD_LOAD_FAILURE = "FOOD_LOAD_FAILURE";
 const getData = (id) => dispatch => {
       dispatch({ type: DATA_LOAD_START });
       if (id === '' || id === undefined || id === null){
-          dispatch({type: DATA_LOAD_FAILURE, payload: 'data is undefined!'})
+        //   dispatch({type: DATA_LOAD_FAILURE, payload: 'data is undefined!'})
           console.log('id is undefined!')
           return
       }
@@ -29,8 +29,11 @@ const getData = (id) => dispatch => {
         .get(`/parents/${id}/pets`)
         .then(res => {
             console.log (DATA_LOAD_SUCCESS, res.data);
-            sessionStorage.setItem('pet_name', (res.data[0].pet_name));
-            sessionStorage.setItem('image', (res.data[0].image));
+            if (res.data.length !== 0 ){
+                sessionStorage.setItem('petId', (res.data[0].id));
+                sessionStorage.setItem('pet_name', (res.data[0].pet_name));
+                sessionStorage.setItem('image', (res.data[0].image));
+            }
             dispatch({type: DATA_LOAD_SUCCESS, payload: res.data});
         })
         .catch(err => {
@@ -93,8 +96,8 @@ const editPet = (petId, name, id, redirect) => dispatch => {
 
 const choosePet = (value) => dispatch => {
     console.log('action choose pet', value)
+    sessionStorage.setItem('pet_choice', (value));
     dispatch({ type: CHOOSE_PET, payload: value });
-
 }
 
 const getFoodList = (id) => dispatch => {

@@ -1,7 +1,5 @@
 import { parentActionTypes } from '../actions'
 
-
-
 const {
     DATA_LOAD_START,
     DATA_LOAD_SUCCESS,
@@ -95,7 +93,7 @@ const {
               isLoading: true
             };
           case CREATE_PET_SUCCESS:
-            console.log('create success',action.payload)
+            console.log('create success')
             return {
               ...state,
               petChoice: '',
@@ -131,7 +129,7 @@ const {
               isLoading: true
             };
           case EDIT_PET_SUCCESS:
-            console.log('delete success')
+            console.log('edit success')
             return {
               ...state,
               petChoice: '',

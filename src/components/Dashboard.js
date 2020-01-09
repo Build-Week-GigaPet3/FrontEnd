@@ -57,8 +57,9 @@ const Container = styled.div`
 `;
 
 const Dashboard = (props) =>{
-  const { isLoading, id } = useSelector(state => state.authentication.user);
+  const { isLoading } = useSelector(state => state.authentication.user);
   const userId = sessionStorage.getItem('user');
+  const petId = sessionStorage.getItem('petId');
   const username = sessionStorage.getItem('username');
   const data = useSelector(state => state.parent.data);
   const dispatch = useDispatch();
@@ -82,7 +83,7 @@ const Dashboard = (props) =>{
   const handleDeleteYes = (e) => {
     e.preventDefault()
     console.log("deleting...")
-    dispatch(parentActionCreators.deletePet(data[0].id, id))
+    dispatch(parentActionCreators.deletePet(petId, userId))
     setDeletePet(false)
   }
 

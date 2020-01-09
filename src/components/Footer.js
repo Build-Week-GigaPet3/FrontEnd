@@ -9,7 +9,7 @@ const Container = styled.footer`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* position: fixed; */
+        position: fixed;
         bottom: 0;
         background: #6C46A2;
         color: white;
