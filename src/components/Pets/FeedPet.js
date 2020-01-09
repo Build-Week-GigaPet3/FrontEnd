@@ -21,6 +21,9 @@ const Container = styled.div`
     /* padding-top: 170px; */
     .title{
         margin-top: 55px;
+        @media screen and (max-width: 325px) {
+            margin-top: 135px;
+        }
         border-radius: 20px;
         text-align: center;
         h4{

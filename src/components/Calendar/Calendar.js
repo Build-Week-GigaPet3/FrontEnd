@@ -13,12 +13,13 @@ const Container = styled.div`
     height: 100%;
     .chart{
         border-radius: 5px;
-        width: 310px;
+        width: 90%;
+        max-width: 380px;
         height: 220px;
         background-color: rgba(255,255,255,0.7)
     }
     .title{
-        margin-bottom: 20px;
+        margin: 20px;
         border-radius: 20px;
         text-align: center;
         h4{
@@ -57,6 +58,9 @@ const Container = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
         transition: all 300ms;
+        @media screen and (max-width: 320px) {
+            margin: 0 8px 30px 8px;
+        }
         &:hover{
             background: lavender
         };

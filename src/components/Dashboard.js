@@ -71,6 +71,9 @@ const Container = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
         transition: all 300ms;
+        @media screen and (max-width: 320px) {
+            margin: 0 8px 30px 8px;
+        }
         &:hover{
             background: lavender
         };

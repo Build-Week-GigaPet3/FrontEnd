@@ -21,7 +21,7 @@ const MainContainer = styled.div`
   background-size: 100%;
   background-attachment:fixed;
   background-position-y: 49px;
-  height: 97vh;
+  height: 100vh;
   min-height: 568px;
   min-width: 320px;
   max-width: 568px;
@@ -30,6 +30,19 @@ const MainContainer = styled.div`
     background-position: center;
     background-size: contain;
     background-position-y: 49px;
+    height: 97vh;
+  }
+  .home::-webkit-scrollbar {
+    width: 5px;
+    }
+  .home::-webkit-scrollbar-track {
+    }
+  .home::-webkit-scrollbar-thumb {
+    background: lightgray;
+    height: 100px; 
+    }
+  .home::-webkit-scrollbar-thumb:hover {
+    background: #888; 
   }
   /* display: flex; */
   /* flex-direction: column; */
