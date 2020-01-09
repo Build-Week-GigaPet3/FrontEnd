@@ -11,8 +11,18 @@ const Container = styled.div`
     justify-content: center;
     height: 100%;
     .title{
-        margin-top: 150px;
+        margin-top: 20px;
+        h3{
+            font-family: 'Rancho', cursive;
+            font-size: 4rem;
+        }
     }
+    h4{
+            /* font-family: 'Rancho', cursive; */
+            /* font-size: 4rem; */
+            margin-top: 20px;
+            margin-bottom: -30px;
+        }
     .pets {
         width: 40%;
         height: 180px;

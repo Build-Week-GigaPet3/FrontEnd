@@ -26,6 +26,18 @@ const Container = styled.div`
             font-size: 4rem;
         }
     }
+    .pet-name {
+        background-color: rgba(216, 216, 255, 0.5);
+        border-radius: 10px;
+        margin: 10px 0;
+        padding: 0 10px;
+        p{
+            font-family: 'Rancho', cursive;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 3px black;
+        }
+    }
     .btn-container-top{
         margin-top: 50px;
     }
@@ -56,12 +68,14 @@ const Calendar = (props) =>{
   const logs = useSelector(state => state.parent.log)
   const [chartData, setChartData] = useChartData(logs);
   const username = sessionStorage.getItem('username');
+  const pet_name = sessionStorage.getItem('pet_name');
 
 
 
   return (
         <Container>
             <div className='title'><h4>Awesome job<br/>{username}!</h4></div>
+            <div className='pet-name'><p>{pet_name} is leveling up:</p></div>
             <div className='chart'>
                 <Chart chartData={chartData} setChartData={setChartData} />
             </div>

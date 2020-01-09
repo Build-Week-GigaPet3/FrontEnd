@@ -20,7 +20,13 @@ const Container = styled.div`
     overflow: auto;
     padding-top: 170px;
     .title{
-        margin-top: 20px 0;
+        margin-top: 20px;
+        border-radius: 20px;
+        text-align: center;
+        h4{
+            font-family: 'Rancho', cursive;
+            font-size: 4rem;
+        }
     }
     .pet {
         margin: 40px;

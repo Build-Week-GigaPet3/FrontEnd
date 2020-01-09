@@ -45,7 +45,6 @@ const Container = styled.div`
         width: 250px;
         height: 3.0rem;
         color: white;
-        /* text-shadow: 2px 2px 2px black; */
         background-color: rgba(216, 216, 255, 0.5);
         font-family: 'Rancho', cursive;
     }
