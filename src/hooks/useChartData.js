@@ -39,6 +39,7 @@ const useChartData = (props) => {
           datasets:[
             {
               label: 'Label Here',
+              borderWidth: 0,
               data: logsCount(),
               backgroundColor: [
                 '#ff6666',

@@ -9,14 +9,15 @@ const Container = styled.footer`
         justify-content: center;
         /* position: fixed; */
         bottom: 0;
-        background: #6C46A2;
+        background: #9090ff;
         color: white;
         height: 25px;
         width: 100vw;
-        opacity: 0.8;
+        opacity: 0.5;
         z-index: 0;
         p{
             margin: 5px;
+            text-shadow: 2px 2px 3px black;
         }
     }
     

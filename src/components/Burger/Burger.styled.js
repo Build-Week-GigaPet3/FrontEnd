@@ -30,11 +30,11 @@ div {
   margin-bottom: -1px;
   :first-child {
     transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
-    /* margin-bottom: -1px; */
   }
 
   :nth-child(2) {
-    /* height: 0.2rem; */
+    height: 0.2rem;
+    /* margin-bottom: -1px; */
     opacity: ${({ open }) => open ? '0' : '1'};
     transform: ${({ open }) => open ? 'rotate(360deg)' : 'rotate(0)'};
   }

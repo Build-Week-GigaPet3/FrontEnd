@@ -13,6 +13,10 @@ const Container = styled.div`
     .title{
         margin: 20px 0;
         margin-bottom: 35px;
+        h4{
+            font-family: 'Rancho', cursive;
+            font-size: 4rem;
+        }
     }
     .pet {
         margin: 40px;
@@ -39,8 +43,9 @@ const Container = styled.div`
         border-bottom: 1px solid grey;
         margin: 30px;
         width: 250px;
-        height: 2.0rem;
-        background: none;
+        height: 3.0rem;
+        color: white;
+        background-color: rgba(216, 216, 255, 0.5);
         font-family: 'Rancho', cursive;
     }
 `;

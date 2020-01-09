@@ -15,10 +15,10 @@ const ModalStyle = styled.div`
     align-items: center;
     justify-content: center;
     position: fixed;
-    background: white;
+    background: rgba(255,255,255,0.9);
     border-radius: 5px;
     width: 300px;
-    height: 300px;
+    height: 150px;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
@@ -29,6 +29,10 @@ const ModalStyle = styled.div`
         align-items: center;
         width: 250px;
         text-align: center;
+        h6{
+            font-family: 'Rancho', cursive;
+            font-size: 3rem;
+        }
     }
   }
   .modal-buttons{
@@ -36,10 +40,10 @@ const ModalStyle = styled.div`
   }
   button{
         /* margin-bottom: 30px; */
-        background: #6C46A2;
+        background: #9090ff;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 25px;
         width: 100px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;

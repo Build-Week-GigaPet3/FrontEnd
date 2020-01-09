@@ -18,8 +18,14 @@ const Container = styled.div`
         margin: 5px;
     }
     .title{
-        margin: 20px 0;
-        /* padding-top: 100px; */
+        margin-bottom: 20px;
+        /* background-color: rgba(216, 2216, 255, 0.5); */
+        /* padding: 8px 15px; */
+        border-radius: 20px;
+        h4{
+            font-family: 'Rancho', cursive;
+            font-size: 4rem;
+        }
     }
     .pet {
         margin: 40px;
@@ -35,17 +41,30 @@ const Container = styled.div`
         }
     }
     .pet-name {
+        background-color: rgba(216, 216, 255, 0.5);
+        border-radius: 10px;
+        margin: 10px 0;
+        padding: 0 10px;
         p{
             font-family: 'Rancho', cursive;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 3px black;
         }
     }
+    .btn-container-top{
+        margin-top: 20px;
+    }
+    .btn-container-bottom{
+        margin-bottom: 20px;
+    }
     .delete-pet-btn{
-        margin-bottom: 30px;
-        background: #6C46A2;
+        margin: 0 15px 30px 15px;
+        background: #9090ff;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 25px;
+        box-shadow: 2px 2px 3px grey;
         width: 140px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
@@ -116,11 +135,16 @@ const Dashboard = (props) =>{
                     </> : <>
                         <div className='pet'><img src={`../img/${data[0].image}1.png`} alt='Pet'/></div>
                         <div className='pet-name'><p>{data[0].pet_name}</p></div>
-                        <Link to='/feedpet'><Button name="Feed Pet" /></Link>
+                        {/* <Link to='/feedpet'><Button name="Feed Pet" /></Link> */}
                         {/* <Link to='/calendar'><Button name="View Calendar" /></Link> */}
-                        <button className='delete-pet-btn' onClick={handleLoadCalendar}>View Calendar</button>
-                        <button className='delete-pet-btn' onClick={handleEditPet}>Edit Pet</button>
-                        <button className='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
+                        <div className='btn-container-top'>
+                            <button id='one' className='delete-pet-btn' onClick={()=> props.history.push('/feedpet')}>Feed Pet</button>
+                            <button id='two' className='delete-pet-btn' onClick={handleLoadCalendar}>View Calendar</button>
+                        </div>
+                        <div className='btn-container-bottom'>
+                            <button id='three' className='delete-pet-btn' onClick={handleEditPet}>Edit Pet</button>
+                            <button id='four' className='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
+                        </div>
                     </> 
                     }
                     </>

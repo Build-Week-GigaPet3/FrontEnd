@@ -10,7 +10,8 @@ const HeaderStyled = styled.header`
     justify-content: space-evenly;
     position: fixed;
     top: 0;
-    background: #6C46A2;
+    background: #9090ff;
+    border: none;
     color: white;
     height: 50px;
     width: 100vw;
