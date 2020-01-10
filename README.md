@@ -1,9 +1,13 @@
-# GigaPet
+# LambdiPet
 
 **Deployed website:** http://lambdipet.netlify.com
 
 ## Description
-Gigapet 
+LambdiPet (Renamed from GigaPet) is a mobile first design, allowing users to have quick on the go access to the app!
+
+Being a parent we know you are always looking for ways to motivate your kids to eat. With this app, you can input the servings of food you child eats, and the child can watch their Lambdi Pet grow and flourish, or wither and struggle based on what food they eat.
+
+LambdiPet gives your child control over feeding their little buddy and they are able to see what happens when they make healthy eating choices.
 
 ## Getting Started
 To begin using the App, follow the link and Sign Up for a new account with a username and password.  Fill in the required information...
@@ -58,7 +62,7 @@ This is a developmental application, contact Robert Gordon (see below) for more 
 **Full Repo:** https://https://github.com/Build-Week-GigaPet3
 
 ## Project status
-This project was completed for a Lambda School build week December 2019. There may be updates to the application periodically
+This project was completed for a Lambda School build week January 2020. There may be updates to the application periodically.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
