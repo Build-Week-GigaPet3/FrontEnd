@@ -36,6 +36,9 @@ const Menu = ({ open, setOpen }) => {
         </Link>
         <Link to="/calendar" onClick={handleClose}>
             Calendar
+        </Link>
+        <Link to="/levels" onClick={handleClose}>
+            Levels
         </Link>   
         <Link to="/" onClick={handleLogout}>
             Logout

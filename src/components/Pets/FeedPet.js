@@ -1,12 +1,34 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import Button from '../buttons/Button'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { parentActionCreators } from '../../actions';
 import ModalDelete from './ModalDelete';
 import LeftStar from './LeftStar';
+import { tada, wobble, bounce, shake } from 'react-animations';
+
+const randomOne = Math.floor(Math.random() * 3)
+
+const randomAnim = (next) => {
+    const anims =[
+        tada,
+        wobble,
+        bounce,
+        shake
+    ]
+    if (next ===  1){
+        if (randomOne === 3){
+            return keyframes`${anims[0]}`
+        }
+        return keyframes`${anims[randomOne+1]}`
+    }
+return keyframes`${anims[randomOne]}`
+}
+
+const anim = randomAnim()
+const animHover = randomAnim(1)
 
 const Container = styled.div`
     display: flex;
@@ -14,14 +36,14 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 462px;
+    overflow-y: auto;
     .title{
-        margin-top: 45px;
-        @media screen and (max-width: 325px) {
-            /* margin-top: 135px; */
-        }
+        margin-top: 60px;
         border-radius: 20px;
         text-align: center;
+        @media screen and (max-width: 325px) {
+            margin-top: 135px;
+        }
         h4{
             font-family: 'Rancho', cursive;
             font-size: 3.2rem;
@@ -39,6 +61,11 @@ const Container = styled.div`
         justify-content: space-evenly;
         img{
             width: 100%;
+            max-width: 335px;
+            animation: 1s ${anim};
+            &:hover{
+                animation: 1s ${animHover};
+            }
         }
     }
     .pet-name {
@@ -152,7 +179,8 @@ const Container = styled.div`
         margin-bottom: 25px;
     }
     #submit-container{
-        margin-top: 20px;
+        margin: 20px;
+        margin-bottom: 50px;
     }
 `;
 
