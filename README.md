@@ -10,7 +10,19 @@ Being a parent we know you are always looking for ways to motivate your kids to 
 LambdiPet gives your child control over feeding their little buddy and they are able to see what happens when they make healthy eating choices.
 
 ## Getting Started
-To begin using the App, follow the link and Sign Up for a new account with a username and password.  Fill in the required information...
+To begin using the App, follow the link and Sign Up for a new account with a username and password.
+
+Choose a pet from one of four pet types, and name your pet.
+
+On the dashboard, you'll be able to feed your pet, view the calendar, or edit your pet's name, as well as delete the pet to choose a new one.
+
+Feeding pet: select Feed Pet, then choose a date to log, next choose a food category and food item.  You can also create a new food item, or deleted a selected food item from the drop down menu.
+
+View calendar: select View Calendar.  The graph shows your food log, tracking data in all food categories. To view counts, click on the corresponding color.  To isolate specific categories click on the tag to toggle the category on and off.  Future features will show more datasets and allow users to show data by types of food item.
+
+View levels: select Levels from the hamburger menu on the top right.  Each pet type has four levels, for a total of 16 different pets.  Click Level Up to simulate the next level reached.  Click Level Down to revert back the previous level.
+
+Log out: select Logout from the hamburger menu on the top right.  Session storage will be cleared.  Thank you for using LambdiPet!
 
 ## Prerequisites
 All of the below dependencies can be installed using: yarn install or npm install
