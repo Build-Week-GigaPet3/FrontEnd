@@ -16,7 +16,7 @@ const Container = styled.div`
     height: 100%;
     overflow-y: auto;
     .title{
-        margin-top: 45px;
+        margin-top: 60px;
         border-radius: 20px;
         text-align: center;
         @media screen and (max-width: 325px) {
