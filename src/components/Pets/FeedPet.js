@@ -280,11 +280,9 @@ export default function FeedPet(props) {
         }
         // console.log("adding...", foodIndex, data)
         dispatch(parentActionCreators.updateFoodLog(data))
-        console.log('pausing')
         setShowLeftStar(true)
         await new Promise(r => setTimeout(r, 1500));
         setShowLeftStar(false)
-        console.log('and go...')
         props.history.push('/calendar')
     }
 
