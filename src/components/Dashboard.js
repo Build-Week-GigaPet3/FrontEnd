@@ -12,20 +12,14 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 99.99vh;
+    overflow: auto;
+    padding-top: 170px;
     p{
         margin: 5px;
     }
     .title{
-        margin-bottom: 20px;
-        border-radius: 20px;
-        @media screen and (max-width: 325px) {
-            margin-top: 45px;
-        }
-        h4{
-            font-family: 'Rancho', cursive;
-            font-size: 4rem;
-        }
+        margin: 20px 0;
+        /* padding-top: 100px; */
     }
     .pet {
         margin: 40px;
@@ -38,46 +32,29 @@ const Container = styled.div`
         justify-content: space-evenly;
         img{
             width: 100%;
-            max-width: 335px;
         }
     }
     .pet-name {
-        background-color: rgba(216, 216, 255, 0.5);
-        border-radius: 10px;
-        margin: 10px 0;
-        padding: 0 10px;
         p{
             font-family: 'Rancho', cursive;
-            font-size: 2.5rem;
-            color: white;
-            text-shadow: 2px 2px 3px black;
+            font-size: 2.2rem;
         }
     }
-    .btn-container-top{
-        margin-top: 20px;
-    }
-    .btn-container-bottom{
-        margin-bottom: 20px;
-    }
     .delete-pet-btn{
-        margin: 0 15px 30px 15px;
-        background: #9090ff;
+        margin-bottom: 30px;
+        background: #6C46A2;
         color: white;
         border: none;
-        border-radius: 25px;
-        box-shadow: 2px 2px 3px grey;
+        border-radius: 5px;
         width: 140px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
         font-size: 1.8rem;
         cursor: pointer;
         transition: all 300ms;
-        @media screen and (max-width: 350px) {
-            margin: 0 8px 30px 8px;
-        }
         &:hover{
             background: lavender
-        }
+        };
     }
 `;
 
@@ -139,16 +116,11 @@ const Dashboard = (props) =>{
                     </> : <>
                         <div className='pet'><img src={`../img/${data[0].image}1.png`} alt='Pet'/></div>
                         <div className='pet-name'><p>{data[0].pet_name}</p></div>
-                        {/* <Link to='/feedpet'><Button name="Feed Pet" /></Link> */}
+                        <Link to='/feedpet'><Button name="Feed Pet" /></Link>
                         {/* <Link to='/calendar'><Button name="View Calendar" /></Link> */}
-                        <div className='btn-container-top'>
-                            <button id='one' className='delete-pet-btn' onClick={()=> props.history.push('/feedpet')}>Feed Pet</button>
-                            <button id='two' className='delete-pet-btn' onClick={handleLoadCalendar}>View Calendar</button>
-                        </div>
-                        <div className='btn-container-bottom'>
-                            <button id='three' className='delete-pet-btn' onClick={handleEditPet}>Edit Pet</button>
-                            <button id='four' className='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
-                        </div>
+                        <button className='delete-pet-btn' onClick={handleLoadCalendar}>View Calendar</button>
+                        <button className='delete-pet-btn' onClick={handleEditPet}>Edit Pet</button>
+                        <button className='delete-pet-btn' onClick={handleDeletePet}>Delete Pet</button>
                     </> 
                     }
                     </>

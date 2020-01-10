@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.footer`
     footer{
         display: flex;
         flex-direction: column;
@@ -9,17 +9,14 @@ const Container = styled.div`
         justify-content: center;
         /* position: fixed; */
         bottom: 0;
-        background: rgba(144,144,255, 0.5);
+        background: #6C46A2;
         color: white;
         height: 25px;
-        width: 100%;
-        overflow: hidden;
-        /* opacity: 0.5; */
+        width: 100vw;
+        opacity: 0.8;
         z-index: 0;
         p{
             margin: 5px;
-            /* color: white; */
-            text-shadow: 2px 2px 3px black;
         }
     }
     

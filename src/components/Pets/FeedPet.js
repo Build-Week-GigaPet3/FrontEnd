@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Button from '../buttons/Button'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { parentActionCreators } from '../../actions';
 import ModalDelete from './ModalDelete';
 import LeftStar from './LeftStar';
+import RightStar from './RightStar';
+
+import { merge, zoomOut } from 'react-animations'
 
 const Container = styled.div`
     display: flex;
@@ -14,22 +17,13 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 99.99vh;
+    overflow: auto;
+    padding-top: 170px;
     .title{
-        margin-top: 45px;
-        @media screen and (max-width: 325px) {
-            /* margin-top: 135px; */
-        }
-        border-radius: 20px;
-        text-align: center;
-        h4{
-            font-family: 'Rancho', cursive;
-            font-size: 3.2rem;
-        }
+        margin-top: 20px 0;
     }
     .pet {
-        margin-top: 20px;
-        margin-bottom: 40px;
+        margin: 40px;
         width: 40%;
         height: 180px;
         max-width: 400px;
@@ -39,19 +33,13 @@ const Container = styled.div`
         justify-content: space-evenly;
         img{
             width: 100%;
-            max-width: 335px;
         }
     }
     .pet-name {
-        background-color: rgba(216, 216, 255, 0.5);
-        border-radius: 10px;
-        margin: 10px 0;
-        padding: 0 10px;
         p{
             font-family: 'Rancho', cursive;
-            font-size: 2.5rem;
-            color: white;
-            text-shadow: 2px 2px 3px black;
+            font-size: 2.2rem;
+            margin-top: 5px;
         }
     }
     .date-picker{
@@ -72,7 +60,6 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* height: 380px; */
     }
     input{
         /* border: none; */
@@ -92,19 +79,18 @@ const Container = styled.div`
     #category{
         font-size: 1.5rem;
         /* text-align: left; */
-        /* margin-bottom: -29px; */
-        /* margin-left: 30px; */
-        /* border: 1px solid red; */
+        margin-bottom: -29px;
+        margin-left: 30px;
     }
     #item{
         font-size: 1.5rem;
         /* text-align: left; */
         /* margin-bottom: -29px; */
-        /* margin-left: 30px; */
+        margin-left: 30px;
     }
     select{
         border-radius: 5px;
-        margin-bottom: 10px;
+        margin: 30px;
         width: 250px;
         height: 30px;
         background: white;
@@ -114,14 +100,13 @@ const Container = styled.div`
     }
     #food-list{
         margin-top: 0px;
-        margin-bottom: 5px;
     }
     #add-food-btn{
         margin-bottom: 30px;
-        background: #9090ff;
+        background: #6C46A2;
         color: white;
         border: none;
-        border-radius: 25px;
+        border-radius: 5px;
         width: 140px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
@@ -134,10 +119,10 @@ const Container = styled.div`
     }
     #delete-food-btn{
         margin-bottom: 30px;
-        background: #9090ff;
+        background: #6C46A2;
         color: white;
         border: none;
-        border-radius: 25px;
+        border-radius: 5px;
         width: 140px;
         height: 25px;
         font-family: 'Hind Madurai', sans-serif;
@@ -149,11 +134,7 @@ const Container = styled.div`
         };
     }
     #add-food-input{
-        margin-top:20px;
-        margin-bottom: 25px;
-    }
-    #submit-container{
-        margin-top: 20px;
+        margin-top:22px;
     }
 `;
 
@@ -171,6 +152,7 @@ export default function FeedPet(props) {
     const [addFood, setAddFood] = useState(false);
     const [deleteFood, setDeleteFood] = useState(false);
     const [showLeftStar, setShowLeftStar] = useState(false);
+    const [showRightStar, setShowRightStar] = useState(false);
 
     const handleChanges = (e) => {
         e.preventDefault()
@@ -191,8 +173,6 @@ export default function FeedPet(props) {
             if (e.target.value === 'AddNew'){
                 setAddFood(true)
                 setFoodItem(food[foodIndex].items[itemIndex])
-            } else if (e.target.value === 'DeleteFood'){
-                setDeleteFood(true)
             } else {
                 if (itemIndex === undefined ){
                     console.log('item index:', itemIndex, 'setting to zero')
@@ -208,10 +188,18 @@ export default function FeedPet(props) {
 
     const handleAddFood = (e) => {
         e.preventDefault()
+        // setFoodItem(newFood)
+        // setFood([
+        //     ...food,
+        //     {...food[foodIndex].items,
+        //         newFood
+        //     }
+        // ])
         console.log(food[foodIndex].items)
         food[foodIndex].items.push(newFood)
         setItemIndex(0)
         setAddFood(false)
+        // console.log("adding new food:", newFood)
     }
 
     const handleCancelFood = (e) => {
@@ -227,13 +215,13 @@ export default function FeedPet(props) {
         if (food.name === ''){
             return
         }
-        setDeleteFood(false)
+        setDeleteFood(true)
     }
 
     const handleDeleteYes = (e) => {
         e.preventDefault()
         console.log("deleting...")
-        handleDeleteFood()
+        
         setDeleteFood(false)
     }
 
@@ -243,6 +231,12 @@ export default function FeedPet(props) {
         setFoodItem(foodItem)
         setDeleteFood(false)
     }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     // console.log('submit',startDate, food)
+    //     setAddFood(false)
+    // }
 
     async function handleSubmitFoodLog(e) {
         e.preventDefault(setFood)
@@ -257,8 +251,9 @@ export default function FeedPet(props) {
         setShowLeftStar(true)
         await new Promise(r => setTimeout(r, 1500));
         setShowLeftStar(false)
+        // setShowRightStar(true)
         console.log('and go...')
-        props.history.push('/calendar')
+        // props.history.push('/dashboard')
     }
 
     return (
@@ -287,15 +282,14 @@ export default function FeedPet(props) {
                             <select id='food-list' name='name' onChange={handleIndexChanges} required>
                                 {/* <option value='' disabled selected>Choose a type of {food[foodIndex].name}...</option> */}
                                 {food[foodIndex].items.map((name,index) => <option key={index} value={index}>{name}</option>)}
-                                <option value="AddNew">Create food...</option>
-                                <option value="DeleteFood">Delete food...</option>
+                                <option value="AddNew">Add new food...</option>
                             </select>
                             </> :
                         <></>}
                     </div>
                         <div className='add-delete-btns'>
                             {/* {!addFood ? <button id='add-food-btn' onClick={handleAddFood} >Create {food.category}</button> : <></> } */}
-                            {/* {!addFood ? <button id='delete-food-btn' onClick={handleDeleteFood} >Delete {foodItem}</button> : <></> } */}
+                            {!addFood ? <button id='delete-food-btn' onClick={handleDeleteFood} >Delete {foodItem}</button> : <></> }
                         </div>
                     {addFood ? 
                         <>
@@ -306,12 +300,26 @@ export default function FeedPet(props) {
                         </div>
                         </> : <></>}
                     {/* {food.name !==  '' ? <Button type='submit' name='Feed!' /> : <></>} */}
-                    <div id='submit-container'>
-                        {!addFood && <Button type='submit' name='Feed Pet!' />}
-                    </div>
+                    <Button type='submit' name='Feed Pet!' />
                 </form>
             {showLeftStar ? <><LeftStar /></> : <></>}
+            {showRightStar ? <><RightStar /></> : <></>}
             {deleteFood ? <ModalDelete name={foodItem} cancel={handleDeleteCancel} yes={handleDeleteYes}/> : <></>}
         </Container>
     )
 }
+
+
+    // function addZero(md) {
+    //     if (md < 10 ){
+    //         md = "0" + md
+    //     };
+    //     return md;
+    // }
+    // const day = new Date().getDate();
+    // const month = new Date().getMonth()+1
+    // const year = new Date().getFullYear();
+    // const currentDate = (`${year}-`+addZero(day)+'-'+addZero(month))
+    // console.log(currentDate)
+    // const element = document.getElementById('date-input')
+    // console.log(element)

@@ -10,13 +10,11 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 99.99vh;
+
     .title{
         margin: 20px 0;
-        margin-top: 55px;
-        h4{
-            font-family: 'Rancho', cursive;
-            /* font-size: 1.7rem; */
+        h6{
+            font-size: 1.7rem;
         }
     }
     .pet {
@@ -44,10 +42,8 @@ const Container = styled.div`
         border-bottom: 1px solid grey;
         margin: 30px;
         width: 250px;
-        height: 3.0rem;
-        /* color: white; */
-        text-shadow: 1px 1px 2px white;
-        background-color: rgba(216, 216, 255, 0.5);
+        height: 2.0rem;
+        background: none;
         font-family: 'Rancho', cursive;
     }
 `;
@@ -86,7 +82,7 @@ export default function NamePet(props) {
 
     return (
         <Container>
-            <div className='title'><h4>What would you like to name your pet?</h4></div>
+            <div className='title'><h6>What would you like to name your pet?</h6></div>
             <div className='pet'><img src={`../img/${image}1.png`} alt='Pet'/></div>
             <div>
                 <form onSubmit={handleSubmit}>

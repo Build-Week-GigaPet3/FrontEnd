@@ -6,7 +6,7 @@ flex-direction: column;
 justify-content: center;
 background: #e6ccff;
 transform: ${({ open }) => open ? 'translateY(0)' : 'translateY(-100%)'};
-height: 99.9vh;
+height: 50vh;
 text-align: left;
 padding: 2rem;
 position: absolute;
@@ -16,8 +16,9 @@ transition: transform 0.3s ease-in-out;
 z-index: 1;
 @media (max-width: 576px) {
     width: 100%;
-    height: 50vh;
+    /* height: 100vh; */
   }
+
 a {
   font-size: 2rem;
   text-transform: uppercase;

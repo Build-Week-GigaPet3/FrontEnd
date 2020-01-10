@@ -1,33 +1,24 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faCode } from '@fortawesome/free-solid-svg-icons';
-import { slideInRight, slideInLeft } from 'react-animations';
-
-const left = keyframes `${slideInLeft}`
-const right = keyframes `${slideInRight}`
+import styled from 'styled-components';
+import Button from './buttons/Button';
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
-    min-height: 99.99vh;
+    justify-content: center;
+    max-width: 500px;
+    min-height: 462px;
     margin: 0 auto;
     .text{
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: lightblue;
         border-radius: 5px;
-        width: 310px;
-        margin-bottom: 20px;
-        /* opacity: 0.8; */
+        width: 80%;
+        opacity: 0.8;
     }
     h2{
         color: white;
-        text-shadow: 2px 2px 3px black;
-        margin: 50px 0;
-        font-family: 'Rancho', cursive;
-        font-size: 3.5rem;
+        text-shadow: 2px 2px 3px black
     }
     p{
         margin: 5px;
@@ -36,158 +27,18 @@ const Container = styled.div`
         text-shadow: 2px 2px 3px white;
         /* background-color: white; */
     }
-    .btn-container{
-        .btn{
-        margin: 0 15px 30px 15px;
-        background: #9090ff;
-        color: white;
-        border: none;
-        border-radius: 25px;
-        box-shadow: 2px 2px 3px grey;
-        width: 140px;
-        height: 25px;
-        font-family: 'Hind Madurai', sans-serif;
-        font-size: 1.8rem;
-        cursor: pointer;
-        transition: all 300ms;
-        @media screen and (max-width: 340px) {
-            margin: 0 8px 30px 8px;
-        }
-        &:hover{
-            background: lavender
-        };
-    }
-    }
-    .about{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        #left{
-            animation: 2s ${left};
-        }
-        #right{
-            animation: 2s ${right};
-        }
-        .card{
-            background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 5px;
-            width: 310px;
-            /* min-width: 300px; */
-            height: 160px;
-            margin: 12px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            transition: all 300ms ease-in-out;
-                &:hover{
-                transform: scale(1.2);
-                background-color: rgba(255, 255, 255, 0.9);
-            }
-            img{
-                width: 30%;
-            }
-            .name{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                width: 62%;
-                height: 100%;
-                text-align: center;
-                h4{
-                    font-family: 'Rancho', cursive;
-                    font-size: 3.2rem;
-                }
-                h5{
-                    margin-bottom: 30px;
-                }
-                #mad{
-                    font-family: 'Rancho', cursive;
-                    font-size: 2.7rem;
-                }
-                a{
-                    font-size: 2.5rem;
-                    margin: 0 10px;
-                    /* margin-top: 30px; */
-                    color: lightblue;
-                    filter: drop-shadow(2px 2px 2px grey);
-                    transition: all 300ms ease-in-out;
-                    &:hover{
-                        color: #c6d5dd;
-                    }
-                }
-            }
-        }
-    }
 `;
 
 const Login = (props) =>{
   
   return (
         <Container>
-            <h2>Welcome to LambdiPet</h2>
-            <h4>What it does:</h4>
+            <h2>What it does</h2>
             <div className='text'>
-                <p>LambdiPet is a mobile first design, allowing users to have quick on the go access to the app!</p>
                 <p>Being a parent we know you are always looking for ways to motivate your kids to eat. With this app, you can input the servings of food you child eats, and the child can watch their Lambdi Pet grow and flourish, or wither and struggle based on what food they eat.</p>
-                <p>LambdiPet gives your child control over feeding their little buddy and they are able to see what happens when they make healthy eating choices.</p>
+                <p>Lambdi Pet gives your child control over feeding their little buddy and are able to see what happends when they make healthy eating choices.</p>
             </div>
-            <div className='btn-container'>
-                            <button id='one' className='btn' onClick={()=> props.history.push('/signup')}>Create Account</button>
-                            <button id='two' className='btn' onClick={()=> props.history.push('/login')}>Login</button>
-            </div>
-            <div className='about'>
-                <h4>Meet the LambdiPet team:</h4>
-                <div id="right" className='card'>
-                    <img src='../img/robert.png' alt='Profile' />
-                    <div className='name'>
-                        <h4>Robert Gordon</h4>
-                        <h5>Frontend Dev</h5>
-                        <div className='links'>
-                            <a href='https://github.com/RobertDGordon'><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href='https://www.linkedin.com/in/robert-d-gordon/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href='https://rob-gordon.com'><FontAwesomeIcon icon={faCode} /></a>
-                        </div>
-                    </div>
-                </div>
-                <div id="left" className='card'>
-                    <img src='../img/mad.png' alt='Profile' />
-                    <div className='name'>
-                        <h4><span id='mad'>Madeline McIntosh</span></h4>
-                        <h5>Backend Dev</h5>
-                        <div className='links'>
-                            <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
-                        </div>
-                    </div>
-                </div>
-                <div id="right" className='card'>
-                    <img src='../img/thomas.png' alt='Profile' />
-                    <div className='name'>
-                        <h4>Thomas Shotts Jr</h4>
-                        <h5>Marketing UI</h5>
-                        <div className='links'>
-                            <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
-                        </div>
-                    </div>
-                </div>
-                <div id="left" className='card'>
-                    <img src='../img/kelly.png' alt='Profile' />
-                    <div className='name'>
-                        <h4>Kelly Moreira</h4>
-                        <h5>Project Lead</h5>
-                        <div className='links'>
-                            <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a href='/signup' ><Button name="Create Account" /></a>
         </Container>
     )
 }

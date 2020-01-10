@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useOnClickOutside } from '../hooks';
 import Burger from './Burger/';
@@ -11,8 +10,7 @@ const HeaderStyled = styled.header`
     justify-content: space-evenly;
     position: fixed;
     top: 0;
-    background: #9090ff;
-    border: none;
+    background: #6C46A2;
     color: white;
     height: 50px;
     width: 100vw;
@@ -54,7 +52,7 @@ export default function Header() {
     return (
         <HeaderStyled>
             <div className='logo'>
-                <Link to='/'><h3>LambdiPet</h3></Link>
+                <a href='/'><h3>LambdiPet</h3></a>
             </div>
             {/* <div className='welcome'>
                 <p>Welcome to GigaPet</p>

@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ButtonStyle = styled.button`
-    background: #9090ff;
+    background: #6C46A2;
     color: white;
     border: none;
-    border-radius: 25px;
-    box-shadow: 2px 2px 3px grey;
+    border-radius: 5px;
     width: 280px;
     height: 45px;
     font-family: 'Hind Madurai', sans-serif;

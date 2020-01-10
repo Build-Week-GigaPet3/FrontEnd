@@ -9,8 +9,8 @@ const LoginContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 99.99vh;
-    /* height: 100%; */
+    min-height: 462px;
+    height: 100%;
 `;
 
 const Login = (props) =>{
@@ -47,7 +47,7 @@ const Login = (props) =>{
         <LoginContainer>
             <h2>Login:</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Enter Username</label>
+                <label htmlFor="email">Enter Email</label>
                 <input type="text" id="email" name="username" value={data.username} onChange={handleChange} />
 
                 <label htmlFor="password">Enter Password</label>

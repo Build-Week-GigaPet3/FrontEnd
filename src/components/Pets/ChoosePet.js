@@ -10,20 +10,9 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 99.99vh;
     .title{
-        margin-top: 20px;
-        h3{
-            font-family: 'Rancho', cursive;
-            font-size: 4rem;
-        }
+        margin-top: 150px;
     }
-    h4{
-            /* font-family: 'Rancho', cursive; */
-            /* font-size: 4rem; */
-            margin-top: 20px;
-            margin-bottom: -30px;
-        }
     .pets {
         width: 40%;
         height: 180px;
