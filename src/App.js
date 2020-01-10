@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import ChoosePet from './components/Pets/ChoosePet';
 import NamePet from './components/Pets/NamePet';

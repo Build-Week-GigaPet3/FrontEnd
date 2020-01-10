@@ -9,9 +9,8 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     min-height: 462px;
-    width: 100%;
+    height: 100%;
     .title{
         margin: 20px 0;
         margin-top: 55px;
