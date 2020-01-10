@@ -153,7 +153,7 @@ const Container = styled.div`
         };
     }
     #add-food-input{
-        margin-top:18px;
+        margin-top:20px;
         margin-bottom: 25px;
     }
     #submit-container{

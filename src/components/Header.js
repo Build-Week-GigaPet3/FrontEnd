@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Link from 'react-router-dom';
 import styled from 'styled-components';
 import { useOnClickOutside } from '../hooks';
 import Burger from './Burger/';
@@ -53,7 +54,7 @@ export default function Header() {
     return (
         <HeaderStyled>
             <div className='logo'>
-                <a href='/'><h3>LambdiPet</h3></a>
+                <Link to='/'><h3>LambdiPet</h3></Link>
             </div>
             {/* <div className='welcome'>
                 <p>Welcome to GigaPet</p>
