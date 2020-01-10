@@ -40,6 +40,28 @@ const Container = styled.div`
         text-shadow: 2px 2px 3px white;
         /* background-color: white; */
     }
+    .btn-container{
+        .btn{
+        margin: 0 15px 30px 15px;
+        background: #9090ff;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 2px 2px 3px grey;
+        width: 140px;
+        height: 25px;
+        font-family: 'Hind Madurai', sans-serif;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: all 300ms;
+        @media screen and (max-width: 320px) {
+            margin: 0 8px 30px 8px;
+        }
+        &:hover{
+            background: lavender
+        };
+    }
+    }
     .about{
         display: flex;
         flex-direction: column;
@@ -111,7 +133,10 @@ const Login = (props) =>{
                 <p>Being a parent we know you are always looking for ways to motivate your kids to eat. With this app, you can input the servings of food you child eats, and the child can watch their Lambdi Pet grow and flourish, or wither and struggle based on what food they eat.</p>
                 <p>LambdiPet gives your child control over feeding their little buddy and they are able to see what happens when they make healthy eating choices.</p>
             </div>
-            <a href='/signup' ><Button name="Create Account" /></a>
+            <div className='btn-container'>
+                            <button id='one' className='btn' onClick={()=> props.history.push('/signup')}>Create Account</button>
+                            <button id='two' className='btn' onClick={()=> props.history.push('/login')}>Login</button>
+            </div>
             <div className='about'>
                 <h4>Meet the LambdiPet team:</h4>
                 <div id="right" className='card'>
