@@ -121,26 +121,26 @@ const Dashboard = (props) =>{
 
   const handleEditPet = (e) => {
     e.preventDefault()
-    console.log("edit pet")
+    // console.log("edit pet")
     props.history.push('/editpet')
   }
 
   const handleDeletePet = (e) => {
     e.preventDefault()
-    console.log("delete set to", deletePet)
+    // console.log("delete set to", deletePet)
     setDeletePet(true)
   }
 
   const handleDeleteYes = (e) => {
     e.preventDefault()
-    console.log("deleting...")
+    // console.log("deleting...")
     dispatch(parentActionCreators.deletePet(petId, userId))
     setDeletePet(false)
   }
 
   const handleDeleteCancel = (e) => {
     e.preventDefault()
-    console.log("cancel delete pet")
+    // console.log("cancel delete pet")
     setDeletePet(false)
   }
 

@@ -76,7 +76,7 @@ export default function ChoosePet(props) {
 
     const handleChoice = (e, name) => {
         e.preventDefault()
-        console.log('pet choice', name)
+        // console.log('pet choice', name)
         dispatch(parentActionCreators.choosePet(name));
         props.history.push('/namepet')
     }

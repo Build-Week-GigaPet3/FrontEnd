@@ -90,7 +90,7 @@ const {
               isLoading: true
             };
           case DATA_LOAD_SUCCESS:
-            console.log('reducer',action.payload)
+            console.log('Data Loading Success...',action.payload)
             return {
               ...state,
               data: action.payload,
@@ -114,7 +114,7 @@ const {
               isLoading: true
             };
           case CREATE_PET_SUCCESS:
-            console.log('create success')
+            // console.log('create success')
             return {
               ...state,
               petChoice: '',
@@ -132,7 +132,7 @@ const {
               isLoading: true
             };
           case DELETE_PET_SUCCESS:
-            console.log('delete success')
+            // console.log('delete success')
             return {
               ...state,
               petChoice: '',
@@ -150,7 +150,7 @@ const {
               isLoading: true
             };
           case EDIT_PET_SUCCESS:
-            console.log('edit success')
+            // console.log('edit success')
             return {
               ...state,
               petChoice: '',

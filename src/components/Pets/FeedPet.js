@@ -208,11 +208,11 @@ export default function FeedPet(props) {
         if (e.target.name === 'category'){
             setFoodIndex(e.target.value);
             if (food[e.target.value].items[itemIndex] === undefined ){
-                console.log('item index:', itemIndex, 'setting to zero')
+                // console.log('item index:', itemIndex, 'setting to zero')
                 setItemIndex(0)
             }else{
                 setFoodItem(food[e.target.value].items[itemIndex])
-                console.log('setting category to', e.target.value, food[e.target.value].items[itemIndex])
+                // console.log('setting category to', e.target.value, food[e.target.value].items[itemIndex])
             }
         }else if (e.target.name === 'name'){
             if (e.target.value === 'AddNew'){
@@ -222,12 +222,12 @@ export default function FeedPet(props) {
                 setDeleteFood(true)
             } else {
                 if (itemIndex === undefined ){
-                    console.log('item index:', itemIndex, 'setting to zero')
+                    // console.log('item index:', itemIndex, 'setting to zero')
                     setItemIndex(0)
                 }else{
                     setItemIndex(e.target.value);
                     setFoodItem(food[foodIndex].items[e.target.value])
-                    console.log('setting item to', e.target.value)
+                    // console.log('setting item to', e.target.value)
                 }
             }
         }
@@ -235,7 +235,7 @@ export default function FeedPet(props) {
 
     const handleAddFood = (e) => {
         e.preventDefault()
-        console.log(food[foodIndex].items)
+        // console.log(food[foodIndex].items)
         food[foodIndex].items.push(newFood)
         setItemIndex(0)
         setAddFood(false)
@@ -245,12 +245,12 @@ export default function FeedPet(props) {
         e.preventDefault()
         setFoodItem(food[foodIndex].items[itemIndex])
         setAddFood(false)
-        console.log("addFood set to", addFood)
+        // console.log("addFood set to", addFood)
     }
 
     const handleDeleteFood = (e) => {
         e.preventDefault()
-        console.log(food)
+        // console.log(food)
         if (food.name === ''){
             return
         }
@@ -259,14 +259,14 @@ export default function FeedPet(props) {
 
     const handleDeleteYes = (e) => {
         e.preventDefault()
-        console.log("deleting...")
+        // console.log("deleting...")
         handleDeleteFood()
         setDeleteFood(false)
     }
 
     const handleDeleteCancel = (e) => {
         e.preventDefault()
-        console.log("cancel delete food")
+        // console.log("cancel delete food")
         setFoodItem(foodItem)
         setDeleteFood(false)
     }
