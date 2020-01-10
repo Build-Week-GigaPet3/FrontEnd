@@ -17,13 +17,12 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
+    min-height: 462px;
     width: 100%;
-    overflow: auto;
-    /* padding-top: 170px; */
     .title{
         margin-top: 55px;
         @media screen and (max-width: 325px) {
-            margin-top: 135px;
+            /* margin-top: 135px; */
         }
         border-radius: 20px;
         text-align: center;

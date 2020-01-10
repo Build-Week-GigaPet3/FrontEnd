@@ -23,8 +23,8 @@ const MainContainer = styled.div`
   background-position-y: 49px;
   height: 100%;
   width: 100%;
-  /* min-height: 568px; */
-  /* min-width: 320px; */
+  min-height: 568px;
+  min-width: 320px;
   max-width: 568px;
   margin: 0 auto;
   /* border: 1px solid red; */
