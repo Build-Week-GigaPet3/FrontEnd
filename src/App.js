@@ -21,18 +21,19 @@ const MainContainer = styled.div`
   background-size: 100%;
   background-attachment:fixed;
   background-position-y: 49px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 99.9vh;
   width: 100%;
   min-height: 568px;
   min-width: 320px;
   max-width: 568px;
+  max-height: 960px;
+  overflow: auto;
+  overflow-x: hidden;
   margin: 0 auto;
-  /* border: 1px solid red; */
-  /* overflow: hidden; */
-  /* @media screen and (min-width: 1000px){
-    overflow: none;
-  } */
-
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;
