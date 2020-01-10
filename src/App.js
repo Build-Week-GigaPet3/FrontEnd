@@ -21,10 +21,10 @@ const MainContainer = styled.div`
   background-size: 100%;
   background-attachment:fixed;
   background-position-y: 49px;
-  height: 99%;
+  height: 100%;
   width: 100%;
   /* min-height: 568px; */
-  min-width: 320px;
+  /* min-width: 320px; */
   max-width: 568px;
   margin: 0 auto;
   /* border: 1px solid red; */
@@ -37,7 +37,8 @@ const MainContainer = styled.div`
     background-position: center;
     background-size: contain;
     background-position-y: 49px;
-    height: 97vh;
+    /* background-position-x: 430px; */
+    height: 99.9vh;
   }
   .home::-webkit-scrollbar {
     width: 5px;

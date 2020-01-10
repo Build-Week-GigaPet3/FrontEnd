@@ -22,7 +22,7 @@ const Container = styled.div`
     .text{
         background-color: rgba(255, 255, 255, 0.6);
         border-radius: 5px;
-        width: 80%;
+        width: 310px;
         margin-bottom: 20px;
         /* opacity: 0.8; */
     }
@@ -54,9 +54,9 @@ const Container = styled.div`
         .card{
             background-color: rgba(255, 255, 255, 0.6);
             border-radius: 5px;
-            width: 80%;
+            width: 310px;
             /* min-width: 300px; */
-            height: 200px;
+            height: 160px;
             margin: 15px 0;
             display: flex;
             align-items: center;
@@ -70,7 +70,12 @@ const Container = styled.div`
                 width: 30%;
             }
             .name{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 width: 62%;
+                height: 100%;
                 text-align: center;
                 h4{
                     font-family: 'Rancho', cursive;
@@ -102,6 +107,7 @@ const Login = (props) =>{
             <h2>Welcome to LambdiPet</h2>
             <h4>What it does:</h4>
             <div className='text'>
+                <p>LambdiPet is a mobile first design, allowing users to have quick on the go access to the app!</p>
                 <p>Being a parent we know you are always looking for ways to motivate your kids to eat. With this app, you can input the servings of food you child eats, and the child can watch their Lambdi Pet grow and flourish, or wither and struggle based on what food they eat.</p>
                 <p>LambdiPet gives your child control over feeding their little buddy and they are able to see what happens when they make healthy eating choices.</p>
             </div>
