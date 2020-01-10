@@ -12,7 +12,7 @@ import NamePet from './components/Pets/NamePet';
 import EditPet from './components/Pets/EditPet';
 import FeedPet from './components/Pets/FeedPet';
 import Calendar from './components/Calendar/Calendar';
-
+import Levels from './components/Levels/Levels'
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
@@ -62,6 +62,7 @@ function App() {
           <PrivateRoute path='/editpet' component={EditPet} />
           <PrivateRoute path='/feedpet' component={FeedPet} />
           <PrivateRoute path='/calendar' component={Calendar} />
+          <PrivateRoute path='/levels' component={Levels} />
         </MainContainer>
       <Footer />
     </Router>
