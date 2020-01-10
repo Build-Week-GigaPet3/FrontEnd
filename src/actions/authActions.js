@@ -33,7 +33,7 @@ const registerUser = (values, redirect) => dispatch => {
     axiosWithAuth()
         .post('/auth/register', values)
         .then(res => {
-            console.log ('register user', res.data)
+            // console.log ('register user', res.data)
             if (res.data.username) {
                 const missingTokenLogin = {
                     username: values.username,
@@ -43,7 +43,7 @@ const registerUser = (values, redirect) => dispatch => {
                     .post('/auth/login', missingTokenLogin)
                     .then(res => {
                         const { token } = res.data;
-                        console.log('token fix user logged in', res.data);
+                        console.log('Missing token fixed, user logged in', res.data);
                         const data = {
                             id: res.data.id,
                             username: res.data.username,

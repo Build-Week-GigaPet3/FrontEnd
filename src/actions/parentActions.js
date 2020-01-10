@@ -24,13 +24,13 @@ const getData = (id) => dispatch => {
       dispatch({ type: DATA_LOAD_START });
       if (id === '' || id === undefined || id === null){
         //   dispatch({type: DATA_LOAD_FAILURE, payload: 'data is undefined!'})
-          console.log('id is undefined!')
+        //   console.log('id is undefined!')
           return
       }
       axiosWithAuth()
         .get(`/parents/${id}/pets`)
         .then(res => {
-            console.log (DATA_LOAD_SUCCESS, res.data);
+            // console.log (DATA_LOAD_SUCCESS, res.data);
             if (res.data.length !== 0 ){
                 sessionStorage.setItem('petId', (res.data[0].id));
                 sessionStorage.setItem('pet_name', (res.data[0].pet_name));
@@ -84,11 +84,11 @@ const editPet = (petId, name, id, redirect) => dispatch => {
     }
 
     dispatch({ type: EDIT_PET_START });
-    console.log(petId)
+    // console.log(petId)
     axiosWithAuth()
         .put(`/pets/${petId}`, payload)
         .then((res) => {
-            console.log('actions edit', res)
+            // console.log('actions edit', res)
             dispatch({ type: EDIT_PET_SUCCESS });
             dispatch(getData(id));
             redirect()
@@ -97,7 +97,7 @@ const editPet = (petId, name, id, redirect) => dispatch => {
 }
 
 const choosePet = (value) => dispatch => {
-    console.log('action choose pet', value)
+    // console.log('action choose pet', value)
     sessionStorage.setItem('pet_choice', (value));
     dispatch({ type: CHOOSE_PET, payload: value });
 }
@@ -107,17 +107,17 @@ const getFoodList = (id) => dispatch => {
     dispatch({ type: FOOD_LOAD_START });
       if (id === '' || id === undefined || id === null){
           dispatch({type: FOOD_LOAD_FAILURE, payload: 'data is undefined!'})
-          console.log('id is undefined!')
+        //   console.log('id is undefined!')
           return
       }
       axiosWithAuth()
         .get(`/food`)
         .then(res => {
-            console.log('food list:', res.data)
+            // console.log('food list:', res.data)
             dispatch({type: FOOD_LOAD_SUCCESS, payload: res.data});
         })
         .catch(err => {
-            console.log(err)
+            // console.log(err)
             dispatch({type: FOOD_LOAD_FAILURE, payload: err.message})
         })
 }
@@ -127,13 +127,13 @@ const getFoodLog = (id) => dispatch => {
     dispatch({ type: FOOD_LOAD_START });
       if (id === '' || id === undefined || id === null){
           dispatch({type: FOOD_LOAD_FAILURE, payload: 'data is undefined!'})
-          console.log('id is undefined!')
+        //   console.log('id is undefined!')
           return
       }
       axiosWithAuth()
         .get(`/parents/${id}/food/log`)
         .then(res => {
-            console.log('food log:', res.data)
+            // console.log('food log:', res.data)
             dispatch({type: FOOD_LOAD_SUCCESS, payload: res.data});
         })
         .catch(err => {

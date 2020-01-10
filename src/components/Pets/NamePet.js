@@ -80,7 +80,7 @@ export default function NamePet(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(userId, petChoice, name)
+        // console.log(userId, petChoice, name)
         dispatch(parentActionCreators.createPet(userId, petChoice, name, () => props.history.push('/dashboard')))
     }
 
