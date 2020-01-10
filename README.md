@@ -38,6 +38,7 @@ This project was created using yarn and designed for react client side. Other de
     "@fortawesome/react-fontawesome": "^0.1.7",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
+    "chart.js": "^2.9.3",
     "formik": "^2.0.4",
     "react": "^16.12.0",
     "react-animations": "^1.0.0",
@@ -49,7 +50,6 @@ This project was created using yarn and designed for react client side. Other de
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.4.1",
-    "yup": "^0.27.0"
 ```
 
 # API
