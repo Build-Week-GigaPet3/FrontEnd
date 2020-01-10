@@ -7,7 +7,7 @@ const Container = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* position: fixed; */
+        position: fixed;
         bottom: 0;
         background: rgba(144,144,255, 0.5);
         color: white;
