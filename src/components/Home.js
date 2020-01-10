@@ -13,8 +13,8 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     height: 100%;
-    min-height: 99.99vh;
     margin: 0 auto;
+    overflow-y: auto;
     .text{
         background-color: rgba(255, 255, 255, 0.6);
         border-radius: 5px;

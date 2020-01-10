@@ -16,18 +16,19 @@ import Calendar from './components/Calendar/Calendar';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  min-width: 320px;
+  align-items: center; */
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: 49px;
   background-attachment:fixed;
-  /* max-height: 100vh; */
+  height: 100vh;
+  min-height: 568px;
+  min-width: 320px;
   /* max-width: 700px; */
-  /* margin: 0 auto; */
-  /* border: 1px solid blue; */
+  margin: 0 auto;
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;
