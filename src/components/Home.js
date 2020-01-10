@@ -106,6 +106,10 @@ const Container = styled.div`
                 h5{
                     margin-bottom: 30px;
                 }
+                #mad{
+                    font-family: 'Rancho', cursive;
+                    font-size: 2.7rem;
+                }
                 a{
                     font-size: 2.5rem;
                     margin: 0 10px;
@@ -154,7 +158,7 @@ const Login = (props) =>{
                 <div id="left" className='card'>
                     <img src='../img/mad.png' alt='Profile' />
                     <div className='name'>
-                        <h4>Madeline McIntosh</h4>
+                        <h4><span id='mad'>Madeline McIntosh</span></h4>
                         <h5>Backend Dev</h5>
                         <div className='links'>
                             <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>

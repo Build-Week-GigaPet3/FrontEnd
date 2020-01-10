@@ -16,23 +16,21 @@ import Calendar from './components/Calendar/Calendar';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-  background-image: url('../img/rainbowbg.gif');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment:fixed;
-  background-position-y: 49px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: url('../img/rainbowbg.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  background-position-y: 49px;
   height: 99.9vh;
   width: 100%;
   min-height: 568px;
   min-width: 320px;
   max-width: 568px;
   max-height: 960px;
-  overflow: auto;
-  overflow-x: hidden;
   margin: 0 auto;
   @media screen and (min-width: 568px) {
     background-position: center;
