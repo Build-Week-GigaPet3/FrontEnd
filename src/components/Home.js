@@ -14,6 +14,13 @@ const Container = styled.div`
     align-items: center;
     height: 100%;
     margin: 0 auto;
+    overflow-y: auto;
+    #left{
+        animation: 2s ${left};
+    }
+    #right{
+        animation: 2s ${right};
+    }
     .text{
         background-color: rgba(255, 255, 255, 0.6);
         border-radius: 5px;
@@ -49,7 +56,7 @@ const Container = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
         transition: all 300ms;
-        @media screen and (max-width: 320px) {
+        @media screen and (max-width: 340px) {
             margin: 0 8px 30px 8px;
         }
         &:hover{
@@ -62,19 +69,14 @@ const Container = styled.div`
         flex-direction: column;
         align-items: center;
         width: 100%;
-        #left{
-            animation: 2s ${left};
-        }
-        #right{
-            animation: 2s ${right};
-        }
+        margin-bottom: 40px;
         .card{
             background-color: rgba(255, 255, 255, 0.6);
             border-radius: 5px;
             width: 310px;
             /* min-width: 300px; */
             height: 160px;
-            margin: 15px 0;
+            margin: 12px 0;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
@@ -124,12 +126,16 @@ const Container = styled.div`
 const Login = (props) =>{
   
   return (
-        <Container className='home'>
+        <Container>
             <h2>Welcome to LambdiPet</h2>
             <h4>What it does:</h4>
-            <div className='text'>
+            <div id='left' className='text'>
                 <p>LambdiPet is a mobile first design, allowing users to have quick on the go access to the app!</p>
+            </div>
+            <div id='right' className='text'>
                 <p>Being a parent we know you are always looking for ways to motivate your kids to eat. With this app, you can input the servings of food you child eats, and the child can watch their Lambdi Pet grow and flourish, or wither and struggle based on what food they eat.</p>
+            </div>
+            <div id='left' className='text'>
                 <p>LambdiPet gives your child control over feeding their little buddy and they are able to see what happens when they make healthy eating choices.</p>
             </div>
             <div className='btn-container'>

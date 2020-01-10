@@ -5,41 +5,34 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import ChoosePet from './components/Pets/ChoosePet';
 import NamePet from './components/Pets/NamePet';
 import EditPet from './components/Pets/EditPet';
 import FeedPet from './components/Pets/FeedPet';
 import Calendar from './components/Calendar/Calendar';
-
+import Levels from './components/Levels/Levels'
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
+  align-items: center; */
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
-  background-size: contain;
-  background-attachment: fixed;
+  background-size: cover;
   background-position-y: 49px;
+  background-attachment:fixed;
   height: 100vh;
-  width: 100%;
   min-height: 568px;
   min-width: 320px;
-  max-width: 568px;
-  /* max-height: 960px; */
   margin: 0 auto;
-  overflow: auto;
-  /* border: 1px solid red; */
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;
     background-position-y: 49px;
-    /* background-position-x: 430px; */
-    height: 99.9vh;
+    background-attachment: fixed;
   }
   .home::-webkit-scrollbar {
     width: 5px;
@@ -53,17 +46,13 @@ const MainContainer = styled.div`
   .home::-webkit-scrollbar-thumb:hover {
     background: #888; 
   }
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
 `
 
 function App() {
   return (
     <Router>
       <Header />
-        <MainContainer>
+        <MainContainer className='main'>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path="/signup" component={SignUp} />
@@ -73,8 +62,9 @@ function App() {
           <PrivateRoute path='/editpet' component={EditPet} />
           <PrivateRoute path='/feedpet' component={FeedPet} />
           <PrivateRoute path='/calendar' component={Calendar} />
+          <PrivateRoute path='/levels' component={Levels} />
         </MainContainer>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

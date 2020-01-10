@@ -10,7 +10,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 462px;
+    overflow-y: auto;
     .chart{
         border-radius: 5px;
         width: 90%;
@@ -29,7 +29,7 @@ const Container = styled.div`
         }
     }
     .pet-name {
-        background-color: rgba(216, 216, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
         margin: 10px 0;
         padding: 0 10px;
@@ -74,8 +74,6 @@ const Calendar = (props) =>{
   const [chartData, setChartData] = useChartData(logs);
   const username = sessionStorage.getItem('username');
   const pet_name = sessionStorage.getItem('pet_name');
-
-
 
   return (
         <Container>
