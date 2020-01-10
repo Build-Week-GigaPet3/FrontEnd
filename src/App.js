@@ -18,13 +18,13 @@ import styled from 'styled-components';
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 320px;
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position-y: 49px;
   background-attachment:fixed;
   /* max-height: 100vh; */
-  min-width: 320px;
   /* max-width: 700px; */
   /* margin: 0 auto; */
   /* border: 1px solid blue; */
