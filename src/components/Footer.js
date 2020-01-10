@@ -12,7 +12,7 @@ const Container = styled.footer`
         background: #6C46A2;
         color: white;
         height: 25px;
-        width: 100vw;
+        width: 100%;
         opacity: 0.8;
         z-index: 0;
         p{

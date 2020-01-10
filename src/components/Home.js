@@ -7,9 +7,12 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 500px;
-    min-height: 462px;
+    /* max-width: 500px; */
+    /* min-height: 462px; */
     margin: 0 auto;
+    height: 100%;
+    /* border: 1px solid red; */
+    overflow-y: auto;
     .text{
         background-color: lightblue;
         border-radius: 5px;
