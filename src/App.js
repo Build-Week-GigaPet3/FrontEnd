@@ -23,15 +23,15 @@ const MainContainer = styled.div`
   background-position-y: 49px;
   height: 99%;
   width: 100%;
-  min-height: 568px;
+  /* min-height: 568px; */
   min-width: 320px;
   max-width: 568px;
   margin: 0 auto;
   /* border: 1px solid red; */
   /* overflow: hidden; */
-  @media screen and (min-width: 1000px){
+  /* @media screen and (min-width: 1000px){
     overflow: none;
-  }
+  } */
 
   @media screen and (min-width: 568px) {
     background-position: center;
@@ -72,7 +72,7 @@ function App() {
           <PrivateRoute path='/feedpet' component={FeedPet} />
           <PrivateRoute path='/calendar' component={Calendar} />
         </MainContainer>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }
