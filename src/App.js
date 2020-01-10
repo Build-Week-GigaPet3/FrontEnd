@@ -22,7 +22,6 @@ const MainContainer = styled.div`
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: 49px;
   background-attachment:fixed;
   height: 100vh;
   min-height: 568px;
