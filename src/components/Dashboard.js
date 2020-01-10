@@ -10,14 +10,18 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100%;
+    height: 568px;
+    width: 100%;
+    overflow: auto;
     p{
         margin: 5px;
     }
     .title{
         margin-bottom: 20px;
         border-radius: 20px;
+        @media screen and (max-width: 325px) {
+            margin-top: 45px;
+        }
         h4{
             font-family: 'Rancho', cursive;
             font-size: 4rem;
@@ -67,7 +71,7 @@ const Container = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
         transition: all 300ms;
-        @media screen and (max-width: 320px) {
+        @media screen and (max-width: 350px) {
             margin: 0 8px 30px 8px;
         }
         &:hover{

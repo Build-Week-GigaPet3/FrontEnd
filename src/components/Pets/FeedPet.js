@@ -18,7 +18,7 @@ const Container = styled.div`
     .title{
         margin-top: 55px;
         @media screen and (max-width: 325px) {
-            /* margin-top: 135px; */
+            margin-top: 135px;
         }
         border-radius: 20px;
         text-align: center;
