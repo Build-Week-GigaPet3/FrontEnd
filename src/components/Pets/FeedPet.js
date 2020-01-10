@@ -12,9 +12,9 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100%;
-    min-height: 99.99vh;
+    margin: 0 auto;
+    overflow-y: auto;
     .title{
         margin-top: 45px;
         @media screen and (max-width: 325px) {
