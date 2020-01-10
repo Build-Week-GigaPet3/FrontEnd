@@ -32,6 +32,7 @@ const MainContainer = styled.div`
   max-width: 568px;
   max-height: 960px;
   margin: 0 auto;
+  overflow: auto;
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;
