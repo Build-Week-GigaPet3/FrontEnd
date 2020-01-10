@@ -6,6 +6,9 @@ body {
   font-family: 'Hind Madurai', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-height: 98vh;
+  max-width: 99vw;
+  /* overflow: hidden; */
 }
 
 code {
@@ -19,12 +22,12 @@ html {
   background: #303036;
 }
 
-* {
+/* * {
   font-family: 'Hind Madurai', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 h1 {
   color: #353535;

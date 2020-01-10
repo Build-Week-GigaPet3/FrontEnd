@@ -14,7 +14,7 @@ const HeaderStyled = styled.header`
     border: none;
     color: white;
     height: 50px;
-    width: 100vw;
+    width: 100%;
     z-index: 10;
     .logo{
         width: 49%;
