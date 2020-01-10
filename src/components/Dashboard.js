@@ -12,16 +12,11 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 100%;
-    overflow: auto;
-    /* padding-top: 170px; */
     p{
         margin: 5px;
     }
     .title{
         margin-bottom: 20px;
-        /* background-color: rgba(216, 2216, 255, 0.5); */
-        /* padding: 8px 15px; */
         border-radius: 20px;
         h4{
             font-family: 'Rancho', cursive;
@@ -77,7 +72,7 @@ const Container = styled.div`
         }
         &:hover{
             background: lavender
-        };
+        }
     }
 `;
 

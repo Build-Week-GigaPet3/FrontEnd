@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Button from './buttons/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
@@ -13,12 +12,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    width: 100%;
     height: 100%;
-    overflow-y: auto;
     margin: 0 auto;
-    /* z-index: 1; */
     .text{
         background-color: rgba(255, 255, 255, 0.6);
         border-radius: 5px;
