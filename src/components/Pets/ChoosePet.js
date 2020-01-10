@@ -1,8 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import styled from 'styled-components';
-
+import styled, { keyframes } from 'styled-components';
 import { parentActionCreators } from '../../actions';
+import { tada, wobble, bounce, shake, pulse } from 'react-animations';
+
+const tadaAnim = keyframes`${tada}`;
+const wobbleAnim = keyframes`${wobble}`;
+const bounceAnim = keyframes`${bounce}`;
+const shakeAnim = keyframes`${shake}`;
+const pulseAnim = keyframes`${pulse}`;
 
 const Container = styled.div`
     display: flex;
@@ -37,6 +43,27 @@ const Container = styled.div`
             /* border: 1px solid blue; */
             img{
                 width: 100%;
+                animation: 2s ${pulseAnim};
+            }
+            #dog{
+                &:hover{
+                    animation: 1s ${wobbleAnim};
+                }
+            }
+            #cat{
+                &:hover{
+                    animation: 1s ${tadaAnim};
+                }
+            }
+            #llama{
+                &:hover{
+                    animation: 1s ${shakeAnim};
+                }
+            }
+            #bunny{
+                &:hover{
+                    animation: 1s ${bounceAnim};
+                }
             }
         }
     }
@@ -59,12 +86,12 @@ export default function ChoosePet(props) {
             <div className='title'><h3>Welcome {username}!</h3></div>
             <div><h4>Choose your pet:</h4></div>
             <div className='pets'>
-                <div onClick={(e) => handleChoice(e, ('dog'))} className='pet'><img src='../img/Dog1.png' alt='Dog'/></div>
-                <div onClick={(e) => handleChoice(e, ('cat'))} className='pet'><img src='../img/Cat1.png' alt='Cat'/></div>
+                <div onClick={(e) => handleChoice(e, ('dog'))} className='pet'><img id='dog' src='../img/Dog1.png' alt='Dog'/></div>
+                <div onClick={(e) => handleChoice(e, ('cat'))} className='pet'><img id='cat' src='../img/Cat1.png' alt='Cat'/></div>
             </div>
             <div className='pets'>
-                <div onClick={(e) => handleChoice(e, ('llama'))} className='pet'><img src='../img/Llama1.png' alt='Llama'/></div>
-                <div onClick={(e) => handleChoice(e, ('bunny'))} className='pet'><img src='../img/Bunny1.png' alt='Bunny'/></div>
+                <div onClick={(e) => handleChoice(e, ('llama'))} className='pet'><img id='llama' src='../img/Llama1.png' alt='Llama'/></div>
+                <div onClick={(e) => handleChoice(e, ('bunny'))} className='pet'><img id='bunny' src='../img/Bunny1.png' alt='Bunny'/></div>
             </div>
         </Container>
     )
