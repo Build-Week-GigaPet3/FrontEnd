@@ -20,21 +20,20 @@ const MainContainer = styled.div`
   flex-direction: column;
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment:fixed;
+  background-size: contain;
   background-position-y: 49px;
+  background-attachment:fixed;
   /* max-height: 100vh; */
-  
   min-width: 320px;
   /* max-width: 700px; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* border: 1px solid blue; */
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;
     /* max-height: 900px; */
-    background-attachment: fixed;
     background-position-y: 49px;
+    background-attachment: fixed;
     /* background-position-x: 430px; */
   }
   .home::-webkit-scrollbar {
@@ -59,7 +58,7 @@ function App() {
   return (
     <Router>
       <Header />
-        <MainContainer>
+        <MainContainer className='main'>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path="/signup" component={SignUp} />
