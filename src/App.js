@@ -21,7 +21,7 @@ const MainContainer = styled.div`
   background-size: 100%;
   background-attachment:fixed;
   background-position-y: 50px;
-  height: 100vh;
+  /* height: 100vh; */
   min-height: 568px;
   min-width: 320px;
   max-width: 700px;
