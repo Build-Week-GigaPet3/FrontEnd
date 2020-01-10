@@ -13,6 +13,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     height: 100%;
+    min-height: 99.99vh;
     margin: 0 auto;
     .text{
         background-color: rgba(255, 255, 255, 0.6);
@@ -74,7 +75,7 @@ const Container = styled.div`
             width: 310px;
             /* min-width: 300px; */
             height: 160px;
-            margin: 15px 0;
+            margin: 12px 0;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
@@ -124,7 +125,7 @@ const Container = styled.div`
 const Login = (props) =>{
   
   return (
-        <Container className='home'>
+        <Container>
             <h2>Welcome to LambdiPet</h2>
             <h4>What it does:</h4>
             <div className='text'>

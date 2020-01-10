@@ -10,7 +10,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 462px;
+    min-height: 99.99vh;
     .chart{
         border-radius: 5px;
         width: 90%;

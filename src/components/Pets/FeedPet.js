@@ -14,7 +14,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    min-height: 462px;
+    min-height: 99.99vh;
     .title{
         margin-top: 45px;
         @media screen and (max-width: 325px) {
@@ -39,6 +39,7 @@ const Container = styled.div`
         justify-content: space-evenly;
         img{
             width: 100%;
+            max-width: 335px;
         }
     }
     .pet-name {

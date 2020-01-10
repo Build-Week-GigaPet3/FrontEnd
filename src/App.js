@@ -16,16 +16,39 @@ import Calendar from './components/Calendar/Calendar';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment:fixed;
-  background-position-y: 50px;
-  height: 100vh;
-  min-height: 568px;
+  background-position-y: 49px;
+  /* max-height: 100vh; */
+  
   min-width: 320px;
-  max-width: 700px;
+  /* max-width: 700px; */
   margin: 0 auto;
+  /* border: 1px solid blue; */
+  @media screen and (min-width: 568px) {
+    background-position: center;
+    background-size: contain;
+    /* max-height: 900px; */
+    background-attachment: fixed;
+    background-position-y: 49px;
+    /* background-position-x: 430px; */
+  }
+  .home::-webkit-scrollbar {
+    width: 5px;
+    }
+  .home::-webkit-scrollbar-track {
+    }
+  .home::-webkit-scrollbar-thumb {
+    background: lightgray;
+    height: 100px; 
+    }
+  .home::-webkit-scrollbar-thumb:hover {
+    background: #888; 
+  }
   /* display: flex; */
   /* flex-direction: column; */
   /* justify-content: center; */
