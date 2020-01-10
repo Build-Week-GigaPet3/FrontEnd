@@ -9,8 +9,8 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 462px;
     height: 100%;
+    min-height: 462px;
     .chart{
         border-radius: 5px;
         width: 90%;
@@ -20,6 +20,7 @@ const Container = styled.div`
     }
     .title{
         margin: 20px;
+        margin-top: 45px;
         border-radius: 20px;
         text-align: center;
         h4{

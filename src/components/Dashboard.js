@@ -10,9 +10,9 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 568px;
-    width: 100%;
-    overflow: auto;
+    justify-content: center;
+    height: 100%;
+    min-height: 462px
     p{
         margin: 5px;
     }
