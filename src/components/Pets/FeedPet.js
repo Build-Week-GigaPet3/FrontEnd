@@ -12,17 +12,16 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     height: 100%;
     overflow-y: auto;
-    padding-top: 170px;
     .title{
         margin-top: 45px;
-        @media screen and (max-width: 325px) {
-            /* margin-top: 135px; */
-        }
         border-radius: 20px;
         text-align: center;
+        @media screen and (max-width: 325px) {
+            margin-top: 135px;
+        }
         h4{
             font-family: 'Rancho', cursive;
             font-size: 3.2rem;
@@ -154,7 +153,8 @@ const Container = styled.div`
         margin-bottom: 25px;
     }
     #submit-container{
-        margin-top: 20px;
+        margin: 20px;
+        margin-bottom: 50px;
     }
 `;
 

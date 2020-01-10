@@ -20,7 +20,7 @@ const Container = styled.div`
         margin-bottom: 20px;
         border-radius: 20px;
         @media screen and (max-width: 325px) {
-            margin-top: 45px;
+            margin-top: 60px;
         }
         h4{
             font-family: 'Rancho', cursive;

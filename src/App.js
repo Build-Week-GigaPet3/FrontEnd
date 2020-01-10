@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import ChoosePet from './components/Pets/ChoosePet';
 import NamePet from './components/Pets/NamePet';
@@ -22,19 +22,17 @@ const MainContainer = styled.div`
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: 49px;
   background-attachment:fixed;
   height: 100vh;
   min-height: 568px;
   min-width: 320px;
-  /* max-width: 700px; */
   margin: 0 auto;
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;
-    /* max-height: 900px; */
     background-position-y: 49px;
     background-attachment: fixed;
-    /* background-position-x: 430px; */
   }
   .home::-webkit-scrollbar {
     width: 5px;
@@ -48,10 +46,6 @@ const MainContainer = styled.div`
   .home::-webkit-scrollbar-thumb:hover {
     background: #888; 
   }
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
 `
 
 function App() {
@@ -69,7 +63,7 @@ function App() {
           <PrivateRoute path='/feedpet' component={FeedPet} />
           <PrivateRoute path='/calendar' component={Calendar} />
         </MainContainer>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

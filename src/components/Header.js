@@ -9,7 +9,7 @@ const HeaderStyled = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    position: sticky;
+    position: fixed;
     top: 0;
     background: #9090ff;
     border: none;
