@@ -25,14 +25,15 @@ const MainContainer = styled.div`
   background-size: contain;
   background-attachment: fixed;
   background-position-y: 49px;
-  height: 99.9vh;
+  height: 100vh;
   width: 100%;
   min-height: 568px;
   min-width: 320px;
   max-width: 568px;
-  max-height: 960px;
+  /* max-height: 960px; */
   margin: 0 auto;
   overflow: auto;
+  /* border: 1px solid red; */
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;

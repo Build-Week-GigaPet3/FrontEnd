@@ -16,9 +16,9 @@ const Container = styled.div`
     height: 100%;
     min-height: 462px;
     .title{
-        margin-top: 55px;
+        margin-top: 45px;
         @media screen and (max-width: 325px) {
-            margin-top: 135px;
+            /* margin-top: 135px; */
         }
         border-radius: 20px;
         text-align: center;
@@ -71,7 +71,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 380px;
+        /* height: 380px; */
     }
     input{
         /* border: none; */
