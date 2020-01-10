@@ -54,7 +54,7 @@ const Container = styled.div`
 export default function NamePet(props) {
 
     const [name, setName] = useState('')
-    const data = useSelector(state => state.parent.data);
+    // const data = useSelector(state => state.parent.data);
     const userId = sessionStorage.getItem('user');
     const petId = sessionStorage.getItem('petId');
     const image = sessionStorage.getItem('image');
@@ -79,7 +79,7 @@ export default function NamePet(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('user:', userId, 'petId:', petId, 'new name:', name,'data:', data)
+        // console.log('user:', userId, 'petId:', petId, 'new name:', name,'data:', data)
         dispatch(parentActionCreators.editPet(petId, name, userId, () => props.history.push('/dashboard')))
     }
 

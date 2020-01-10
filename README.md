@@ -1,6 +1,6 @@
 # GigaPet
 
-**Deployed website:** http://lambdi-pet.netlify.com
+**Deployed website:** http://lambdipet.netlify.com
 
 ## Description
 Gigapet 
@@ -40,12 +40,12 @@ This project was created using yarn and designed for react client side. Other de
 base URL: https://gigapet3.herokuapp.com/api
 
 ## Authentication
-...
+... Backend documentaion incomplete, see: (https://github.com/Build-Week-GigaPet3/BackEnd)
 ### Registration:
-...
+... Missing token on registration.
 
 ## Support
-There is currently no active support for this app.
+This is a developmental application, contact Robert Gordon (see below) for more information.
 
 ## Authors and acknowledgment
 
