@@ -16,30 +16,23 @@ import Calendar from './components/Calendar/Calendar';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   background-image: url('../img/rainbowbg.gif');
   background-repeat: no-repeat;
-  background-size: contain;
-  background-attachment: fixed;
-  background-position-y: 49px;
+  background-size: 100%;
+  background-attachment:fixed;
+  background-position-y: 50px;
   height: 100vh;
-  width: 100%;
-  min-height: 568px;
+  /* min-height: 568px; */
   min-width: 320px;
-  max-width: 568px;
-  /* max-height: 960px; */
+  max-width: 700px;
   margin: 0 auto;
-  overflow: auto;
-  /* border: 1px solid red; */
   @media screen and (min-width: 568px) {
     background-position: center;
     background-size: contain;
+    /* max-height: 900px; */
+    background-attachment: fixed;
     background-position-y: 49px;
     /* background-position-x: 430px; */
-    height: 99.9vh;
   }
   .home::-webkit-scrollbar {
     width: 5px;
