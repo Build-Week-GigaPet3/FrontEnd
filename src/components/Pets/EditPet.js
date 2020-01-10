@@ -10,9 +10,11 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
+    min-height: 462px;
     width: 100%;
     .title{
         margin: 20px 0;
+        margin-top: 55px;
         h4{
             font-family: 'Rancho', cursive;
             /* font-size: 1.7rem; */

@@ -6,7 +6,7 @@ flex-direction: column;
 justify-content: center;
 background: #e6ccff;
 transform: ${({ open }) => open ? 'translateY(0)' : 'translateY(-100%)'};
-height: 100vh;
+height: 99.9vh;
 text-align: left;
 padding: 2rem;
 position: absolute;
