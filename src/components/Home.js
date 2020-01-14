@@ -160,13 +160,13 @@ const Login = (props) =>{
                 <div id="left" className='card'>
                     <img src='../img/ursula.png' alt='Profile' />
                     <div className='name'>
-                        <h4><span id='mad'>Ursula Avendaño</span></h4>
+                        <h4><span id='mad'>Ursula Osuna</span></h4>
                         <h5>Graphic Designer</h5>
                         <p>Designed and created <br/> pet images</p>
                         <div className='links'>
-                            <a href='https://www.behance.net/UrsulaOsuna'><FontAwesomeIcon icon={faBehance} /></a>
                             <a href='https://www.deviantart.com/ozumaryu'><FontAwesomeIcon icon={faDeviantart} /></a>
-                            {/* <a href='/'><FontAwesomeIcon icon={faCode} /></a> */}
+                            <a href='https://www.linkedin.com/in/ursulaosuna/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
+                            <a href='https://www.behance.net/UrsulaOsuna'><FontAwesomeIcon icon={faBehance} /></a>
                         </div>
                     </div>
                 </div>
