@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedinIn, faDeviantart, faBehance } from '@fortawesome/free-brands-svg-icons';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
 import { slideInRight, slideInLeft } from 'react-animations';
 
@@ -101,7 +101,7 @@ const Container = styled.div`
                     font-size: 3.2rem;
                 }
                 h5{
-                    margin-bottom: 30px;
+                    /* margin-bottom: 30px; */
                 }
                 #mad{
                     font-family: 'Rancho', cursive;
@@ -130,7 +130,7 @@ const Login = (props) =>{
             <h2>Welcome to LambdiPet</h2>
             <h4>What it does:</h4>
             <div id='left' className='text'>
-                <p>LambdiPet is a mobile first design, allowing users to have quick on the go access to the app!</p>
+                <p>LambdiPet is a mobile first design, allowing users to have quick on the go access to the app! It is very quick and easy to sign up, click create account and begin tracking your child's food intake today!</p>
             </div>
             <div id='right' className='text'>
                 <p>Being a parent we know you are always looking for ways to motivate your kids to eat. With this app, you can input the servings of food you child eats, and the child can watch their Lambdi Pet grow and flourish, or wither and struggle based on what food they eat.</p>
@@ -149,6 +149,7 @@ const Login = (props) =>{
                     <div className='name'>
                         <h4>Robert Gordon</h4>
                         <h5>Frontend Dev</h5>
+                        <p>Developed complete front end application</p>
                         <div className='links'>
                             <a href='https://github.com/RobertDGordon'><FontAwesomeIcon icon={faGithub} /></a>
                             <a href='https://www.linkedin.com/in/robert-d-gordon/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
@@ -157,38 +158,15 @@ const Login = (props) =>{
                     </div>
                 </div>
                 <div id="left" className='card'>
-                    <img src='../img/mad.png' alt='Profile' />
+                    <img src='../img/ursula.png' alt='Profile' />
                     <div className='name'>
-                        <h4><span id='mad'>Madeline McIntosh</span></h4>
-                        <h5>Backend Dev</h5>
+                        <h4><span id='mad'>Ursula Avendaño</span></h4>
+                        <h5>Graphic Designer</h5>
+                        <p>Designed and created <br/> pet images</p>
                         <div className='links'>
-                            <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
-                        </div>
-                    </div>
-                </div>
-                <div id="right" className='card'>
-                    <img src='../img/thomas.png' alt='Profile' />
-                    <div className='name'>
-                        <h4>Thomas Shotts Jr</h4>
-                        <h5>Marketing UI</h5>
-                        <div className='links'>
-                            <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
-                        </div>
-                    </div>
-                </div>
-                <div id="left" className='card'>
-                    <img src='../img/kelly.png' alt='Profile' />
-                    <div className='name'>
-                        <h4>Kelly Moreira</h4>
-                        <h5>Project Lead</h5>
-                        <div className='links'>
-                            <a href='https://github.com/'><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href='https://www.linkedin.com/'><FontAwesomeIcon icon={faLinkedinIn} /></a>
-                            <a href='/'><FontAwesomeIcon icon={faCode} /></a>
+                            <a href='https://www.behance.net/UrsulaOsuna'><FontAwesomeIcon icon={faBehance} /></a>
+                            <a href='https://www.deviantart.com/ozumaryu'><FontAwesomeIcon icon={faDeviantart} /></a>
+                            {/* <a href='/'><FontAwesomeIcon icon={faCode} /></a> */}
                         </div>
                     </div>
                 </div>
